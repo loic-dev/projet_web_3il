@@ -10,14 +10,20 @@ services:
       MYSQL_PASSWORD: devpass
     ports:
       - "9906:3306"
-  web:
-    image: php:7.2.2-apache
-    container_name: php_web
-    depends_on:
-      - db
+    networks:
+      - internal
+
+  php-apache-environment:
+    container_name: php-apache
+    image: php:8.0-apache
     volumes:
-      - ./project/:/var/www/html/
+      - ./backend/:/var/www/html/
     ports:
-      - "8100:80"
-    stdin_open: true
-    tty: true
+      - 8080:80
+    networks:
+      - internal
+
+      
+networks:
+  internal:
+    driver: bridge

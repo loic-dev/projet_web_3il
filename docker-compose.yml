@@ -10,6 +10,8 @@ services:
       MYSQL_PASSWORD: devpass
     ports:
       - "9906:3306"
+    volumes:
+      - /var/lib/mysql
     networks:
       - internal
 
@@ -17,7 +19,7 @@ services:
     container_name: php-apache
     image: php:8.0-apache
     volumes:
-      - ./backend/:/var/www/html/
+      - ./backend:/var/www/html/
     ports:
       - 8080:80
     networks:

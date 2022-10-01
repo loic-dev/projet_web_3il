@@ -1,31 +1,25 @@
 version: '3'
-
 services:
-  db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: my_secret_pw_shh
-      MYSQL_DATABASE: test_db
-      MYSQL_USER: devuserd
-      MYSQL_PASSWORD: devpass
+  httpd:
+    build:
+      context: .
+      dockerfile: httpd.Dockerfile
     ports:
-      - "9906:3306"
+      - 8000:8000
     volumes:
-      - /var/lib/mysql
+      - ./backend:/var/www/html
     networks:
-      - internal
+      - httpdphpfpm
 
-  php-apache-environment:
-    container_name: php-apache
-    image: php:8.0-apache
+  phpfpm:
+    image: php:7.4-fpm
+    expose:
+      - 9000
     volumes:
-      - ./backend:/var/www/html/
-    ports:
-      - 8080:80
+      - ./backend:/var/www/html
     networks:
-      - internal
+      - httpdphpfpm
 
-      
 networks:
-  internal:
+  httpdphpfpm:
     driver: bridge

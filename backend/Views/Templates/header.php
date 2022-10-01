@@ -22,10 +22,8 @@
 
     ?>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="1000000" >
     <title>test</title>
     <link rel="stylesheet" href="../../Public/css/style.css">
-    <link rel="stylesheet" href="../../Public/css/errorPopupJs.css">
     <link rel="stylesheet" href="../../Public/CSS/viewLogin.css">
 </head>
 <body>

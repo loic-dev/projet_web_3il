@@ -18,7 +18,7 @@ require 'Models/RequireAll.php';
 
 Router::addTwoWay(
     '/', '/Index', function () {
-        Controller::createStandardView('viewLogin');
+        Controller::createStandardView('viewIndex');
     }
 );
 

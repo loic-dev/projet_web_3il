@@ -16,8 +16,35 @@
 require_once 'Controllers/controllerIndex.php'
 ?>
 
-<div id="mainIndex">
-    <div class="container-login">
-        
+<section class="login-page">
+    <div class="container-logo">
+        <img src="../Public/images/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
     </div>
-</div>
+    <form action="" method="post" class="login-post">
+        <section class="section-login">
+            <div class="container-box">
+                <div class="title-container">
+                    <span class="main-title">Espace de connexion</span>
+                    <span class="small-title">Connectez-vous pour découvrir toutes nos fonctionnalités</span>
+                </div>
+
+                <div class="container-input">
+                    <span>email</span>
+                    <input type="email" name="emailInput" class="login-input" required>
+                </div>
+
+                <div class="container-input">
+                    <span>password</span>
+                    <input type="password" name="emailInput" class="login-input" required>
+                </div>
+
+                <button class="login-submit-button" type="submit">connexion</button>
+
+                <span class="signup-text" >Vous n'avez pas encore de compte ? <a href="localhost:8000/signup">Créer un compte</a></span>
+            </div>
+        <section>
+        
+    </form>
+   
+
+</section>

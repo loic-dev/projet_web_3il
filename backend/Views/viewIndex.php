@@ -15,7 +15,6 @@
 
 require_once 'Controllers/controllerIndex.php';
 
-echo "test";
 ?>
 
 <div id="mainIndex">

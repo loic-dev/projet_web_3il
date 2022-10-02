@@ -25,6 +25,7 @@
     <title>test</title>
     <link rel="stylesheet" href="../../Public/css/style.css">
     <link rel="stylesheet" href="../../Public/CSS/viewLogin.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 <header>

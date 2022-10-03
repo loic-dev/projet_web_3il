@@ -38,6 +38,19 @@ class Controller
         include_once "Views/$nameView.php";
     }
 
+    /**
+     * Fonction qui crée une vue sans header
+     *
+     * @param $nameView Nom de la vue de facto du fichier
+     *
+     * @return void;
+     */
+    public static function createViewWithoutHeader($nameView)
+    {
+        include_once 'Views/Templates/head.php';
+        self::createView($nameView);
+    }
+
 
     /**
      * Fonction qui crée une vue dîtes standard avec Header et Footer
@@ -48,6 +61,7 @@ class Controller
      */
     public static function createStandardView($nameView)
     {
+        include_once 'Views/Templates/head.php';
         include_once 'Views/Templates/header.php';
         self::createView($nameView);
         include_once 'Views/Templates/footer.php';

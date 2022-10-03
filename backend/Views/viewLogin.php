@@ -15,7 +15,6 @@
 
 require_once 'Controllers/controllerIndex.php'
 ?>
-
 <section class="auth-page">
     <div class="container-logo">
         <img src="../Public/images/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">

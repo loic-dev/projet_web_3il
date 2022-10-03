@@ -16,6 +16,9 @@
 require_once 'Controllers/controllerIndex.php'
 ?>
 
-<div class="stdr_view">
-    
-</div>
+
+
+
+    <div class="stdr_view">
+        
+    </div>

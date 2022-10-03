@@ -24,13 +24,13 @@ Router::addTwoWay(
 
 Router::add(
      '/login', function () {
-         Controller::createStandardView('viewLogin');
+         Controller::createViewWithoutHeader('viewLogin');
     }
  );
 
 Router::add(
     '/signup', function () {
-        Controller::createStandardView('viewSignup');
+        Controller::createViewWithoutHeader('viewSignup');
    }
 );
 ?>

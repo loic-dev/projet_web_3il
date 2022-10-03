@@ -1,0 +1,46 @@
+/* Sidenav menu */
+
+header {
+    width: 100%;
+    background-color: aqua;
+    height: 70px;
+}
+
+#hamburger_menu_div > * {
+    margin: 15px 20px;
+}
+
+#hamburger_icon {
+    display:flex !important;
+}
+
+.hamburger_menu_div {
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header.expand {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    z-index: 99;
+    height:100vh;
+}
+
+nav.expand {
+    display: flex !important;
+}
+
+@media screen and (min-width: 768px) {
+    nav {
+        display:flex !important;
+    }
+    #hamburger_icon {
+        display:none !important;
+    }
+
+    #hamburger_menu_nav {
+        background-color: red;
+    }
+} 

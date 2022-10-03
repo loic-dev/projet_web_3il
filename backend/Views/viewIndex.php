@@ -13,21 +13,9 @@
  * @since      1.0.0
  */
 
-require_once 'Controllers/controllerIndex.php';
-
+require_once 'Controllers/controllerIndex.php'
 ?>
 
-<div id="mainIndex">
-    <div id='containerInfoTop'>
-         <div class="container" id="containerInfo">
-           <p>Bienvenue sur FreeNote un site d'un nouveau genre développé par un
-               groupe d'étudiants qui permet d'échanger à travers de courts messages
-                de 1 ou 2 mots par utilisateur et que chaque utilisateur peut
-               continuer jusqu'à ce que le messa
-               Les topics étant ouverts par les utilisateurs chacun peut
-               trouver un sujet qui l'intéresse ou créer directement le sujet sur
-               lequ!
-           </p>
-         </div>
-    </div>
+<div class="stdr_view">
+    
 </div>

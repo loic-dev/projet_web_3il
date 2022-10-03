@@ -28,38 +28,9 @@ Router::add(
     }
  );
 
-Router::addLoggedWay(
-    '/MyProfile', function () {
-        Controller::createStandardView('viewMyProfile');
-    }
+Router::add(
+    '/signup', function () {
+        Controller::createStandardView('viewSignup');
+   }
 );
-
-Router::addNoLoggedWay(
-    '/Register', function () {
-        Controller::createStandardView('viewRegister');
-    }
-);
-
-// Router::add(
-//     '/Thanks', function () {
-//         Controller::createStandardView('viewThanks');
-//     }
-// );
-
-// Router::add(
-//     '/UserConditions', function () {
-//         Controller::createView('viewUserConditions');
-//     }
-// );
-
-// Router::add(
-//     '/AboutUs', function () {
-//         Controller::createView('viewAboutUs');
-//     }
-// );
-
-// Router::getAllTopicsRoutes();
-// Router::forceHTTPS();
-// Router::checkErrorUrl();
-
 ?>

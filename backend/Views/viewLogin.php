@@ -7,7 +7,7 @@
  * @category   View
  * @package    Standard
  * @subpackage Standard
- * @author     François Al Haddad Siderikoudis <FrancoisAlHaddad@gmail.com>
+ * @author     loic-dev <loic.charrie.12@gmail.com>
  * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  * @link       ****
  * @since      1.0.0
@@ -16,12 +16,12 @@
 require_once 'Controllers/controllerIndex.php'
 ?>
 
-<section class="login-page">
+<section class="auth-page">
     <div class="container-logo">
         <img src="../Public/images/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
     </div>
-    <form action="" method="post" class="login-post">
-        <section class="section-login">
+    <form action="" method="post" class="form-post">
+        <section class="section-form">
             <div class="container-box">
                 <div class="title-container">
                     <span class="main-title">Espace de connexion</span>
@@ -30,17 +30,17 @@ require_once 'Controllers/controllerIndex.php'
 
                 <div class="container-input">
                     <span>email</span>
-                    <input type="email" name="emailInput" class="login-input" required>
+                    <input type="email" name="emailInput" class="form-input" required>
                 </div>
 
                 <div class="container-input">
                     <span>password</span>
-                    <input type="password" name="emailInput" class="login-input" required>
+                    <input type="password" name="emailInput" class="form-input" required>
                 </div>
 
-                <button class="login-submit-button" type="submit">connexion</button>
+                <button class="form-submit-button" type="submit">connexion</button>
 
-                <span class="signup-text" >Vous n'avez pas encore de compte ? <a href="localhost:8000/signup">Créer un compte</a></span>
+                <span class="other-form-text" >Vous n'avez pas encore de compte ? <a href="localhost:8000/signup">Créer un compte</a></span>
             </div>
         <section>
         

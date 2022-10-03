@@ -4,9 +4,14 @@
 
 
 
-.login-page{
+.auth-page{
     background-color: var(--primary-yellow);
     color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     
 }
 
@@ -22,7 +27,7 @@
     max-width: 200px;
 }
 
-.section-login{
+.section-form{
     display: flex;
     width: 100%;
     justify-content: center;
@@ -70,7 +75,7 @@
     margin-bottom: 5px;
 }
 
-.login-input{
+.form-input{
     background-color: var(--secondary-grey);
     border: 2px solid var(--tertiary-grey) ;
     border-radius: 5px ;
@@ -84,23 +89,23 @@
     font-weight: 400;
 }
 
-.login-submit-button{
+.form-submit-button{
     background-color: var(--secondary-yellow);
     color: var(--primary-grey);  
     transition-duration: 0.3s;
 }
 
-.login-submit-button:hover{
+.form-submit-button:hover{
     background-color:var(--secondary-yellow-dark);
 }
 
 
 
-.signup-text{
+.other-form-text{
     margin-top: 10px;
 }
 
-.signup-text a{
+.other-form-text a{
     text-decoration: none;
     font-weight: 600;
     color: var(--secondary-yellow);

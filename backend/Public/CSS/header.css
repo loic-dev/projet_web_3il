@@ -1,5 +1,4 @@
-/* Sidenav menu */
-
+/* 
 header {
     width: 100%;
     background-color: aqua;
@@ -18,6 +17,16 @@ header {
     display:flex;
     justify-content: space-between;
     width: 100%;
+    height: 100%;
+    background-color: blueviolet;
+}
+
+#hamburger_menu_nav {
+    display:none;
+    flex-direction: column;
+    justify-content: space-around;
+    height: calc(100% - 70px);
+    top:70px;
 }
 
 header.expand {
@@ -28,11 +37,21 @@ header.expand {
     height:100vh;
 }
 
-nav.expand {
+#hamburger_menu_nav.expand {
     display: flex !important;
 }
 
 @media screen and (min-width: 768px) {
+    #hamburger_menu {
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hamburger_menu_div {
+        width: 20%;
+    }
+
     nav {
         display:flex !important;
     }
@@ -41,6 +60,72 @@ nav.expand {
     }
 
     #hamburger_menu_nav {
+        
+        height: initial;
         background-color: red;
     }
-} 
+
+    header, header.expand {
+        height:70px;
+    }
+}  */
+
+header {
+    height:70px;
+    background-color: slateblue;
+    display:flex;
+    width: 100%;
+}
+
+.hamburger_menu_div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#hamburger_menu_nav.expand {
+    position: absolute;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    top:70px;
+    height: calc(100% - 70px);
+    background-color: blue;
+}
+
+@media screen and (min-width: 768px) {
+    #hamburger_icon {
+        display:none !important;
+    }
+
+    .hamburger_menu_div {
+        display: flex;
+        width: max-content;
+    }
+
+    header {
+        justify-content: space-between;
+    }
+
+    #hamburger_menu_nav > * {
+        padding: 0 10%;
+    }
+
+    #hamburger_menu_nav, #hamburger_menu_nav.expand  {
+        display: flex !important;
+        position: relative;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height:100%;
+        width: 40% !important;
+        top:inherit;
+        width: initial;
+        background-color: red;
+    }
+}
+
+

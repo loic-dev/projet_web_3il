@@ -8,4 +8,3 @@
         <a to="/about">Connectez-vous</a>
       </nav>
 </header>
-

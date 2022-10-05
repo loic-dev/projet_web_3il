@@ -1,0 +1,35 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* height: 250px; */
+    width: 100%;
+    background-color: blueviolet;
+}
+
+.icon_component {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* height: 250px; */
+    background-color: blueviolet;
+}
+
+.item_footer {
+    padding:20px;
+}
+
+@media screen and (min-width: 768px) {
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .icon_component {
+        flex-direction: row;
+        align-items: center;
+        background-color: red;
+    }
+}

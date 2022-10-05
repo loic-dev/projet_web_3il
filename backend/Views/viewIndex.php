@@ -16,9 +16,22 @@
 require_once 'Controllers/controllerIndex.php'
 ?>
 
+<div class="stdr_view">
 
-
-
-    <div class="stdr_view">
-        
+    <div class="presentation_component">
+        <h1>Bienvenue, sur Anac</h1>
+        <h3>Site d'annonces musicales en Aveyron</p>
     </div>
+
+    <div class="search_component">
+        <h1>Bienvenue, sur Anac</h1>
+        <h3>Site d'annonces musicales en Aveyron</p>
+    </div>
+
+    <div class="map_component">
+        <h1>Bienvenue, sur Anac</h1>
+        <h3>Site d'annonces musicales en Aveyron</p>
+    </div>
+
+</div>
+

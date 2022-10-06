@@ -24,8 +24,19 @@ require_once 'Controllers/controllerIndex.php'
         <section class="section-form">
             <div class="container-box">
                 <div class="title-container">
-                    <span class="main-title">Espace de connexion</span>
-                    <span class="small-title">Connectez-vous pour découvrir toutes nos fonctionnalités</span>
+                    <span class="main-title">Création de compte</span>
+                    <span class="small-title">Créez votre compte pour découvrir toutes nos fonctionnalités.</span>
+                </div>
+
+                <div class="input-row-container">
+                    <div class="container-input">
+                        <span>Nom</span>
+                        <input type="text" name="name" class="form-input" required>
+                    </div>
+                    <div class="container-input">
+                        <span>Prenom</span>
+                        <input type="text" name="surname" class="form-input" required>
+                    </div>
                 </div>
 
                 <div class="container-input">
@@ -34,13 +45,19 @@ require_once 'Controllers/controllerIndex.php'
                 </div>
 
                 <div class="container-input">
-                    <span>password</span>
-                    <input type="password" name="emailInput" class="form-input" required>
+                <i class="fa-solid fa-square-question"></i>
+                    <span>Mot de passe </span>
+                    <input type="password" name="password" class="form-input" required>
                 </div>
 
-                <button class="form-submit-button" type="submit">connexion</button>
+                <div class="container-input">
+                    <span>confirmer le mot de passe</span>
+                    <input type="password" name="confirmPassword" class="form-input" required>
+                </div>
 
-                <span class="other-form-text" >Vous n'avez pas encore de compte ? <a href="localhost:8000/login">Créer un compte</a></span>
+                <button class="form-submit-button" type="submit">S'inscire</button>
+
+                <span class="other-form-text">Vous avez déja un compte ? <a href="localhost:8000/login">Connectez-vous</a></span>
             </div>
         <section>
         

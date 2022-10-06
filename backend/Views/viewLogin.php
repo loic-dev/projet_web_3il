@@ -35,6 +35,7 @@ require_once 'Controllers/controllerIndex.php'
                 <div class="container-input">
                     <span>password</span>
                     <input type="password" name="emailInput" class="form-input" required>
+                    <span class="small-text-input"><a href="">mot de passe oublié ?</a></span>
                 </div>
 
                 <button class="form-submit-button" type="submit">connexion</button>

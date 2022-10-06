@@ -1,19 +1,14 @@
-@import url('style.css');
-
-
-
-
-
 .auth-page{
     background-color: var(--primary-yellow);
     color: white;
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
     right: 0;
     
 }
+
+
 
 .container-logo{
     display: flex;
@@ -66,6 +61,7 @@
 .container-input{
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .container-input span{
@@ -84,7 +80,7 @@
     font-weight: 300;
     color: white;
     padding-left: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     outline: none;
     font-weight: 400;
 }
@@ -103,12 +99,42 @@
 
 .other-form-text{
     margin-top: 10px;
+    text-align: center;
 }
 
 .other-form-text a{
     text-decoration: none;
     font-weight: 600;
     color: var(--secondary-yellow);
+}
+
+
+.small-text-input a {
+    color: var(--secondary-yellow);
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.small-text-input a:hover{
+    color: var(--secondary-yellow-dark);
+}
+
+.input-row-container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* tablet & desktop */
+@media screen and (min-width: 768px){
+    .input-row-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
 }
 
 

@@ -5,7 +5,8 @@ footer {
     align-items: center;
     /* height: 250px; */
     width: 100%;
-    background-color: blueviolet;
+    border-top: 1px solid white;
+    background-color: #314C57;
 }
 
 .icon_component {
@@ -31,5 +32,9 @@ footer {
         flex-direction: row;
         align-items: center;
         background-color: red;
+    }
+
+    .index_map {
+        display:flex !important;
     }
 }

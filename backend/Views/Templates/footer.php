@@ -1,5 +1,3 @@
-<script src="../../Public/js/hamburger.js"></script> 
-
 <footer>
     <p class="item_footer">Copyright leClub Tout droit reservé</p>
     <div class="icon_component">
@@ -10,6 +8,7 @@
     </div>
 </footer>
 
+<script src="../../Public/js/hamburger.js"></script> 
 
 </body>
 </html>

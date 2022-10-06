@@ -26,7 +26,7 @@
     
     <link rel="stylesheet" href="../../Public/CSS/style.css">
     <link rel="stylesheet" href="../../Public/CSS/viewLogin.css">
-    <link rel="stylesheet" href="../../Public/CSS/viewLogin.css">
+    <link rel="stylesheet" href="../../Public/CSS/viewIndex.css">
     <link rel="stylesheet" href="../../Public/CSS/viewSignup.css">
     <link rel="stylesheet" href="../../Public/CSS/header.css">
     <link rel="stylesheet" href="../../Public/CSS/footer.css">

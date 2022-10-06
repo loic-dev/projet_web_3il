@@ -26,9 +26,6 @@ body {
     --mobile-max:767px;
 
 
-
-
-
     margin: 0;
     font-family: 'montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -37,7 +34,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     color: white;
     height: 100%;
-  }
+}
 
 
 button{

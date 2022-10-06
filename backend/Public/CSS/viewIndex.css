@@ -1,8 +1,123 @@
+.index_page {
+    display:flex;
+    width:100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FCFAF1;
+}
+
+.title_content {
+    display:flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+h1, h3 {
+    color: var(--primary-grey);
+}
+
+h1 {
+    font-size: 34px;
+} 
+
+h3 {
+    font-size: 26px;
+}
+
+.default_picture {
+    padding:5px;
+    width:250px;
+}
+
+.container_pictures {
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.inner_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .presentation_component {
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
     height:60vh;
+    width: 100%;
     background-color: aquamarine;
 }
+
 .search_component {
+    color:black;
+    font-size: 26px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
     height:20vh;
-    background-color: bisque;
+    width:100%;
+    max-width: 750px;
+    display:flex;
+    flex-direction: column;
+    margin: 50px 0;
+}
+
+.search_box {
+    background-color: #314C57;
+    width:100%;
+    min-height:150px;
+    border-radius: 10px;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.search_input_box {
+    width:80%;
+    display:flex;
+    height:30px;
+    border-radius: 5px;
+    box-shadow: none;
+    outline: none;
+    border: none;
+
+} 
+.search_component_btn_list {
+    display:flex;
+    width:80%;
+    justify-content: space-between;
+
+}
+
+.search_component_btn_list {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.map_component {
+    display:flex;
+    width:100%;
+    height:80vh;
+    background-color: #314C57;
+}
+
+@media screen and (min-width: 768px) {
+    .presentation_component {
+        height:60vh;
+        width: 80%;
+        margin: 50px 0;
+        background-color: aquamarine;
+    }
+
+    .presentation_component {
+        display:flex;
+        width:80%;
+        flex-direction: row;
+
+    }
 }

@@ -23,7 +23,7 @@
     ?>
     <meta charset="UTF-8">
     <title>test</title>
-    <script src="https://kit.fontawesome.com/b5953b9f59.js" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="../../Public/CSS/style.css">
     <link rel="stylesheet" href="../../Public/CSS/viewLogin.css">
     <link rel="stylesheet" href="../../Public/CSS/viewLogin.css">

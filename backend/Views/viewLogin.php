@@ -13,7 +13,8 @@
  * @since      1.0.0
  */
 
-require_once 'Controllers/controllerIndex.php'
+require_once 'Controllers/controllerIndex.php';
+
 ?>
 <section class="auth-page">
     <div class="container-logo">

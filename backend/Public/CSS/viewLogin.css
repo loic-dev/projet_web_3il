@@ -1,12 +1,11 @@
 .auth-page{
     background-color: var(--primary-yellow);
     color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    height: 100%;
     
 }
+
+
 
 
 
@@ -39,6 +38,11 @@
     flex-direction: column;
 }
 
+.container-form{
+    display: flex;
+    flex-direction: column;
+}
+
 .title-container{
     display: flex;
     flex-direction: column;
@@ -61,7 +65,7 @@
 .container-input{
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .container-input span{
@@ -71,10 +75,15 @@
     margin-bottom: 5px;
 }
 
+.container-input small{
+    visibility: hidden;
+    color: var(--error-color);
+}
+
 .form-input{
     background-color: var(--secondary-grey);
     border: 2px solid var(--tertiary-grey) ;
-    border-radius: 5px ;
+    border-radius: 5px;
     height: 40px;
     font-size: 1rem;
     font-weight: 300;
@@ -83,16 +92,26 @@
     margin-bottom: 5px;
     outline: none;
     font-weight: 400;
+    transition-duration: 0.3s;
+}
+
+.form-input.error{
+    border-color: var(--error-color);
 }
 
 .form-submit-button{
     background-color: var(--secondary-yellow);
-    color: var(--primary-grey);  
+    color: var(--primary-grey); 
+    opacity: 0.5; 
     transition-duration: 0.3s;
 }
 
 .form-submit-button:hover{
     background-color:var(--secondary-yellow-dark);
+}
+
+.form-submit-button.active{
+    opacity: 1;
 }
 
 

@@ -1,4 +1,4 @@
-<script src="../../Public/js/hamburger.js"></script> 
+
 
 <footer>
     <p class="item_footer">Copyright leClub Tout droit reservé</p>

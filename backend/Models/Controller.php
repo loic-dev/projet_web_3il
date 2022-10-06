@@ -49,6 +49,7 @@ class Controller
     {
         include_once 'Views/Templates/head.php';
         self::createView($nameView);
+        include_once 'Views/utils/import_script.php';
     }
 
 
@@ -65,6 +66,7 @@ class Controller
         include_once 'Views/Templates/header.php';
         self::createView($nameView);
         include_once 'Views/Templates/footer.php';
+        include_once 'Views/utils/import_script.php';
     }
 
 

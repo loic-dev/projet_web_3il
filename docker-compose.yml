@@ -12,7 +12,10 @@ services:
       - httpdphpfpm
 
   phpfpm:
-    image: php:7.4-fpm
+    build:
+      context: .
+      dockerfile: phpfpm.Dockerfile
+    image: php
     expose:
       - 9000
     volumes:

@@ -13,51 +13,57 @@
  * @since      1.0.0
  */
 
-require_once 'Controllers/controllerIndex.php'
+require_once 'Controllers/controllerIndex.php';
 ?>
 
 <section class="auth-page">
     <div class="container-logo">
         <img src="../Public/images/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
     </div>
-    <form action="" method="post" class="form-post">
+    <form class="form-post" id="signup-form">
         <section class="section-form">
             <div class="container-box">
                 <div class="title-container">
                     <span class="main-title">Création de compte</span>
                     <span class="small-title">Créez votre compte pour découvrir toutes nos fonctionnalités.</span>
                 </div>
-
-                <div class="input-row-container">
-                    <div class="container-input">
-                        <span>Nom</span>
-                        <input type="text" name="name" class="form-input" required>
+                <div class="container-form">
+                    <div class="input-row-container">
+                        <div class="container-input">
+                            <span>Nom</span>
+                            <input type="text" name="name" id="signup-input-name" class="form-input" required>
+                            <small id="name_error">Lettres uniquement</small>
+                        </div>
+                        <div class="container-input">
+                            <span>Prenom</span>
+                            <input type="text" name="surname" id="signup-input-surname" class="form-input" required>
+                            <small id="surname_error">Lettres uniquement</small>
+                        </div>
                     </div>
+
                     <div class="container-input">
-                        <span>Prenom</span>
-                        <input type="text" name="surname" class="form-input" required>
+                        <span>email</span>
+                        <input type="email" name="emailInput" id="signup-input-email" class="form-input" required>
+                        <small id="emailInput_error">Email incorrect</small>
                     </div>
+
+                    <div class="container-input">
+
+                        <span>Mot de passe </span>
+                        <input type="password" name="password" id="signup-input-password" class="form-input" autocomplete="on" required>
+                        <small id="password_error">Mot de passe trop faible</small>
+                    </div>
+
+                    <div class="container-input">
+                        <span>confirmer le mot de passe</span>
+                        <input type="password" name="confirmPassword" id="signup-input-confirmPassword" class="form-input" autocomplete="on" required>
+                        <small id="confirmPassword_error">Les mots de passe ne correspondent pas</small>
+                    </div>
+
+                    <button class="form-submit-button" id="submit-button" type="submit">S'inscrire</button>
+
+                    <span class="other-form-text">Vous avez déja un compte ? <a href="localhost:8000/login">Connectez-vous</a></span>
                 </div>
-
-                <div class="container-input">
-                    <span>email</span>
-                    <input type="email" name="emailInput" class="form-input" required>
-                </div>
-
-                <div class="container-input">
-                <i class="fa-solid fa-square-question"></i>
-                    <span>Mot de passe </span>
-                    <input type="password" name="password" class="form-input" required>
-                </div>
-
-                <div class="container-input">
-                    <span>confirmer le mot de passe</span>
-                    <input type="password" name="confirmPassword" class="form-input" required>
-                </div>
-
-                <button class="form-submit-button" type="submit">S'inscire</button>
-
-                <span class="other-form-text">Vous avez déja un compte ? <a href="localhost:8000/login">Connectez-vous</a></span>
             </div>
         <section>
         

@@ -106,12 +106,12 @@
     transition-duration: 0.3s;
 }
 
-.form-submit-button:hover{
-    background-color:var(--secondary-yellow-dark);
-}
-
 .form-submit-button.active{
     opacity: 1;
+}
+
+.form-submit-button.active:hover{
+    background-color:var(--secondary-yellow);
 }
 
 

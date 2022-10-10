@@ -71,16 +71,12 @@ const check_validity = (event, type) => {
             break;
     } 
 
-    return validity;
-    
-    
+    return validity; 
 }
 
 
-const signup = (event) => {
+const signup = async (event) => {
     event.preventDefault();
-
-    
 
     let validity = check_validity(event,"all");
 

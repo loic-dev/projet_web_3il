@@ -88,7 +88,7 @@ const signup = async (event) => {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({name:name.value,surname:surname.value})
+                body: JSON.stringify({name:name.value,email:email.value,password:password.value,confirmPassword:confirmPassword.value})
             }).then(function (response) {
                 return response.json();
             }).then(function (data) {

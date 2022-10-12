@@ -90,8 +90,15 @@ const signup = async (event) => {
                 },
                 body: JSON.stringify({name:name.value,email:email.value,password:password.value,confirmPassword:confirmPassword.value})
             }).then(function (response) {
-                return response.json();
+                return response.text();
             }).then(function (data) {
+
+
+                const containerForm = document.querySelector('.container-form')
+                containerForm.remove();
+
+                
+
                 console.log(data);
             }).catch(function (err) {
                 console.warn('Something went wrong.', err);

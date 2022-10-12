@@ -9,7 +9,7 @@ function regex_input_password($password) {
 }
 
 function regex_input_email($email) {
-    return preg_match("/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/",$email);
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
 

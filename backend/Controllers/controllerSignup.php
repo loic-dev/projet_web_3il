@@ -1,5 +1,5 @@
 <?php
-require '../vendor/autoload.php';
+require_once '../vendor/autoload.php';
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 require_once 'dbConnect.php';  
@@ -18,11 +18,9 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 $confirm_password = $_POST["confirmPassword"];
 
-sendEmail();
-
 if(regex_input_text($name) === 0){
     $error = json_response(500, 'error name');
-} else if(regex_input_email($email) === 0){
+} else if(!regex_input_email($email)){
     $error = json_response(500, 'error email');
 } else if(regex_input_password($password) === 0){
     $error = json_response(500, 'error password too low');
@@ -59,10 +57,6 @@ try {
 
 
 /* create JSON WEB TOKEN */
-
-
-
-
 $created_at = new DateTimeImmutable();
 $expire_at = $created_at->modify('+15 minutes')->getTimestamp();
 
@@ -75,27 +69,28 @@ $payload = [
     'userId' => $newStructureId
 ];
 
-$jwt = JWT::encode($payload, getenv('KEY_JWT'), 'HS256');
-
 
 try {
-    $response = sendEmail();
+    $jwt = JWT::encode($payload, getenv('KEY_JWT'), 'HS256');
 } catch (Exception $e) {
-    $error = "error sendEmail";
+    $error = json_response(500, 'error create JWT');
 }
 
 
-$response = json_response(200, [ 'data' => $jwt ]);
 
 
-
+$link_verify_email = "localhost:8000/verify?{$jwt}";
+try {
+    $response = sendEmail($email,$name,$link_verify_email);
+} catch (Exception $e) {
+    $error = json_response(500, 'error sendEmail');
+}
 
 
 if(empty($error)){
     echo $response;
 } else {
     echo $error;
-    
 }
 
 

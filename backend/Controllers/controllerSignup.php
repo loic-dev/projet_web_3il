@@ -5,6 +5,7 @@ use Firebase\JWT\Key;
 require_once 'dbConnect.php';  
 require_once '../utils/regex.php'; 
 require_once '../utils/functions.php'; 
+require_once '../utils/sendEmail.php'; 
 
 
 $content = trim(file_get_contents("php://input"));
@@ -17,7 +18,7 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 $confirm_password = $_POST["confirmPassword"];
 
-
+sendEmail();
 
 if(regex_input_text($name) === 0){
     $error = json_response(500, 'error name');
@@ -44,6 +45,8 @@ $structure = [
     'created_datetime' => $now ->getTimestamp(),
     'updated_datetime' => $now ->getTimestamp()
 ];
+
+/* verifier que l'utilisateur n'existe pas deja */
 
 
 $sql = "INSERT INTO structure (id, name, email, password, email_verify, created_datetime, updated_datetime) VALUES (:id, :name, :email, :password, :email_verify, :created_datetime, :updated_datetime)";
@@ -73,6 +76,15 @@ $payload = [
 ];
 
 $jwt = JWT::encode($payload, getenv('KEY_JWT'), 'HS256');
+
+
+try {
+    $response = sendEmail();
+} catch (Exception $e) {
+    $error = "error sendEmail";
+}
+
+
 $response = json_response(200, [ 'data' => $jwt ]);
 
 

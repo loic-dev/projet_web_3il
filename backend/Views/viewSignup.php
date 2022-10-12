@@ -14,6 +14,9 @@
  */
 
 require_once 'Controllers/controllerIndex.php';
+require_once 'utils/sendEmail.php'; 
+
+sendEmail('loic@gmail.com','loic', 'http://www.google.com');
 ?>
 
 <section class="auth-page">

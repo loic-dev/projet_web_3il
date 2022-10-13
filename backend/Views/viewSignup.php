@@ -23,6 +23,9 @@ require_once 'Controllers/controllerIndex.php';
     <form class="form-post" id="signup-form">
         <section class="section-form">
             <div class="container-box">
+                <div class="error-container">
+                    <span id="error-signup">error</span>
+                </div>
                 <div class="title-container">
                     <span class="main-title">Création de compte</span>
                     <span class="small-title">Créez votre compte pour découvrir toutes nos fonctionnalités.</span>
@@ -70,3 +73,4 @@ require_once 'Controllers/controllerIndex.php';
    
 
 </section>
+<script type="module" src="../../Public/js/signup.js"></script>

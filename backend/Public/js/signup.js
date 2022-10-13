@@ -70,22 +70,29 @@ const check_validity = (event, type) => {
         default:
             break;
     } 
-
     return validity; 
 }
+
 
 const newModalSuccess = (email, nom) => {
    return `
         <section class='success_signup_section'>
-            <div class="container-">
+            <div class="container_logo">
                 <img class="valid_picture" src="./Public/media/valid.png" />
             </div>
-            <p>Bravo ${nom},</p>
-            <p>Votre compte à été créé avec success !!!</p>
-            <p>Nous venons d'envoyer un mail à l'adresse mail suivante : ${email}</p>
+            <span class="bigtext">Bravo ${nom},</span>
+            <p>Votre compte à été créé avec succès !!!</p>
+            <p class="bigtext">Nous venons d'envoyer un mail à l'adresse mail suivante : <strong>${email}</strong></p>
         </section>`;
 }
 
+
+const addError = (err) => {
+    let errortext = document.querySelector('#error-signup');
+    let errorContainer = document.querySelector('.error-container');
+    errorContainer.classList.add('active');
+    errortext.innerHTML = err;
+}
 
 const signup = async (event) => {
     event.preventDefault();
@@ -107,15 +114,19 @@ const signup = async (event) => {
             }).then(function (response) {
                 return response.json();
             }).then(function (data) {
-                console.log(data)
-                const containerBox = document.querySelector('.container-box')
-                containerBox.classList.add("success");
-                setTimeout(function(){
-                    containerBox.innerHTML = newModalSuccess(data.message.email,data.message.name);
-                },300)
-                
+                if(!data.status){
+                    addError(data.message);
+                } else {
+                    const containerBox = document.querySelector('.container-box')
+                    containerBox.style.opacity = "0";
+                    containerBox.classList.add("success");
+                    setTimeout(function(){
+                        containerBox.innerHTML = newModalSuccess(data.message.email,data.message.name);
+                    },500)
+                    containerBox.style.opacity = "1";
+                }
             }).catch(function (err) {
-                console.warn('Something went wrong.', err);
+                addError(err);
             });
         
     }

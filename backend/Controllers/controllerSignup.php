@@ -39,16 +39,28 @@ $structure = [
     'name' => $name,
     'email' => $email,
     'password' => $hash_password,
-    'email_verify' => false,
+    'email_verify' => 0,
     'created_datetime' => $now ->getTimestamp(),
     'updated_datetime' => $now ->getTimestamp()
 ];
 
 /* verifier que l'utilisateur n'existe pas deja */
+$sql = "SELECT COUNT(*) FROM structure";
+try {
+    $result = $db->prepare($sql);
+    $result->execute();
+    $row = $result->fetch();
+    if(count($row) > 0){
+        $error = json_response(500, "Cet utilisateur existe déja");
+        echo $error;
+        die();
+    }
+} catch (PDOException $e) {
+    $error = json_response(500, "Cet utilisateur existe");
+}
 
 
 $sql = "INSERT INTO structure (id, name, email, password, email_verify, created_datetime, updated_datetime) VALUES (:id, :name, :email, :password, :email_verify, :created_datetime, :updated_datetime)";
-
 try {
     $db->prepare($sql)->execute($structure);
 } catch (PDOException $e) {
@@ -79,7 +91,7 @@ try {
 
 
 
-$link_verify_email = "localhost:8000/verify?{$jwt}";
+$link_verify_email = "localhost:8000/verify?token={$jwt}";
 try {
     sendEmail($email, $name, $link_verify_email);
     $data = ['name' => $name, 'email' => $email];

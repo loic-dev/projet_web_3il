@@ -28,6 +28,14 @@ Router::add(
     }
  );
 
+
+Router::add(
+    '/confirm', function () {
+        Controller::createViewWithoutHeader('viewConfirmEmail');
+   }
+);
+
+
 Router::add(
     '/signup', function () {
         Controller::createViewWithoutHeader('viewSignup');

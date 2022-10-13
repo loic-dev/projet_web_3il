@@ -147,6 +147,36 @@
 }
 
 
+.error-container{
+    background-color: var(--error-color-opacity);
+    border: 2px solid var(--error-color);
+    border-radius: 3px;
+    padding: 10px;
+    overflow-wrap: break-word;
+    margin-bottom: 20px;
+    transform: scale(0);
+    transition-duration: 0.3s;
+    display: none;
+}
+
+.error-container.active{
+    transform: scale(1);
+    display: flex;
+    animation-duration: 3s;
+    animation-name: upShow;
+}
+
+
+@keyframes upShow {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+
 /* tablet & desktop */
 @media screen and (min-width: 768px){
     .input-row-container{

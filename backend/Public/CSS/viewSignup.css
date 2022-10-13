@@ -11,4 +11,23 @@
 
 .success_signup_section{
     height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.valid_picture{
+    width: 80px !important;
+}
+
+.container-box.success .container_logo{
+    display: flex;
+    font-size: 2rem;
+    font-family: 'Montserrat';
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container-logo .bigtext{
+    font-weight: 600;
 }

@@ -15,7 +15,8 @@ body {
     --primary-grey:#314c57;
     --secondary-grey:#2a414a;
     --tertiary-grey:#1f3137;
-    --error-color:#F44336;
+    --error-color:rgba(244, 67, 54);
+    --error-color-opacity:rgba(244, 67, 54,0.6);
 
 
     /* breakpoint */
@@ -36,6 +37,8 @@ body {
     height: 100%;
     line-height: 1;
 }
+
+
 
 
 button{

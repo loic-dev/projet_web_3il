@@ -81,7 +81,9 @@ try {
 
 $link_verify_email = "localhost:8000/verify?{$jwt}";
 try {
-    $response = sendEmail($email,$name,$link_verify_email);
+    sendEmail($email, $name, $link_verify_email);
+    $data = ['name' => $name, 'email' => $email];
+    $response = json_response(200, $data);
 } catch (Exception $e) {
     $error = json_response(500, 'error sendEmail');
 }

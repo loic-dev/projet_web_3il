@@ -48,7 +48,6 @@ require_once 'Controllers/controllerIndex.php';
                     </div>
 
                     <div class="container-input">
-
                         <span>Mot de passe </span>
                         <input type="password" name="password" id="signup-input-password" class="form-input" autocomplete="on" required>
                         <small id="password_error">Mot de passe trop faible</small>
@@ -61,7 +60,7 @@ require_once 'Controllers/controllerIndex.php';
                     </div>
 
                     <button class="form-submit-button" id="submit-button" type="submit">S'inscrire</button>
-
+                    
                     <span class="other-form-text">Vous avez déja un compte ? <a href="localhost:8000/login">Connectez-vous</a></span>
                 </div>
             </div>

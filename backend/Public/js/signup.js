@@ -74,11 +74,26 @@ const check_validity = (event, type) => {
     return validity; 
 }
 
+const newModalSuccess = (email, nom) => {
+   return `
+        <section class='success_signup_section'>
+            <div class="container-">
+                <img class="valid_picture" src="./Public/media/valid.png" />
+            </div>
+            <p>Bravo ${nom},</p>
+            <p>Votre compte à été créé avec success !!!</p>
+            <p>Nous venons d'envoyer un mail à l'adresse mail suivante : ${email}</p>
+        </section>`;
+}
+
 
 const signup = async (event) => {
     event.preventDefault();
 
     let validity = check_validity(event,"all");
+
+    const submitButton = document.querySelector('#submit-button');
+    submitButton.innerHTML = `<div class="lds-dual-ring"></div>`;
 
     if(validity){
         
@@ -90,16 +105,15 @@ const signup = async (event) => {
                 },
                 body: JSON.stringify({name:name.value,email:email.value,password:password.value,confirmPassword:confirmPassword.value})
             }).then(function (response) {
-                return response.text();
+                return response.json();
             }).then(function (data) {
-
-
-                const containerForm = document.querySelector('.container-form')
-                containerForm.remove();
-
+                console.log(data)
+                const containerBox = document.querySelector('.container-box')
+                containerBox.classList.add("success");
+                setTimeout(function(){
+                    containerBox.innerHTML = newModalSuccess(data.message.email,data.message.name);
+                },300)
                 
-
-                console.log(data);
             }).catch(function (err) {
                 console.warn('Something went wrong.', err);
             });

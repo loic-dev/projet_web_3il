@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="../../Public/CSS/viewSignup.css">
     <link rel="stylesheet" href="../../Public/CSS/header.css">
     <link rel="stylesheet" href="../../Public/CSS/footer.css">
+    <link rel="stylesheet" href="../../Public/CSS/ring.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 

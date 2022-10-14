@@ -25,18 +25,21 @@ $hash_password = password_hash($password, PASSWORD_BCRYPT);
 
 
 /* verifier que l'utilisateur n'existe pas deja */
-$sql = "SELECT id,password FROM structure WHERE email = ?";
+$sql = "SELECT id,password,email_verify FROM structure WHERE email = ?";
 try {
     $request = $db->prepare($sql);
     $request->execute([$email]);
     $result = $request->fetch();
     $db_password = $result['password'];
     $userId =  $result['id'];
+    $email_verify = $result['email_verify'];
 
     if($result == false){
         $error = json_response(500, "Identifiant ou mot de passe incorrect");
     } else if (password_verify($password,$db_password) == false){
         $error = json_response(500, "Identifiant ou mot de passe incorrect");
+    } else if($email_verify == 0){
+        $error = json_response(500, "Email non verifié");
     }
 } catch (PDOException $e) {
     $error = json_response(500, "Une erreur est survenue");

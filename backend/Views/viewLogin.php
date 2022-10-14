@@ -20,9 +20,12 @@ require_once 'Controllers/controllerIndex.php';
     <div class="container-logo">
         <img src="../Public/images/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
     </div>
-    <form action="" method="post" class="form-post">
+    <form action="" method="post" id="login-form">
         <section class="section-form">
             <div class="container-box">
+                <div class="error-container">
+                    <span id="error-signup"></span>
+                </div>
                 <div class="title-container">
                     <span class="main-title">Espace de connexion</span>
                     <span class="small-title">Connectez-vous pour découvrir toutes nos fonctionnalités</span>
@@ -30,16 +33,16 @@ require_once 'Controllers/controllerIndex.php';
 
                 <div class="container-input">
                     <span>email</span>
-                    <input type="email" name="emailInput" class="form-input" required>
+                    <input type="email" name="emailInput" id="login-input-email" class="form-input" required>
                 </div>
 
                 <div class="container-input">
                     <span>password</span>
-                    <input type="password" name="emailInput" class="form-input" required>
+                    <input type="password" name="emailInput" id="login-input-password" class="form-input" required>
                     <span class="small-text-input"><a href="">mot de passe oublié ?</a></span>
                 </div>
 
-                <button class="form-submit-button" type="submit">connexion</button>
+                <button class="form-submit-button active" id="submit-button" type="submit">connexion</button>
 
                 <span class="other-form-text" >Vous n'avez pas encore de compte ? <a href="localhost:8000/signup">Créer un compte</a></span>
             </div>
@@ -49,3 +52,4 @@ require_once 'Controllers/controllerIndex.php';
    
 
 </section>
+<script type="module" src="../../Public/js/login.js"></script>

@@ -116,6 +116,7 @@ const signup = async (event) => {
             }).then(function (data) {
                 if(!data.status){
                     addError(data.message);
+                    submitButton.innerHTML = `S'inscrire`;
                 } else {
                     const containerBox = document.querySelector('.container-box')
                     containerBox.style.opacity = "0";

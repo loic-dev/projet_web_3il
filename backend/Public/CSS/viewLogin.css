@@ -162,7 +162,7 @@
 .error-container.active{
     transform: scale(1);
     display: flex;
-    animation-duration: 3s;
+    animation-duration: 0.3s;
     animation-name: upShow;
 }
 

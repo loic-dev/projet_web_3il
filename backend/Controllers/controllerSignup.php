@@ -45,18 +45,18 @@ $structure = [
 ];
 
 /* verifier que l'utilisateur n'existe pas deja */
-$sql = "SELECT COUNT(*) FROM structure";
+$sql = "SELECT COUNT(*) FROM structure WHERE name = ? OR email = ?";
 try {
     $result = $db->prepare($sql);
-    $result->execute();
-    $row = $result->fetch();
-    if(count($row) > 0){
-        $error = json_response(500, "Cet utilisateur existe déja");
+    $result->execute([$name, $email]);
+    $row = $result->fetchColumn();
+    if($row > 0){
+        $error = json_response(500, "Cet utilisateur existe déjà");
         echo $error;
         die();
     }
 } catch (PDOException $e) {
-    $error = json_response(500, "Cet utilisateur existe");
+    $error = json_response(500, "Cet utilisateur existe déjà");
 }
 
 

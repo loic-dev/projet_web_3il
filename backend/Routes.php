@@ -29,8 +29,8 @@ Router::add(
  );
 
 
-Router::add(
-    '/confirm', function () {
+Router::addRouteWithAttr(
+    '/verify', function () {
         Controller::createViewWithoutHeader('viewConfirmEmail');
    }
 );

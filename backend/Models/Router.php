@@ -127,6 +127,14 @@ class Router
         // }
     }
 
+    public static function addRouteWithAttr($routeStartWith, callable $innerText) {
+        self::$url[$routeStartWith] = $routeStartWith;
+        if(substr($_SERVER["REQUEST_URI"], 0, strlen($routeStartWith)) === $routeStartWith) {
+            $innerText();
+        }
+    }
+
+
     /**
      * Création dynamique de lien en fonction de l'id des topics sur la base
      * de donnée

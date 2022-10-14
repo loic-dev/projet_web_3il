@@ -53,6 +53,10 @@ class Controller
     }
 
 
+
+
+   
+
     /**
      * Fonction qui crée une vue dîtes standard avec Header et Footer
      *

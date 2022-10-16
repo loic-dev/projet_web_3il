@@ -16,9 +16,7 @@
     justify-content: space-around;
 }
 
-.valid_picture{
-    width: 60px !important;
-}
+
 
 .container-box.success .container_logo{
     display: flex;

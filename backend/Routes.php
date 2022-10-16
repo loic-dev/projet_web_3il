@@ -18,27 +18,27 @@ require 'Models/RequireAll.php';
 
 Router::addTwoWay(
     '/', '/Index', function () {
-        Controller::createStandardView('viewIndex');
+        Controller::createView('viewIndex');
     }
 );
 
 Router::add(
      '/login', function () {
-         Controller::createViewWithoutHeader('viewLogin');
+         Controller::createView('viewLogin');
     }
  );
 
 
 Router::addRouteWithAttr(
     '/verify', function () {
-        Controller::createViewWithoutHeader('viewConfirmEmail');
+        Controller::createView('viewConfirmEmail');
    }
 );
 
 
 Router::add(
     '/signup', function () {
-        Controller::createViewWithoutHeader('viewSignup');
+        Controller::createView('viewSignup');
    }
 );
 ?>

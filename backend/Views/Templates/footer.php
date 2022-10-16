@@ -7,8 +7,4 @@
         <img class="item_footer" src="instagram_icon"/>
     </div>
 </footer>
-
-<script src="../../Public/js/hamburger.js"></script> 
-
-</body>
-</html>
+<script src="../../Public/js/hamburger.js"></script>

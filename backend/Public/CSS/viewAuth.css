@@ -146,6 +146,10 @@
     flex-direction: column;
 }
 
+.valid_picture{
+    width: 60px !important;
+}
+
 
 .error-container{
     background-color: var(--error-color-opacity);

@@ -27,6 +27,11 @@ Router::add(
          Controller::createViewWithoutHeader('viewLogin');
     }
  );
+Router::addRouteWithAttr(
+     '/hellow', function () {
+         Controller::createStandardView('viewIndex');
+    }
+ );
 
 Router::add(
     '/signup', function () {

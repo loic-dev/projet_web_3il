@@ -9,6 +9,8 @@
 </footer>
 
 <script src="../../Public/js/hamburger.js"></script> 
+<script src="../../Public/js/map.js"></script> 
+<script src="../../Public/js/event.js"></script> 
 
 </body>
 </html>

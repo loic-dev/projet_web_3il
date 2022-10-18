@@ -32,7 +32,6 @@ require_once 'Controllers/controllerIndex.php'
         </div>
     </div>
 
-
     <div class="search_result">
         <div class="search_component">
             <h1>Trouver un cours de musique en Aveyron</h1>

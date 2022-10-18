@@ -15,6 +15,7 @@
 
 h1, h3 {
     color: var(--primary-grey);
+    padding:10px;
 }
 
 h1 {

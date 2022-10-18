@@ -30,10 +30,14 @@ header {
     /* width:120px; */
     background-color: var(--secondary-yellow);
     border-radius: 12px;
-    width:100px;
+    /* width:100px; */
 }
 
 @media screen and (min-width: 768px) {
+    .button_menu_nav {
+        width:100px;
+    }
+
     #hamburger_icon {
         display:none !important;
     }

@@ -16,6 +16,19 @@
 require_once 'Controllers/controllerIndex.php'
 ?>
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <?php include('Views/Templates/head.php');?>
+    <link rel="stylesheet" href="../../Public/CSS/viewIndex.css">
+    <link rel="stylesheet" href="../../Public/CSS/atelier.css">
+    <link rel="stylesheet" href="../../Public/CSS/footer.css">
+</head>
+<body>
+
+<?php include('Views/Templates/header.php');?>
+
+
 <div class="stdr_view index_page">
 
     <div class="presentation_component">
@@ -97,3 +110,10 @@ require_once 'Controllers/controllerIndex.php'
 
 </div>
 
+<?php include_once "Views/Templates/footer.php" ?>
+<script type="module" src="../../Public/js/event.js"></script>
+<script src="../../Public/js/map.js"></script>
+<script src="../../Public/js/event.js"></script>
+
+</body>
+</html>

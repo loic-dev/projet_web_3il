@@ -13,6 +13,14 @@
     flex-direction: column;
 }
 
+.title_content > h1 {
+    font-size: 40px;
+}
+
+.title_content > h3 {
+    font-size: 26px;
+}
+
 h1, h3 {
     color: var(--primary-grey);
     padding:10px;
@@ -50,7 +58,7 @@ h3 {
     flex-direction: column;
     height:60vh;
     width: 100%;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 
 .search_component {
@@ -63,7 +71,7 @@ h3 {
     padding-top: 65px;
     
     width:100%;
-    max-width: 750px;
+    max-width: 1150px;
     display:flex;
     flex-direction: column;
     /* margin: 50px 0; */
@@ -168,6 +176,23 @@ h3 {
     justify-content: space-around;
 }
 
+.select {
+    /* width: 10ch; */
+    width: 100%;
+    /* min-width: 15; */
+    /* max-width: 30ch; */
+    outline: none;
+    margin: 10px 0px 10px 0px;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
 @media screen and (min-width: 1168px) {
     .index_map {
         display:flex !important;
@@ -176,11 +201,15 @@ h3 {
 
 @media screen and (min-width: 768px) {
  
+    .select {
+        width : 200px;
+        margin: 0px 10px 0px 10px !important;
+    }
+
     .presentation_component {
         height:60vh;
         width: 80%;
         margin: 20px 0;
-        background-color: aquamarine;
     }
 
     .presentation_component {

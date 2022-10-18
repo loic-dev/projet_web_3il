@@ -38,7 +38,7 @@ require_once 'Controllers/controllerIndex.php'
             <form class="search_box">
                 <input class="search_input_box" type="text"></input>
                 <div class="search_component_btn_list">
-                    <select id="pet-select">
+                    <select id="insturment-select" class="select">
                         <option value="">Instrument</option>
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>
@@ -47,7 +47,7 @@ require_once 'Controllers/controllerIndex.php'
                         <option value="spider">Spider</option>
                         <option value="goldfish">Goldfish</option>
                     </select>
-                    <select id="pet-select">
+                    <select id="category-select" class="select">
                         <option value="">Categorie</option>
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>
@@ -56,7 +56,7 @@ require_once 'Controllers/controllerIndex.php'
                         <option value="spider">Spider</option>
                         <option value="goldfish">Goldfish</option>
                     </select>
-                    <select id="pet-select">
+                    <select id="pet-select" class="select">
                         <option value="">Niveau</option>
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>

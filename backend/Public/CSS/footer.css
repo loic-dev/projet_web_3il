@@ -11,15 +11,19 @@ footer {
 
 .icon_component {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     /* height: 250px; */
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
 }
 
 .item_footer {
-    padding:20px;
+    padding:15px;
+    height: 40px;
+    display: flex;
+    align-items: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -31,8 +35,5 @@ footer {
     .icon_component {
         flex-direction: row;
         align-items: center;
-        background-color: red;
     }
-
-
 }

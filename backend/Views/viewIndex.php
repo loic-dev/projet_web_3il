@@ -32,33 +32,68 @@ require_once 'Controllers/controllerIndex.php'
         </div>
     </div>
 
-    <div class="search_component">
-        <h1>Trouver un cours de musique en Aveyron</h1>
-        <form class="search_box">
-            <input class="search_input_box" type="text"></input>
-            <div class="search_component_btn_list">
-                <button>Drop list</button>
-                <button>Rechercher</button>
-            </div>
-        </form>
-    </div>
+    <div class="search_result">
+        <div class="search_component">
+            <h1>Trouver un cours de musique en Aveyron</h1>
+            <form class="search_box">
+                <input class="search_input_box" type="text"></input>
+                <div class="search_component_btn_list">
+                    <select id="insturment-select" class="select">
+                        <option value="">Instrument</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="hamster">Hamster</option>
+                        <option value="parrot">Parrot</option>
+                        <option value="spider">Spider</option>
+                        <option value="goldfish">Goldfish</option>
+                    </select>
+                    <select id="category-select" class="select">
+                        <option value="">Categorie</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="hamster">Hamster</option>
+                        <option value="parrot">Parrot</option>
+                        <option value="spider">Spider</option>
+                        <option value="goldfish">Goldfish</option>
+                    </select>
+                    <select id="pet-select" class="select">
+                        <option value="">Niveau</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="hamster">Hamster</option>
+                        <option value="parrot">Parrot</option>
+                        <option value="spider">Spider</option>
+                        <option value="goldfish">Goldfish</option>
+                    </select>
+                    <button class="button_menu_nav yellow">Rechercher</button>
+                </div> 
+            </form>
+        </div>
 
-    <div class="map_component">
-        <div class="index_map"style="display:none;">CARTE</div>
-        <div class="">
-        
-            <div class="map_header">
-                <h3>Annonce: Rodez</h3>
+        <div class="map_component">
+            <div id="index_map" class="index_map"style="display:none;">
+                <?php include_once "Views/Templates/map.php" ?>
             </div>
-
-            <div>
-                <div>
-                
+            <div class="list_event">
+            
+                <div class="map_header">
+                    <h3 id="search_title">Annonce: Rodez</h3>
                 </div>
+
+                <div id="display_event">
+
+                </div>
+            
             </div>
-        
         </div>
     </div>
+
+
+    <!-- <div id="tooltip" style="display:none;"> -->
+    <div id="tooltip" style="display:none;">
+        <p>Bonjour</p> 
+    </div>
+   
 
 </div>
 

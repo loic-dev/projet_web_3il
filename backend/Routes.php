@@ -27,6 +27,11 @@ Router::add(
          Controller::createView('viewLogin');
     }
  );
+Router::addRouteWithAttr(
+     '/hellow', function () {
+         Controller::createStandardView('viewIndex');
+    }
+ );
 
 
 Router::addRouteWithAttr(

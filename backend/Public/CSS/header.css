@@ -21,17 +21,23 @@ header {
     width: 100%;
     top:90px;
     height: calc(100% - 90px);
-    background-color: var(--secondary-yellow);
+    background-color: var(--primary-yellow);
 }
 
 .button_menu_nav {
     font-size: 26px;
+    /* height: 40px; */
+    /* width:120px; */
     background-color: var(--secondary-yellow);
     border-radius: 12px;
-    width:100px;
+    /* width:100px; */
 }
 
 @media screen and (min-width: 768px) {
+    .button_menu_nav {
+        width:100px;
+    }
+
     #hamburger_icon {
         display:none !important;
     }
@@ -62,8 +68,28 @@ header {
         width: 40% !important;
         top:inherit;
         width: initial;
-        background-color: red;
+        /* background-color: red; */
     }
+
+    .button_menu_nav {
+        font-size: initial;
+        width:150px;
+        padding: 15px !important ;
+        text-align: center;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    
+    
+    .button_menu_nav:nth-child(2) {
+        background-color: var(--tertiary-grey)
+    }
+    
 }
 
 
+ 

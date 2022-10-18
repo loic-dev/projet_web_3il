@@ -12,13 +12,17 @@ let button_submit = document.getElementById("submit-button");
 
 
 
-name.addEventListener("change", (e) => check_validity(e,"text"));
-surname.addEventListener("change", (e) => check_validity(e,"text"));
-email.addEventListener("change", (e) => check_validity(e,"email"));
-password.addEventListener("change", (e) => check_validity(e,"password"));
-confirmPassword.addEventListener("change", (e) => check_validity(e,"confirmPassword"));
-signup_form.addEventListener("change", (e) => check_validity(e,"all"));
-signup_form.addEventListener("submit",  (e) => signup(e));
+if(name !== undefined) {
+    name.addEventListener("change", (e) => check_validity(e,"text"));
+    surname.addEventListener("change", (e) => check_validity(e,"text"));
+    email.addEventListener("change", (e) => check_validity(e,"email"));
+    password.addEventListener("change", (e) => check_validity(e,"password"));
+    confirmPassword.addEventListener("change", (e) => check_validity(e,"confirmPassword"));
+    signup_form.addEventListener("change", (e) => check_validity(e,"all"));
+    signup_form.addEventListener("submit",  (e) => signup(e));
+}
+
+
 
 
 const active_submit_button = (validity) => {

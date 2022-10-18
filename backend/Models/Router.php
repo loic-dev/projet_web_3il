@@ -133,31 +133,4 @@ class Router
             $innerText();
         }
     }
-
-
-    /**
-     * Création dynamique de lien en fonction de l'id des topics sur la base
-     * de donnée
-     *
-     * @return void
-     */
-    public static function getAllTopicsRoutes()
-    {
-        $database = new Database(
-            HOST,
-            USER,
-            PASSWORD,
-            TABLENAME
-        );
-        $database->getAllTopic();
-        if (isset($_SESSION['topicArray'])) {
-            foreach ($_SESSION['topicArray'] as &$value) {
-                Router::add(
-                    '/Topic/' . $value->getIdTopic(), function () {
-                        Controller::createStandardView('viewDiscussion');
-                    }
-                );
-            }
-        }
-    }
 }

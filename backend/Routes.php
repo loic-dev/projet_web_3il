@@ -26,13 +26,7 @@ Router::add(
      '/login', function () {
          Controller::createView('viewLogin');
     }
- );
-Router::addRouteWithAttr(
-     '/hellow', function () {
-         Controller::createStandardView('viewIndex');
-    }
- );
-
+);
 
 Router::addRouteWithAttr(
     '/verify', function () {

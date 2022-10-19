@@ -14,6 +14,7 @@ body {
     --secondary-yellow-dark:#b29653;
     --primary-grey:#314c57;
     --secondary-grey:#2a414a;
+    --white-grey:#DFDFE8;
     --tertiary-grey:#1f3137;
     --error-color:rgba(244, 67, 54);
     --error-color-opacity:rgba(244, 67, 54,0.6);

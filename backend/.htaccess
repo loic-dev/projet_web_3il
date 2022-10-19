@@ -7,6 +7,17 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]
 
 <IfModule mod_expires.c>
+
+# <FilesMatch "(\.js\.gz|\.css\.gz)$">
+#       # Serve correct encoding type.
+#       Header append Content-Encoding gzip
+
+#       # Force proxies to cache gzipped &
+#       # non-gzipped css/js files separately.
+#       Header append Vary Accept-Encoding
+# </FilesMatch>
+
+
   ExpiresActive on
 
 # Perhaps better to whitelist expires rules? Perhaps.

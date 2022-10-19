@@ -4,3 +4,5 @@
 <link rel="stylesheet" href="../../Public/CSS/style.css">
 <link rel="stylesheet" href="../../Public/CSS/header.css">
 <link rel="stylesheet" href="../../Public/CSS/footer.css">
+<link rel="stylesheet" href="../../Public/CSS/font.css">
+<link rel="stylesheet" type="text/css" href="../../Public/CSS/print.css" media="print">

@@ -47,7 +47,7 @@ require_once 'Controllers/verifyUserConnected.php';
                         <div class="input-container">
                             <span class="input-text">Instruments</span>
                             <div class="container-instruments">
-                                <span id="panel-instrument-1">
+                                <span id="panel-instrument-1 select">
                                     <img class="span-img" src="Public/media/guitar.png" alt="guitar">
                                 </span>
                                 <span id="panel-instrument-2">
@@ -102,13 +102,13 @@ require_once 'Controllers/verifyUserConnected.php';
                             <span id="panel-place">Lieu : 21 avenue jean monnet</span>
                         </div>
                         <div class="row big">
-                            <p id="panel-desc-text">blablala</p>
+                            <p id="panel-desc-text">Description de l'annonce</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <?php include('Views/Templates/footer.php');?>
-        
+        <script type="module" src="../../Public/js/publish.js"></script>
     </body>
 </html>

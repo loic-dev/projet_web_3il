@@ -58,6 +58,10 @@ h2{
     gap: 10px;
 }
 
+.container-instruments span.select{
+    background-color: var(--secondary-yellow);
+}
+
 .container-instruments span, .container-photos span {
     flex: 1;
     min-width: 100px;
@@ -68,6 +72,7 @@ h2{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition-duration: 0.3s;
 }
 
 .container-photos{

@@ -38,10 +38,10 @@ require_once 'Controllers/controllerIndex.php'
         </div>
         <div class="container_pictures">
             <div class="inner_container">
-                <img class="default_picture" src="./Public/media/musician.jpg" />
-                <img class="default_picture" src="./Public/media/piano.jpg" />
+                <img class="default_picture" src="./Public/media/musician.webp" />
+                <img class="default_picture" src="./Public/media/piano.webp" />
             </div>
-            <img class="default_picture" src="./Public/media/piano.jpg" />
+            <img class="default_picture" src="./Public/media/piano.webp" />
         </div>
     </div>
 

@@ -82,7 +82,7 @@ const newModalSuccess = (email, nom) => {
    return `
         <section class='success_signup_section'>
             <div class="container_logo">
-                <img class="valid_picture" src="./Public/media/valid.png" />
+                <img class="valid_picture" src="./Public/media/valid.webp" />
             </div>
             <span class="bigtext">Bravo ${nom},</span>
             <p>Votre compte à été créé avec succès !!!</p>

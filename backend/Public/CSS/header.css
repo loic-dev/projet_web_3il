@@ -76,6 +76,11 @@ header {
     padding: 0 0 5px 5px;
 }
 
+.list_menu a{
+    text-decoration: none;
+    color: white;
+}
+
 
 
 @media screen and (min-width: 768px) {
@@ -148,10 +153,7 @@ header {
         border: 2px solid;
     }
 
-    .list_menu a{
-        text-decoration: none;
-        color: var(--primary-grey);
-    }
+    
     
 
     .list_menu.buttons.yellowButton{
@@ -176,6 +178,11 @@ header {
 
     .greyButton:hover a{
         color: white;
+    }
+
+    .list_menu a{
+        text-decoration: none;
+        color: var(--primary-grey);
     }
 
 

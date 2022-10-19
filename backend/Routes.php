@@ -28,6 +28,13 @@ Router::add(
     }
 );
 
+ Router::add(
+    '/publish-an-ad', function () {
+        Controller::createView('publishAnAd');
+   }
+);
+
+
 Router::addRouteWithAttr(
     '/verify', function () {
         Controller::createView('viewConfirmEmail');

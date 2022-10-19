@@ -68,6 +68,7 @@ class Router
         }
     }
 
+
     /**
      * Ajoute deux routes pour un même usage au Router
      *

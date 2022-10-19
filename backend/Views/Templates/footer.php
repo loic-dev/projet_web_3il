@@ -1,5 +1,5 @@
 <footer>
-    <p class="item_footer">Copyright leClub Tout droit à Thomas JOLY</p>
+    <p class="item_footer">Copyright leClub Tout droit reservé</p>
     <div class="icon_component">
         <img class="item_footer" src="Public/media/fb-icon.webp">
         <img class=" item_footer" src="Public/media/twitter-icon.webp" />

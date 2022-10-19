@@ -34,10 +34,18 @@ Router::addRouteWithAttr(
    }
 );
 
+Router::addRouteWithAttr(
+    '/musicLesson?', function () {
+        Controller::createView('viewMusicLesson');
+   }
+);
+
 
 Router::add(
     '/signup', function () {
         Controller::createView('viewSignup');
    }
 );
+
+
 ?>

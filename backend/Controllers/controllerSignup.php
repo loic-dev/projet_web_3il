@@ -97,7 +97,7 @@ try {
     $data = ['name' => $name, 'email' => $email];
     $response = json_response(200, $data);
 } catch (Exception $e) {
-    $error = json_response(500, 'error sendEmail');
+    $error = json_response(500, $e->getMessage());
 }
 
 

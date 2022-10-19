@@ -59,14 +59,14 @@ class Router
      *
      * @return void
      */
-    public static function add($route, callable $innerText)
-
+    public static function add($route, callable $innerText)    
     {
         self::$url[$route] = $route; // dans array url[Url] = func
         if ($_SERVER["REQUEST_URI"] == $route) {
             $innerText(); //lance la fonction de view
         }
     }
+
 
     /**
      * Ajoute deux routes pour un même usage au Router

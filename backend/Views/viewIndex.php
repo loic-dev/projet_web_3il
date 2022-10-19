@@ -101,12 +101,8 @@ require_once 'Controllers/controllerIndex.php'
         </div>
     </div>
 
-
-    <!-- <div id="tooltip" style="display:none;"> -->
     <div id="tooltip" style="display:none;">
-        <p>Bonjour</p> 
     </div>
-   
 
 </div>
 

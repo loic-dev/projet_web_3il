@@ -28,6 +28,12 @@ Router::add(
     }
 );
 
+Router::add(
+    '/login', function () {
+        Controller::createView('viewLogin');
+   }
+);
+
 Router::addRouteWithAttr(
     '/verify', function () {
         Controller::createView('viewConfirmEmail');
@@ -40,6 +46,17 @@ Router::addRouteWithAttr(
    }
 );
 
+Router::add(
+    '/musicLesson?', function () {
+        Controller::createView('viewMusicLesson');
+   }
+);
+
+Router::add(
+    '/userProfile', function () {
+        Controller::createView('viewUserProfile');
+   }
+);
 
 Router::add(
     '/signup', function () {

@@ -20,8 +20,13 @@ use Firebase\JWT\Key;
 
 
 $token = $_COOKIE["token"];
+$auth = verifyUserConnected($token,$db);
 
-if(!isset($token) || verifyUserConnected($token,$db) == false){
+
+
+
+
+if(!isset($token) || $auth == false){
     header("Location: ../login");
     die();
 };

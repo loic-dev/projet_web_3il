@@ -1,14 +1,8 @@
 
 
-body{
-    display: flex;
-    flex-direction: column;
-    
-}
 
 .publishAd-page{
     flex: 1;
-    overflow-y: auto;
     color: var(--primary-grey);
 }
 
@@ -19,6 +13,7 @@ body{
 
 .container-section{
     max-width: 1280px;
+    padding: 0 10px;
     display: flex;
     flex-direction: column;
 }
@@ -39,7 +34,7 @@ h2{
     font-weight: 500;
 }
 
-.input-container input, .input-container textarea{
+.input-container input, .input-container textarea, .input-container select{
     height: 40px;
     padding-left: 10px;
     border: 2px solid var(--white-grey);
@@ -101,7 +96,7 @@ h2{
 .container-panel{
     display: none;
     flex: 1;
-    display: flex;
+    
     justify-content: center;
     align-items: center;
 }
@@ -184,6 +179,36 @@ h2{
     overflow-wrap: break-word;
 }
 
+.back{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--primary-grey);
+}
+
+
+
+.back img{
+    transform: rotate(180deg);
+    margin-right: 10px;
+    transition-duration: 0.3s;
+    
+    
+}
+
+.back:hover img{
+    margin-left: -10px;
+    margin-right: 20px;
+}
+
+.back:hover{
+    color: var(--secondary-yellow);
+}
+
 
 
 
@@ -206,6 +231,11 @@ h2{
 
     .container-instruments span, .container-photos span {
         max-width: 150px;
+    }
+
+    .container-panel{
+        display: flex;
+        justify-content: flex-end;
     }
 
     

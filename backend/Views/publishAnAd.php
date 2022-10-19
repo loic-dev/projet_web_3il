@@ -1,4 +1,6 @@
-<?php require_once 'Controllers/verifyUserConnected.php'; ?>
+<?php 
+require_once 'Controllers/verifyUserConnected.php';
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -11,6 +13,10 @@
         <section class="publishAd-page">
             <div class="container-section">
                 <div class="container-form">
+                    <a class="back" href="../">
+                        <img class="span-img" src="Public/media/arrow.png" alt="retour à l'accueil">
+                        <span>Accueil</span>
+                    </a>
                     <h2>Déposer une annonce</h2>
                     <form method="post" id="publish-add-form">
                         <div class="input-container">
@@ -22,6 +28,17 @@
                             <input type="text" name="place" id="place-input">
                             <span class="error-input"></span>
                         </div>
+                        <div class="input-container">
+                            <span class="input-text">Niveau</span>
+                            <select name="level" id="level-input">
+                                <option value="A1">A1</option>
+                                <option value="A2">A2</option>
+                            </select>
+                            <span class="error-input"></span>
+                        </div>
+
+
+                        
                         <div class="input-container">
                             <span class="input-text">Description</span>
                             <textarea id="desc-input" name="desc"></textarea>
@@ -92,5 +109,6 @@
             </div>
         </section>
         <?php include('Views/Templates/footer.php');?>
+        
     </body>
 </html>

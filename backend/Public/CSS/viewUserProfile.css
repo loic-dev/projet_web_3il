@@ -6,6 +6,7 @@
     align-items: center;
     width:100%;
     padding: 10px;
+    max-width: 900px;
 }
 
 .change_information > * {
@@ -54,8 +55,17 @@
     border: 1px solid black;
     width: 80%;
     margin: 15px;
+    max-width: 900px;
+
 }
 
 .title_welcome_user {
     padding: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    .edit_name {
+        justify-content: space-between;
+        width: 90%;
+    }
 }

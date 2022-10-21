@@ -23,9 +23,9 @@
 <body>
     <?php include('Views/Templates/header.php');?>
     <div class="stdr_view user_profile_view">
-        <p>Bonjour, {username}</p>
-        <div>
-            <div>
+        <p class="title_welcome_user">Bonjour, {username}</p>
+        <div class="change_information">
+            <div class="edit_name">
                 <p>Information</p>
                 <button>Editer</button>
             </div>
@@ -38,8 +38,9 @@
                 <input type="text" />
             </label>
         </div>
-        <div>
-            <div>
+        <span class="delimiter"></span>
+        <div class="change_information">
+            <div class="edit_name">
                 <p>Mot de passe</p>
                 <button>Editer</button>
             </div>
@@ -48,11 +49,11 @@
                 <input type="text" />
             </label>
             <label>
-                Nom
+                Confirmer son mot de passe
                 <input type="text" />
             </label>
         </div>
-        <button>Supprimer son compte</button>
+        <button id="remove_account">Supprimer son compte</button>
     </div>
     <?php include_once "Views/Templates/footer.php" ?>
 </body>

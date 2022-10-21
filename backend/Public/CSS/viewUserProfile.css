@@ -1,0 +1,61 @@
+.change_information {
+    display:flex;
+    flex-direction: column;
+    background-color: aqua;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    padding: 10px;
+}
+
+.change_information > * {
+    padding: 15px;
+}
+
+.user_profile_view {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--primary-yellow);
+}
+
+.user_profile_view * {
+    color:black;
+}
+
+.change_information label {
+    display: flex;
+    justify-content: space-between;
+    width:90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    /* padding:0px 15px 0 15px; */
+}
+
+.change_information label > * {
+    padding: 0 15px 0 15px;
+}
+
+.edit_name {
+    display:flex;
+    justify-content: space-around;
+    width:50%;
+    align-items: center;
+}
+
+#remove_account {
+    background-color: red;
+    width: 280px;
+    margin: 15px;
+}
+
+.delimiter {
+    border: 1px solid black;
+    width: 80%;
+    margin: 15px;
+}
+
+.title_welcome_user {
+    padding: 15px;
+}

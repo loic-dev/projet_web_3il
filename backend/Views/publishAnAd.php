@@ -11,6 +11,7 @@ require_once 'Controllers/verifyUserConnected.php';
     </head>
     <body>
         <?php include('Views/Templates/header.php');?>
+        
         <section class="publishAd-page">
             <div class="container-section">
                 <div class="container-form">
@@ -54,23 +55,8 @@ require_once 'Controllers/verifyUserConnected.php';
                         <div class="input-container">
                             <span class="input-text">Instruments</span>
                             <div class="container-instruments">
-                                <span id="panel-instrument-1" class="select">
-                                    <em class="fa-guitar svg-primary-grey icon-30"> </em>
-                                </span>
-                                <span id="panel-instrument-2">
-                                    <em class="fa-drum svg-primary-grey icon-30"></em>
-                                </span>
-                                <span id="panel-instrument-3">
-                                    <em class="fa-piano svg-primary-grey icon-30"></em>
-                                </span>
-                                <span id="panel-instrument-4">
-                                    <em class="fa-saxophone svg-primary-grey icon-30"></em>
-                                   
-                                </span>
-                                <span id="panel-instrument-5">
-                                    <em class="fa-violin svg-primary-grey icon-30"></em>
-                                </span>
                             </div>
+                            <span id="add-instruments">Votre instrument n'est pas dans la liste ?</span>
                         </div>
                         <div class="input-container">
                             <span class="input-text">Photos</span>
@@ -110,7 +96,7 @@ require_once 'Controllers/verifyUserConnected.php';
                                 <span id="ad-title">Titre de l'annonce</span>
                                 <span id="struct-name">Nom de la structure</span>
                             </div>
-                            <div class="row-items">
+                            <div class="row-items" id="preview-icon-insts">
                             </div>
                         </div>
                         <div class="row tight">

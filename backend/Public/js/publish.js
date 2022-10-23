@@ -1,11 +1,43 @@
+import AddInstrumentModal from "../components/addInstrumentModal.component.js";
+
+
+
 let signup_form = document.getElementById("publish-add-form");
 let titleInput = document.getElementById("title-input");
 let placeInput = document.getElementById("place-input");
 let levelInput = document.getElementById("level-input");
 let descriptionInput = document.getElementById("desc-input");
-let instrumentsInput = "panel-instrument-1";
-let button_submit = document.getElementById("btn-submit");
+let listInstrument = [{
+        "name":"Guitare",
+        "icon":"guitar"},
+    {
+        "name":"Batterie",
+        "icon":"drum"
+    },
+    {
+        "name":"Piano",
+        "icon":"piano"
+    },
+    {
+        "name":"Saxophone",
+        "icon":"saxophone"
+    },
+    {
+        "name":"violon",
+        "icon":"violin"
+    }
+]
 
+
+let instrumentsInput = {
+    "name":"Guitare",
+    "icon":"guitar"
+}
+
+
+
+
+let button_submit = document.getElementById("btn-submit");
 let addPhotoPanel = document.getElementById("panel-add-photos");
 let inputFile = document.getElementById("file-input");
 let containerPhoto = document.querySelector(".container-photos");
@@ -15,32 +47,51 @@ let notPreviewImg = document.querySelector('.not-img-preview')
 let backPreview = document.querySelector('#back');
 let nextPreview = document.querySelector('#next');
 
-
-
-
 const reader = new FileReader();
 
 
 let containerInstrument = document.querySelector(".container-instruments");
-const instruments = Array.from(containerInstrument.children);
 let title = "";
 
+const updateViewInstruments = () => {
 
-
-
-
-function selectInstrument(id){
-    instruments.forEach(span => {
-        span.classList.remove("select");
+    document.querySelectorAll('.panel-instruments').forEach(node => {
+        node.remove();
     })
-    document.getElementById(id).classList.add("select");
+
+
+    listInstrument.forEach((instruments,i) => {
+        let view = `<span id="panel-instrument-${i}" class="${instrumentsInput.icon === instruments.icon ? `select panel-instruments` : `panel-instruments`}">
+            <em class="fa-${instruments.icon} svg-primary-grey icon-30"></em>
+            <p>${instruments.name}</p>
+        </span>` 
+        let element = document.createRange().createContextualFragment(view);
+        containerInstrument.append(element);
+        document.querySelector(`#panel-instrument-${i}`).addEventListener("click", e => selectInstrument(instruments));
+    })
 }
 
 
-instruments.forEach(span => {
-    document.getElementById(span.id).addEventListener("click", (e) => selectInstrument(span.id))
-})
+const updatePreviewInstrument = () => {
+    let preview = `
+        <em class="fa-${instrumentsInput.icon} svg-white icon-30"></em>
+        <span>${instrumentsInput.name}</span>
+    `
+    document.querySelector('#preview-icon-insts').innerHTML = preview;
+}
 
+
+updateViewInstruments();
+updatePreviewInstrument();
+
+
+
+
+function selectInstrument(instruments){
+    instrumentsInput = instruments;
+    updateViewInstruments();
+    updatePreviewInstrument();
+}
 
 const setDescription = (value) => {
     if(value === ""){
@@ -306,3 +357,14 @@ addPhotoPanel.addEventListener("click", (e) => inputFile.click());
 
 
 inputFile.addEventListener('change', (e) => uploadPhoto(e));
+
+const showModalAddInstruments = () => {
+    let viewModal = `<modal-instrument>
+
+    </modal-instrument>`
+    document.querySelector('body').prepend(document.createRange().createContextualFragment(viewModal));
+}
+
+document.querySelector('#add-instruments').addEventListener("click", (e) => showModalAddInstruments());
+
+

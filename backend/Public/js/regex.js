@@ -1,6 +1,6 @@
 
 function regex_input_text(text) {
-    return /^[a-zA-Z ]+$/.test(text);
+    return /^[a-zA-Z\p{L} ]+$/.test(text);
 }
 
 function regex_input_password(password) {

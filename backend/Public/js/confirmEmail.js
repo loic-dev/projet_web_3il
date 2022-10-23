@@ -7,7 +7,7 @@ const token = urlParams.get('token');
 const confirmEmailComponentSuccess = () => {
     return `
             <div class="container_logo">
-                    <img class="valid_picture" src="./Public/media/valid.png" />
+                    <img class="valid_picture" src="./Public/media/valid.svg" />
             </div>
             <p>Votre email à été confirmé avec succès</p>
             <a href="../login" class="form-submit-button">Connectez-vous</a>
@@ -18,7 +18,7 @@ const confirmEmailComponentSuccess = () => {
 const confirmEmailComponentError = () => {
     return `
             <div class="container_logo">
-                    <img class="valid_picture" src="./Public/media/error.png" />
+                    <img class="valid_picture" src="./Public/media/error.svg" />
             </div>
             <p>Une erreur est survenue</p>`
 }

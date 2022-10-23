@@ -7,6 +7,7 @@ require_once 'Controllers/verifyUserConnected.php';
     <head>
         <?php include('Views/Templates/head.php');?>
         <link rel="stylesheet" href="../../Public/CSS/publishAnAd.css">
+        <link rel="stylesheet" href="../../Public/CSS/ring.css">
     </head>
     <body>
         <?php include('Views/Templates/header.php');?>
@@ -14,20 +15,26 @@ require_once 'Controllers/verifyUserConnected.php';
             <div class="container-section">
                 <div class="container-form">
                     <a class="back" href="../">
-                        <img class="span-img" src="Public/media/arrow.png" alt="retour à l'accueil">
+                        <em class="fa-arrow-left svg-primary-grey icon-20"> </em>
                         <span>Accueil</span>
                     </a>
                     <h2>Déposer une annonce</h2>
                     <form method="post" id="publish-add-form">
                         <div class="input-container">
                             <span class="input-text">Titre de l'annonce</span>
-                            <input type="text" name="title" id="title-input">
+                            <input type="text" name="title" id="title-input" placeholder="Cours de piano">
                         </div>
                         <div class="input-container">
                             <span class="input-text">Lieu</span>
-                            <input type="text" name="place" id="place-input">
+                            <input type="text" name="place" id="place-input" placeholder="20 avenue de Ségur, Paris">
                             <span class="error-input"></span>
-                        </div>
+                            <span id="list-search">
+                                <span id="search-list-title">Adresses</span>
+                                <span id="container-list-search">
+                                    <div id="ring-search" class="lds-dual-ring"></div>
+                                </span>
+                            </span>
+                        </div> 
                         <div class="input-container">
                             <span class="input-text">Niveau</span>
                             <select name="level" id="level-input">
@@ -47,28 +54,30 @@ require_once 'Controllers/verifyUserConnected.php';
                         <div class="input-container">
                             <span class="input-text">Instruments</span>
                             <div class="container-instruments">
-                                <span id="panel-instrument-1 select">
-                                    <img class="span-img" src="Public/media/guitar.png" alt="guitar">
+                                <span id="panel-instrument-1" class="select">
+                                    <em class="fa-guitar svg-primary-grey icon-30"> </em>
                                 </span>
                                 <span id="panel-instrument-2">
-                                    <img class="span-img" src="Public/media/accordeon.png" alt="accordeon">
+                                    <em class="fa-drum svg-primary-grey icon-30"></em>
                                 </span>
                                 <span id="panel-instrument-3">
-                                    <img class="span-img" src="Public/media/piano.png" alt="piano">
+                                    <em class="fa-piano svg-primary-grey icon-30"></em>
                                 </span>
                                 <span id="panel-instrument-4">
-                                    <img class="span-img" src="Public/media/saxophone.png" alt="saxophone">
+                                    <em class="fa-saxophone svg-primary-grey icon-30"></em>
+                                   
                                 </span>
                                 <span id="panel-instrument-5">
-                                    <img class="span-img" src="Public/media/violon.png" alt="violon">
+                                    <em class="fa-violin svg-primary-grey icon-30"></em>
                                 </span>
                             </div>
                         </div>
                         <div class="input-container">
                             <span class="input-text">Photos</span>
                             <div class="container-photos">
-                                <span id="panel-add-photos">
-                                    <img class="span-img" src="Public/media/more.png" alt="add photo">
+                                <span id="panel-add-photos" class="show">
+                                    <em class="fa-plus svg-primary-grey icon-30"> </em>
+                                    <input id="file-input" type="file" name="photo" style="display: none;" />
                                 </span>
                             </div>
                         </div>
@@ -80,12 +89,20 @@ require_once 'Controllers/verifyUserConnected.php';
                 <div class="container-panel">
                     <div class="panel">
                         <div class="panel-container-img">
-                            <span id="back">
-                                <img class="control-icon" src="Public/media/chevron-l.png" alt="back chevron">
+
+                            <span id="level-preview"></span>
+                            <span id="back" class="not">
+                                <em class="fa-chevron-left svg-primary-grey icon-20"> </em>
                             </span>
-                            <img id="not-img" src="Public/media/image.png" alt="not images">
-                            <span id="next">
-                                <img class="control-icon" src="Public/media/chevron-r.png" alt="next chevron">
+                            <div id="preview-img-container">
+                                <span class="not-img-preview">
+                                    <em class="fa-images svg-primary-grey icon-35"> </em>
+                                </span>
+                               
+                                
+                            </div>
+                            <span id="next" class="not">
+                                <em class="fa-chevron-right svg-primary-grey icon-20"> </em>
                             </span>
                         </div>
                         <div class="row">
@@ -94,12 +111,11 @@ require_once 'Controllers/verifyUserConnected.php';
                                 <span id="struct-name">Nom de la structure</span>
                             </div>
                             <div class="row-items">
-                                <img id="inst-logo" src="Public/media/piano.png" alt="piano icon">
-                                <span id="inst-name">piano</span>
                             </div>
                         </div>
-                        <div class="row">
-                            <span id="panel-place">Lieu : 21 avenue jean monnet</span>
+                        <div class="row tight">
+                            <em class="fa-location-dot svg-white icon-25"> </em>
+                            <span id="panel-place">Adresse</span>
                         </div>
                         <div class="row big">
                             <p id="panel-desc-text">Description de l'annonce</p>

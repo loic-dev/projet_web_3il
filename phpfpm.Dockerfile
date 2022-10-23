@@ -16,3 +16,4 @@ RUN docker-php-ext-install zip
 
 RUN composer require firebase/php-jwt
 RUN composer require phpmailer/phpmailer
+RUN composer require halaxa/json-machine

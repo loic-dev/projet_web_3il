@@ -68,7 +68,7 @@ require_once 'Controllers/verifyUserConnected.php';
                             </div>
                         </div>
                         <div class="input-submit">
-                            <input type="submit" id="btn-submit" value="Publier">
+                            <input type="submit" id="btn-submit" value="Publier" disabled>
                         </div>
                     </form>
                 </div>

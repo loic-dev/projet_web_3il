@@ -1,6 +1,5 @@
 <?php function json_response($code = 200, $message = null)
 {
-    header('Content-Type: application/json');
     $status = array(
         200 => '200 OK',
         400 => '400 Bad Request',

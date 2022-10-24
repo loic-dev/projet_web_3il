@@ -1,4 +1,5 @@
 import {regex_input_text} from '../js/regex.js'
+import EventBus from "../js/eventBus.class.js";
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -38,13 +39,15 @@ export default class AddInstrumentModal extends HTMLElement{
  addInstrument = () => {
     let value = this.shadowRoot.querySelector("input").value;
     if(regex_input_text(value)){
-        console.log("cbon")
+        EventBus.fire("addInstrument",{value});
+        this.close();
     } else {
         console.log("c'est pas bon")
     }
-    
-
  }
+
+
+
 
 
 

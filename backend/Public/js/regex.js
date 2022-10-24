@@ -1,6 +1,10 @@
 
 function regex_input_text(text) {
-    return /^[a-zA-Z\p{L} ]+$/.test(text);
+    return /^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ ]+$/.test(text);
+}
+
+function regex_input_alphaNum(text) {
+    return /^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ0-9 ]+$/.test(text);
 }
 
 function regex_input_password(password) {
@@ -13,5 +17,5 @@ function regex_input_email(email) {
 }
 
 export {
-    regex_input_text,regex_input_password,regex_input_email
+    regex_input_text,regex_input_password,regex_input_email,regex_input_alphaNum
 }

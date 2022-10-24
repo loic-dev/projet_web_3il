@@ -83,6 +83,12 @@
     mask: url(../../Public/media/trash.svg)  no-repeat center / contain; 
 }
 
+.fa-music{
+    -webkit-mask: url(../../Public/media/music.svg)  no-repeat center / contain;
+    mask: url(../../Public/media/music.svg)  no-repeat center / contain; 
+}
+
+
 
 
 .icon-20{

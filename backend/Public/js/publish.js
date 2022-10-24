@@ -1,4 +1,6 @@
 import AddInstrumentModal from "../components/addInstrumentModal.component.js";
+import EventBus from "./eventBus.class.js";
+import {regex_input_text,regex_input_alphaNum} from "./regex.js"
 
 
 
@@ -30,12 +32,13 @@ let listInstrument = [{
 
 
 let instrumentsInput = {
+    "id":0,
     "name":"Guitare",
     "icon":"guitar"
 }
 
 
-
+console.log(AddInstrumentModal)
 
 let button_submit = document.getElementById("btn-submit");
 let addPhotoPanel = document.getElementById("panel-add-photos");
@@ -61,12 +64,14 @@ const updateViewInstruments = () => {
 
 
     listInstrument.forEach((instruments,i) => {
-        let view = `<span id="panel-instrument-${i}" class="${instrumentsInput.icon === instruments.icon ? `select panel-instruments` : `panel-instruments`}">
+        console.log(instruments)
+        let view = `<span id="panel-instrument-${i}" class="${instrumentsInput.id === i ? `select panel-instruments` : `panel-instruments`}">
             <em class="fa-${instruments.icon} svg-primary-grey icon-30"></em>
             <p>${instruments.name}</p>
         </span>` 
         let element = document.createRange().createContextualFragment(view);
         containerInstrument.append(element);
+        instruments.id = i;
         document.querySelector(`#panel-instrument-${i}`).addEventListener("click", e => selectInstrument(instruments));
     })
 }
@@ -197,6 +202,8 @@ const updateViewPhoto  = () => {
         node.removeEventListener("click",(e) => remove(e,i), true);
         node.remove();
     })
+
+    
 
 
     //delete preview state
@@ -368,3 +375,91 @@ const showModalAddInstruments = () => {
 document.querySelector('#add-instruments').addEventListener("click", (e) => showModalAddInstruments());
 
 
+EventBus.register("addInstrument", (evt) => {
+    console.log(evt)
+    let newSelection = {
+        "name":evt.detail.value,
+        "icon":"music"
+    }
+    newSelection.id = listInstrument.length;
+    listInstrument.push(newSelection);
+    selectInstrument(newSelection);
+});
+
+
+const publish = (e) => {
+    e.preventDefault();
+    if(verifyAllForm()){
+
+    
+
+        let ad = {
+            "title":titleInput.value,
+            "place":placeInput.value,
+            "level":levelInput.value,
+            "description":descriptionInput.value,
+            "instruments":instrumentsInput.name,
+            "images":listPhotos
+        }
+
+        const form_data = new FormData();
+        Object.keys(ad).forEach(key => {
+            if(key === "images"){
+                ad[key].forEach((data,i) => {
+                    form_data.append(`image-${i}`, data);
+                })
+            } else {
+                form_data.append(key, ad[key]);
+            }
+        })
+
+        console.log(...form_data)
+        
+
+       
+
+
+
+
+        fetch('Controllers/controllerAd.php',{
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: form_data
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            console.log(data)
+        }).catch(function (err) {
+            addError(err);
+        });
+    } else {
+        addError("un problème est survenue");
+    }
+}
+
+
+const verifyAllForm = () => {
+    return titleInput.value && regex_input_alphaNum(titleInput.value) &&
+    placeInput.value && regex_input_alphaNum(placeInput.value) &&
+    levelInput.value && regex_input_alphaNum(levelInput.value) &&
+    descriptionInput.value && instrumentsInput.name;
+}
+
+
+const activeSubmitButton = () => {
+    if(verifyAllForm()){
+        document.querySelector('#btn-submit').classList.add("active");
+        document.querySelector('#btn-submit').disabled=false;
+    } else {
+        document.querySelector('#btn-submit').classList.remove("active");
+        document.querySelector('#btn-submit').disabled=true;
+    }
+}
+
+
+signup_form.addEventListener("submit", e => publish(e));
+
+signup_form.addEventListener("change", () => activeSubmitButton());

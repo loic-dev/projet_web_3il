@@ -42,9 +42,8 @@ $payload = [
     'iss' => 'localhost',
     'nbf' => $created_at->getTimestamp(),
     'exp' => $expire_at,
-    'userId' => $signStructId
+    'userId' => $signStruct::getId()
 ];
-
 
 try {
     $jwt = JWT::encode($payload, getenv('KEY_JWT'), 'HS256');

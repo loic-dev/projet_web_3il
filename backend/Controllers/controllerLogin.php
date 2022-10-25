@@ -16,34 +16,34 @@ $_POST = json_decode($content, true);
 $password = $_POST["password"];
 $email = $_POST["email"];
 
-// if(!regex_input_email($email)){
-//     $error = json_response(500, 'email invalid');
-// } else if(regex_input_password($password) === 0){
-//     $error = json_response(500, 'invalid password');
-// }
+if(!regex_input_email($email)){
+    $error = json_response(500, 'email invalid');
+} else if(regex_input_password($password) === 0){
+    $error = json_response(500, 'invalid password');
+}
 
 
 
 /* verifier que l'utilisateur n'existe pas deja */
-// $sql = "SELECT id,password,email_verify FROM structure WHERE email = ?";
-// try {
-//     // $request = $db->prepare($sql);
-//     // $request->execute([$email]);
-//     // $result = $request->fetch();
-//     // $db_password = $result['password'];
-//     // $userId =  $result['id'];
-//     // $email_verify = $result['email_verify'];
+$sql = "SELECT id,password,email_verify FROM structure WHERE email = ?";
+try {
+    $request = $db->prepare($sql);
+    $request->execute([$email]);
+    $result = $request->fetch();
+    $db_password = $result['password'];
+    $userId =  $result['id'];
+    $email_verify = $result['email_verify'];
 
-//     if($result == false){
-//         $error = json_response(500, "Identifiant ou mot de passe incorrect");
-//     } else if (password_verify($password,$db_password) == false){
-//         $error = json_response(500, "Identifiant ou mot de passe incorrect");
-//     } else if($email_verify == 0){
-//         $error = json_response(500, "Email non verifié");
-//     }
-// } catch (PDOException $e) {
-//     $error = json_response(500, "Une erreur est survenue");
-// }
+    if($result == false){
+        $error = json_response(500, "Identifiant ou mot de passe incorrect");
+    } else if (password_verify($password,$db_password) == false){
+        $error = json_response(500, "Identifiant ou mot de passe incorrect");
+    } else if($email_verify == 0){
+        $error = json_response(500, "Email non verifié");
+    }
+} catch (PDOException $e) {
+    $error = json_response(500, "Une erreur est survenue");
+}
 
 try {
     new Structure($_POST["email"],$_POST["password"]);

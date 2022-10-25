@@ -31,6 +31,9 @@ class Structure
     public static function getMail() {
         return self::$_mail;
     }
+    public static function getId() {
+        return self::$_id;
+    }
 
     public static function isMailValid() {
         if(!regex_input_email(self::$_mail)) {
@@ -64,6 +67,7 @@ class Structure
         $now = new DateTimeImmutable();
         $hash_password = Structure::encryptPassword();
         try {
+
             Database::getPdo()->prepare($sql)->execute([
                 'id' => self::$_id,
                 'name' => self::$_name,

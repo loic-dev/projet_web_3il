@@ -48,6 +48,12 @@ class Structure
         return (self::$_emailVerify == 1);
     }
 
+    public static function isNameValid() {
+        if(regex_input_text(self::getName()) === 0){
+            throw new ClientJsonException("error name", 500);
+        }
+    }
+
     public static function encryptPassword() {
         return password_hash(self::$_password, PASSWORD_BCRYPT);
     }

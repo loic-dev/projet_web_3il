@@ -19,12 +19,9 @@ $signStruct::setMail($_POST["email"]);
 $signStruct::setPassword($_POST["password"]);
 $signStruct::setName($_POST["name"]);
 
-if(regex_input_text($name) === 0){
-    $error = json_response(500, 'error name');
-} //????
-
 try {
 
+    $signStruct::isNameValid();
     $signStruct::isMailValid();
     $signStruct::isPasswordWeak();
     $signStruct::verifyPasswordIdentical($_POST["confirmPassword"]);

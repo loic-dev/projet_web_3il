@@ -3,7 +3,7 @@
     <div class="section-header">
         <div class="hamburger_menu_div">
             <p id="logo">Logo</p>
-            <img id="hamburger_icon" src="../../Public/media/menu.png"></img>
+            <em id="hamburger_icon" class="fa-bars svg-primary-grey icon-25"> </em>
         </div>
         <div id="hamburger_menu_nav">
             <div class="container_list">

@@ -12,7 +12,6 @@
  * @link       ****
  * @since      1.0.0
  */
-require 'Controllers/controllerAddress.php';
 require_once 'Controllers/controllerIndex.php';
 
 

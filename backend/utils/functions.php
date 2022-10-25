@@ -1,5 +1,5 @@
-<?php function json_response($code = 200, $message = null)
-{
+<?php 
+function json_response($code = 200, $message = null) {
     header('Content-Type: application/json');
     $status = array(
         200 => '200 OK',
@@ -13,7 +13,7 @@
     return json_encode(array(
         'status' => $code < 300, // success or not?
         'message' => $message
-        ));
+    ));
 }
 
 ?>

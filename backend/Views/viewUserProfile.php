@@ -27,30 +27,32 @@
         <div class="change_information">
             <div class="edit_name">
                 <p>Information</p>
-                <button>Editer</button>
+                <button class="list_menu button yellowButton">Editer</button>
             </div>
+            <span class="delimiter"></span>
+
             <label>
                 Nom d'utilisateur
-                <input type="text" />
+                <input class="input-text" disabled type="text" />
             </label>
             <label>
                 Nom
-                <input type="text" />
+                <input class="input-text" disabled type="text" />
             </label>
         </div>
-        <span class="delimiter"></span>
         <div class="change_information">
             <div class="edit_name">
                 <p>Mot de passe</p>
-                <button>Editer</button>
+                <button class="list_menu button yellowButton">Editer</button>
             </div>
+            <span class="delimiter"></span>
             <label>
                 Mot de passe
-                <input type="text" />
+                <input class="input-text" disabled type="text" />
             </label>
             <label>
                 Confirmer son mot de passe
-                <input type="text" />
+                <input class="input-text" disabled type="text" />
             </label>
         </div>
         <button id="remove_account">Supprimer son compte</button>

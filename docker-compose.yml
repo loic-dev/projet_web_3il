@@ -1,28 +1,22 @@
 version: '3'
 services:
-  httpd:
+  nginx:
     build:
       context: .
-      dockerfile: httpd.Dockerfile
-    ports:
-      - 8000:8000
-    volumes:
-      - ./backend:/var/www/html
+      dockerfile: nginx/Dockerfile
+    ports: 
+      - "8080:80"
+    networks:
+      - internal
     links:
       - db
-    networks:
-      - httpdphpfpm
-  phpfpm:
-    build:
-      context: .
-      dockerfile: phpfpm.Dockerfile
-    image: php
-    expose:
-      - 9000
     volumes:
-      - ./backend:/var/www/html
+      - ./data/:/var/www/html/
+      - ./logs/nginx:/var/log/nginx/
+  php:
+    image: php:fpm-alpine
     networks:
-      - httpdphpfpm
+      - internal
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -30,6 +24,11 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_HOST=${MYSQL_HOST}
       - KEY_JWT=${KEY_JWT}
+    volumes:
+      - ./data/:/var/www/html/
+      - ./logs/php.log:/var/log/fpm-php.www.log
+   
+    
   db:
     image: mysql:5.7
     container_name: db
@@ -42,7 +41,7 @@ services:
     ports:
       - "6033:3306"
     networks:
-      - httpdphpfpm
+      - internal
     volumes:
       - dbdata:/var/lib/mysql
       - ./database/dump.sql:/docker-entrypoint-initdb.d/dump.sql
@@ -62,10 +61,10 @@ services:
     ports:
       - 8081:80
     networks:
-      - httpdphpfpm
+      - internal
 
 networks:
-  httpdphpfpm:
+  internal:
     driver: bridge
 
 volumes:

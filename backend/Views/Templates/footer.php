@@ -9,6 +9,5 @@
 </footer>
 
 <script src="../../Public/js/hamburger.js"></script>
-
 </body>
 </html>

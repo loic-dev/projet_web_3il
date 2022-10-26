@@ -3,6 +3,16 @@
     animation-name: upShow;
 }
 
+#container-ring{
+    display: none;
+    width: 100%;
+    justify-content: center;
+}
+
+#container-ring.load{
+    display: flex;
+}
+
 .container_logo{
     display: flex;
     flex-direction: row;

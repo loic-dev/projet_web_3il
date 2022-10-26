@@ -106,7 +106,19 @@
     color: var(--primary-grey); 
     opacity: 0.5; 
     transition-duration: 0.3s;
+    
 }
+
+.form-submit-button.activeDefault{
+    background-color: var(--secondary-yellow);
+    color: var(--primary-grey);
+    transition-duration: 0.3s;
+    width: 100%;
+    opacity: 1;
+    margin-top: 10px;
+}
+
+
 
 .form-submit-button.active{
     opacity: 1;

@@ -10,7 +10,7 @@ const confirmEmailComponentSuccess = () => {
                     <img class="valid_picture" src="./Public/media/valid.webp" />
             </div>
             <p>Votre email à été confirmé avec succès</p>
-            <a href="../login" class="form-submit-button">Connectez-vous</a>
+            <a href="../login" ><button class="form-submit-button activeDefault">Connectez-vous</button></a>
         `
 }
 
@@ -23,29 +23,39 @@ const confirmEmailComponentError = () => {
             <p>Une erreur est survenue</p>`
 }
 
-
-fetch('Controllers/controllerVerifyEmail.php?token='+token,{
-    method: 'GET',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-    },
-}).then(function (response) {
-    return response.json();
-}).then(function (data) {
-    let containerBox = document.querySelector('.container-box');
-    if(data.status){
-        containerBox.innerHTML = confirmEmailComponentSuccess();
-        containerBox.classList.add('active');
-    } else {
+const verifyEmail = () => {
+    document.querySelector('#container-ring').classList.add('load');
+    fetch('Controllers/controllerVerifyEmail.php?token='+token,{
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+    }).then(function (response) {
+        return response.json();
+    }).then(function (data) {
+        document.querySelector('#container-ring').classList.remove('load');
+        let containerBox = document.querySelector('.container-box');
+        if(data.status){
+            containerBox.innerHTML = confirmEmailComponentSuccess();
+            containerBox.classList.add('active');
+        } else {
+            containerBox.innerHTML = confirmEmailComponentError();
+            containerBox.classList.add('active');
+        }
+    }).catch(function (err) {
+        console.log(err)
+        document.querySelector('#container-ring').classList.remove('load');
+        let containerBox = document.querySelector('.container-box');
         containerBox.innerHTML = confirmEmailComponentError();
         containerBox.classList.add('active');
-    }
-}).catch(function (err) {
-    let containerBox = document.querySelector('.container-box');
-    containerBox.innerHTML = confirmEmailComponentError();
-    containerBox.classList.add('active');
-});
+    });
+
+
+}
+
+
+verifyEmail();
         
     
     

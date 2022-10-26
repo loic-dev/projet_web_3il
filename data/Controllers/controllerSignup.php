@@ -13,6 +13,10 @@ require_once '../Models/Structure.php';
 
 $content = trim(file_get_contents("php://input"));
 $_POST = json_decode($content, true);
+$headerHost = parse_url($_SERVER['HTTP_REFERER']);
+
+
+
 
 $signStruct = new Structure();
 $signStruct::setMail($_POST["email"]);
@@ -51,8 +55,8 @@ try {
     $error = json_response(500, 'error create JWT');
 }
 
-
-$link_verify_email = "localhost:8000/verify?token={$jwt}";
+$host = $headerHost['host'];
+$link_verify_email = "https://$host/verify?token={$jwt}";
 try {
     sendEmail($signStruct::getMail(), $signStruct::getName(), $link_verify_email);
     $data = ['name' => $signStruct::getName(), 'email' => $signStruct::getMail()];

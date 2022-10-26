@@ -6,15 +6,20 @@ services:
       dockerfile: nginx/Dockerfile
     ports: 
       - "8080:80"
+      - "443:443"
     networks:
       - internal
     links:
       - db
     volumes:
       - ./data/:/var/www/html/
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./logs/nginx:/var/log/nginx/
+      - ./ssl:/etc/nginx/certs
   php:
-    image: php:fpm-alpine
+    build:
+      context: .
+      dockerfile: php/Dockerfile
     networks:
       - internal
     environment:
@@ -26,7 +31,6 @@ services:
       - KEY_JWT=${KEY_JWT}
     volumes:
       - ./data/:/var/www/html/
-      - ./logs/php.log:/var/log/fpm-php.www.log
    
     
   db:
@@ -62,6 +66,8 @@ services:
       - 8081:80
     networks:
       - internal
+
+ 
 
 networks:
   internal:

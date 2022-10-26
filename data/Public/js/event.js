@@ -2,7 +2,7 @@ function createNewAtelier() {
     let domNode = document.createElement('div')
     domNode.classList.add("atelier");
     domNode.innerHTML = `
-            <img src="tset.jpg"/>
+            <img src=""/>
             <p>Atelier Trompette</p>
             <p>Nom de la structure</p>
     `;

@@ -6,10 +6,6 @@ let login_form = document.getElementById("login-form");
 
 login_form.addEventListener("submit",  (e) => login(e));
 
-
-
-
-
 const addError = (err) => {
     let errortext = document.querySelector('#error-signup');
     let errorContainer = document.querySelector('.error-container');
@@ -49,7 +45,4 @@ const login = async (event) => {
         }).catch(function (err) {
             addError(err);
         });
-        
-    
-    
 }

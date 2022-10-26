@@ -20,16 +20,34 @@ function hiddenSpanToLoad() {
 
 
 let display_content = document.getElementById("display_event");
+
+
+fetch('Controllers/controllerIndex.php',{
+
+  method: 'GET',
+  headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+  },
+
+}).then(function (response) {
+  
+  return console.log(response.json());
+
+}).catch(function (err) {
+  addError(err);
+});
+
 // console.log("tes")
 
-createNewAtelier();
-createNewAtelier();
-createNewAtelier();
-createNewAtelier();
-createNewAtelier();
-createNewAtelier();
+// createNewAtelier();
+// createNewAtelier();
+// createNewAtelier();
+// createNewAtelier();
+// createNewAtelier();
+// createNewAtelier();
 
-hiddenSpanToLoad();
+// hiddenSpanToLoad();
 
 function removeActualSpan() {
   document.getElementById("testHidden").remove();
@@ -37,15 +55,15 @@ function removeActualSpan() {
 
 let observer = new IntersectionObserver(function(entries) {
   if(entries[0].isIntersecting === true) {
-    createNewAtelier();
-    createNewAtelier();
-    createNewAtelier();
-    createNewAtelier();
-    createNewAtelier();
-    createNewAtelier();
+    // createNewAtelier();
+    // createNewAtelier();
+    // createNewAtelier();
+    // createNewAtelier();
+    // createNewAtelier();
+    // createNewAtelier();
 
-    removeActualSpan();
-    hiddenSpanToLoad();
+    // removeActualSpan();
+    // hiddenSpanToLoad();
     observer.observe(document.querySelector("#testHidden"));
   }
 }, { threshold: [1] });

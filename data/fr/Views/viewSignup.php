@@ -20,14 +20,14 @@ require_once 'Controllers/controllerIndex.php';
 <html lang="fr">
 <head>
     <?php include('Views/Templates/head.php');?>
-    <link rel="stylesheet" href="../../Public/CSS/viewAuth.css">
-    <link rel="stylesheet" href="../../Public/CSS/ring.css">
-    <link rel="stylesheet" href="../../Public/CSS/viewSignup.css">
+    <link rel="stylesheet" href="/Public/CSS/viewAuth.css">
+    <link rel="stylesheet" href="/Public/CSS/ring.css">
+    <link rel="stylesheet" href="/Public/CSS/viewSignup.css">
 </head>
 <body class="preload">
     <section class="auth-page">
         <div class="container-logo">
-            <img src="../Public/images/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
+            <img src="/Public/images/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
         </div>
         <form class="form-post" id="signup-form">
             <section class="section-form">

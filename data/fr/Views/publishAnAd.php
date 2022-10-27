@@ -6,8 +6,8 @@ require_once 'Controllers/verifyUserConnected.php';
 <html lang="fr">
     <head>
         <?php include('Views/Templates/head.php');?>
-        <link rel="stylesheet" href="../../Public/CSS/publishAnAd.css">
-        <link rel="stylesheet" href="../../Public/CSS/ring.css">
+        <link rel="stylesheet" href="/Public/CSS/publishAnAd.css">
+        <link rel="stylesheet" href="/Public/CSS/ring.css">
     </head>
     <body class="preload">
         <?php include('Views/Templates/header.php');?>

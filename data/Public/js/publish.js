@@ -167,7 +167,7 @@ function uploadPhoto(files) {
     
     
     const readFile = (index) => {
-      if( index >= 3 || index >= files.length ) {
+      if( index >= 3 || index >= files.length  ) {
         inputFile.value = "";
         return;
       }
@@ -184,22 +184,25 @@ function uploadPhoto(files) {
 
 
       reader.onload = function(e) {  
-        var bin = e.target.result;
         listPhotos[listPhotos.findIndex(data => data.id === idPhoto)].preview = e.target.result;
         idPhoto = null;
-        readFile(index+1);
+        if(listPhotos.length < 3){
+            readFile(index+1);
+        }
+        updateViewPhoto();
       }
 
       reader.readAsDataURL(file);
     }
     readFile(0);
-    updateViewPhoto();
+    console.log(listPhotos)
+    
 }
 
 
 
-const remove = (e,id) => {
-    listPhotos.splice(listPhotos.findIndex(data => data.id === id), 1);
+const remove = (e,index) => {
+    listPhotos.splice(index, 1);
     updateViewPhoto();
 }
 
@@ -254,18 +257,16 @@ const updateViewPhoto  = () => {
     //delete state list photos
     let getNodePhotos = document.querySelectorAll(".edit-photo-span");
     getNodePhotos.forEach((node,i) => {
-        node.removeEventListener("click",(e) => remove(e,i), true);
+        let index = listPhotos.findIndex(data => data.id === node.id)
+        node.removeEventListener("click",(e) => remove(e,index), true);
         node.remove();
     })
 
     
-
-
     //delete preview state
     let getNodePreviewPhotos = document.querySelectorAll(".img-preview");
     getNodePreviewPhotos.forEach((node,i) => {
         node.remove();
-
     })
 
 
@@ -281,7 +282,6 @@ const updateViewPhoto  = () => {
     }
 
 
-    console.log(listPhotos)
 
     listPhotos.forEach((link) => {
 
@@ -294,7 +294,8 @@ const updateViewPhoto  = () => {
                 <em class="deleteIcon fa-trash svg-primary-grey icon-30"> </em>
             </span>`
         containerPhoto.prepend(document.createRange().createContextualFragment(newPhotoEditComponent));
-        document.getElementById(`edit-photo-span-${link.id}`).addEventListener("click", (e) => remove(e,link.id));
+        let index = listPhotos.findIndex(data => data.id === link.id)
+        document.getElementById(`edit-photo-span-${link.id}`).addEventListener("click", (e) => remove(e,index));
 
 
 
@@ -461,37 +462,27 @@ const publish = (e) => {
         Object.keys(ad).forEach(key => {
             if(key === "images"){
                 ad[key].forEach((data,i) => {
-                    form_data.append(`image-${i}`, data);
+                    form_data.append(`image-${data.id}`, data.file);
                 })
             } else {
                 form_data.append(key, ad[key]);
             }
         })
 
-        console.log(...form_data)
-        
-
-       
-
-
 
 
         fetch('Controllers/controllerAd.php',{
             method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
             body: form_data
         }).then(function (response) {
             return response.json();
         }).then(function (data) {
             console.log(data)
         }).catch(function (err) {
-            addError(err);
+            console.log(err)
         });
     } else {
-        addError("un problème est survenue");
+        console.log("test")
     }
 }
 

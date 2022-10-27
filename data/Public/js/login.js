@@ -44,7 +44,7 @@ const login = async (event) => {
             } else {
                 let token = "bearer "+data.message.token;
                 document.cookie = "token=" + token;
-                document.location.href = '../publish-an-ad';
+                document.location.href = '../fr/publish-an-ad';
             }
         }).catch(function (err) {
             addError(err);

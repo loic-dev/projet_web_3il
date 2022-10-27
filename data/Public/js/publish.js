@@ -129,22 +129,77 @@ const setTitle = (value) => {
 
 descriptionInput.addEventListener("keyup", e => setDescription(e.target.value))
 
-const uploadPhoto = (e) => {
-    const file = e.target.files[0];
-    reader.readAsDataURL(file);
-    inputFile.value = "";
-}
 
-reader.onload = e => {
-    if(listPhotos.length < 3){
-        listPhotos.push(e.target.result);
-        console.log(listPhotos)
-        updateViewPhoto();
+const uniqId = () => {
+    return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+  }
+
+
+let idPhoto = null;
+
+const uploadPhotos = async (e) => {
+
+    var listFile = [];
+    for (let index = 0; index < 3; index++) {
+        listFile.push(e.target.files[index]);
     }
+
+    if(listPhotos.length < 3){
+        for (const file in listFile) {
+            idPhoto = uniqId();
+            reader.readAsDataURL(file);
+            listPhotos.push({
+                id:idPhoto,
+                file:file
+            })
+            inputFile.value = "";
+        }
+    }
+    
 }
 
-const remove = (e,index) => {
-    listPhotos.splice(index, 1);
+
+function uploadPhoto(files) {
+
+    var reader = new FileReader(); 
+    
+    
+    const readFile = (index) => {
+      if( index >= 3 || index >= files.length ) {
+        inputFile.value = "";
+        return;
+      }
+
+      
+
+      var file = files[index];
+      console.log(file)
+      idPhoto = uniqId();
+      listPhotos.push({
+        id:idPhoto,
+        file:file
+      })
+
+
+      reader.onload = function(e) {  
+        var bin = e.target.result;
+        listPhotos[listPhotos.findIndex(data => data.id === idPhoto)].preview = e.target.result;
+        idPhoto = null;
+        readFile(index+1);
+      }
+
+      reader.readAsDataURL(file);
+    }
+    readFile(0);
+    updateViewPhoto();
+}
+
+
+
+const remove = (e,id) => {
+    listPhotos.splice(listPhotos.findIndex(data => data.id === id), 1);
     updateViewPhoto();
 }
 
@@ -226,25 +281,25 @@ const updateViewPhoto  = () => {
     }
 
 
+    console.log(listPhotos)
 
+    listPhotos.forEach((link) => {
 
-    listPhotos.forEach((link,i) => {
-
-
+        console.log(link)
 
         /*input photos*/
         let newPhotoEditComponent = `
-            <span id="edit-photo-span-${i}" style="background-image: url('${link}');" class="edit-photo-span">
+            <span id="edit-photo-span-${link.id}" style="background-image: url('${link.preview}');" class="edit-photo-span">
                 <span class="overlay"></span>
                 <em class="deleteIcon fa-trash svg-primary-grey icon-30"> </em>
             </span>`
         containerPhoto.prepend(document.createRange().createContextualFragment(newPhotoEditComponent));
-        document.getElementById(`edit-photo-span-${i}`).addEventListener("click", (e) => remove(e,i));
+        document.getElementById(`edit-photo-span-${link.id}`).addEventListener("click", (e) => remove(e,link.id));
 
 
 
         /* preview photos */
-        let newPhotoPreview = `<span id="img-preview-${i}" style="background-image: url('${link}');" class="img-preview" ></span>`
+        let newPhotoPreview = `<span id="img-preview-${link.id}" style="background-image: url('${link.preview}');" class="img-preview" ></span>`
         document.querySelector('#preview-img-container').prepend(document.createRange().createContextualFragment(newPhotoPreview));
     })
 
@@ -363,7 +418,7 @@ titleInput.addEventListener("keyup", (e) =>  setTitle(e.target.value))
 addPhotoPanel.addEventListener("click", (e) => inputFile.click());
 
 
-inputFile.addEventListener('change', (e) => uploadPhoto(e));
+inputFile.addEventListener('change', (e) => uploadPhoto(e.target.files));
 
 const showModalAddInstruments = () => {
     let viewModal = `<modal-instrument>

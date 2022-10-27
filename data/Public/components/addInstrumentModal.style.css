@@ -79,7 +79,6 @@ em{
     font-weight: 500;
     border: 2px solid var(--white-grey);
     padding: 5px 10px;
-    font-family: 'Montserrat';
 }
 
 button{
@@ -88,7 +87,6 @@ button{
     background-color: var(--secondary-yellow);
     border-radius: 5px;
     border: none;
-    font-family: 'Montserrat';
     outline: none;
     font-size: 1rem;
     color: var(--primary-grey);

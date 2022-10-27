@@ -21,7 +21,6 @@
 .container-box.success .container_logo{
     display: flex;
     font-size: 2rem;
-    font-family: 'Montserrat';
     flex-direction: row;
     justify-content: center;
 }

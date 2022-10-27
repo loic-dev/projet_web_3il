@@ -20,7 +20,7 @@
     <?php include('Views/Templates/head.php');?>
     <link rel="stylesheet" href="../../Public/CSS/viewUserProfile.css">
 </head>
-<body>
+<body class="preload">
     <?php include('Views/Templates/header.php');?>
     <div class="stdr_view user_profile_view">
         <p class="title_welcome_user">Bonjour, {username}</p>
@@ -58,5 +58,6 @@
         <button id="remove_account">Supprimer son compte</button>
     </div>
     <?php include_once "Views/Templates/footer.php" ?>
+    <script type="module" src="../../Public/js/all.js"></script>
 </body>
 </html>

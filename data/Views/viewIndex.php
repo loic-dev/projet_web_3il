@@ -25,7 +25,7 @@ require_once 'Controllers/controllerIndex.php';
     <link rel="stylesheet" href="../../Public/CSS/atelier.css">
     <link rel="stylesheet" href="../../Public/CSS/footer.css">
 </head>
-<body>
+<body class="preload">
 
 <?php include('Views/Templates/header.php');?>
 
@@ -111,6 +111,7 @@ require_once 'Controllers/controllerIndex.php';
 <script type="module" src="../../Public/js/event.js"></script>
 <script src="../../Public/js/map.js"></script>
 <script src="../../Public/js/event.js"></script>
+<script type="module" src="../../Public/js/all.js"></script>
 
 </body>
 </html>

@@ -1,9 +1,8 @@
-
-
-
 html{
     height: 100%;
 }
+
+
 
 
 body {
@@ -29,7 +28,7 @@ body {
 
 
     margin: 0;
-    font-family: 'montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -39,6 +38,13 @@ body {
     line-height: 1;
 }
 
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
 
 
 
@@ -46,16 +52,12 @@ button{
     font-size: 1.2rem;
     height: 42px;
     border: none;
-    font-family: 'montserrat', sans-serif;
     border-radius: 5px;
     outline: none;
     cursor: pointer;
     font-weight: 600;
 }
 
-input{
-    font-family: 'montserrat', sans-serif;
-}
 
 i{
   display: inline-block;

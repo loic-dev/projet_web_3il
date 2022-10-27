@@ -24,7 +24,7 @@ require_once 'Controllers/controllerIndex.php';
     <link rel="stylesheet" href="../../Public/CSS/ring.css">
     <link rel="stylesheet" href="../../Public/CSS/viewSignup.css">
 </head>
-<body>
+<body class="preload">
     <section class="auth-page">
         <div class="container-logo">
             <img src="../Public/images/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
@@ -83,5 +83,6 @@ require_once 'Controllers/controllerIndex.php';
 
     </section>
     <script type="module" src="../../Public/js/signup.js"></script>
+    <script type="module" src="../../Public/js/all.js"></script>
 </body>
 </html>

@@ -426,6 +426,25 @@ h2{
     color: var(--secondary-yellow);
 }
 
+#error-container{
+    position: fixed;
+    top: -30%;
+    left: 20px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: var(--error-color);
+    border-radius: 5px;
+    padding: 10px 15px;
+    overflow-wrap: break-word;
+    transition-duration: 0.3s;
+    z-index: 50;
+}
+
+#error-container.show{
+    top: 20px;
+}
+
 
 /* desktop */
 @media screen and (min-width: 1024px){

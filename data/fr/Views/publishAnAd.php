@@ -6,10 +6,10 @@ require_once 'Controllers/verifyUserConnected.php';
 <html lang="fr">
     <head>
         <?php include('Views/Templates/head.php');?>
-        <link rel="stylesheet" href="../../Public/CSS/publishAnAd.css">
-        <link rel="stylesheet" href="../../Public/CSS/ring.css">
+        <link rel="stylesheet" href="/Public/CSS/publishAnAd.css">
+        <link rel="stylesheet" href="/Public/CSS/ring.css">
     </head>
-    <body>
+    <body class="preload">
         <?php include('Views/Templates/header.php');?>
         
         <section class="publishAd-page">
@@ -63,7 +63,7 @@ require_once 'Controllers/verifyUserConnected.php';
                             <div class="container-photos">
                                 <span id="panel-add-photos" class="show">
                                     <em class="fa-plus svg-primary-grey icon-30"> </em>
-                                    <input id="file-input" type="file" name="photo" style="display: none;" />
+                                    <input id="file-input" type="file" name="photo" style="display: none;" multiple/>
                                 </span>
                             </div>
                         </div>
@@ -112,5 +112,6 @@ require_once 'Controllers/verifyUserConnected.php';
         </section>
         <?php include('Views/Templates/footer.php');?>
         <script type="module" src="../../Public/js/publish.js"></script>
+        <script type="module" src="../../Public/js/all.js"></script>
     </body>
 </html>

@@ -20,10 +20,10 @@ require_once 'Controllers/controllerIndex.php'
 <html lang="fr">
 <head>
     <?php include('Views/Templates/head.php');?>
-    <link rel="stylesheet" href="../../Public/CSS/viewMusicLesson.css">
-    <link rel="stylesheet" href="../../Public/CSS/footer.css">
+    <link rel="stylesheet" href="/Public/CSS/viewMusicLesson.css">
+    <link rel="stylesheet" href="/Public/CSS/footer.css">
 </head>
-<body>
+<body class="preload">
 
 <?php include('Views/Templates/header.php');?>
 
@@ -36,6 +36,7 @@ require_once 'Controllers/controllerIndex.php'
 <script type="module" src="../../Public/js/event.js"></script>
 <script src="../../Public/js/map.js"></script>
 <script src="../../Public/js/event.js"></script>
+<script type="module" src="../../Public/js/all.js"></script>
 
 </body>
 </html>

@@ -61,10 +61,16 @@ class Router
      */
     public static function add($route, callable $innerText)    
     {
-        self::$url[$route] = $route; // dans array url[Url] = func
-        if ($_SERVER["REQUEST_URI"] == $route) {
+        // echo "</br>";
+
+        // echo $route;
+        self::$url["/fr" . $route] = "/fr" .$route; // dans array url[Url] = func
+   
+        // echo $_SERVER["REQUEST_URI"];
+        if ($_SERVER["REQUEST_URI"] == "/fr" . $route) {
             $innerText(); //lance la fonction de view
         }
+
     }
 
 

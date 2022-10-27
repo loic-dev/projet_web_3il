@@ -1,0 +1,122 @@
+@import url('../CSS/fontawesome.css');
+
+
+.overlay-modal{
+    position: fixed;
+    z-index:10;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation-name: overlaySlow;
+    animation-duration: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+em{
+    cursor: pointer;
+}
+
+
+.header-container{
+    padding: 10px 20px;
+}
+
+.body-container{
+    flex: 1;
+    padding: 10px 20px;
+    display: flex;
+}
+
+.footer-container{
+    height: 40px;
+    padding: 10px 20px;
+    background-color: var(--white-grey);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.modal{
+    width:400px;
+    height:200px;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: white;
+    animation-name: showModal;
+    animation-duration: 0.3s;
+    display: flex;
+    flex-direction: column;
+    
+    font-weight: 500;
+    color: var(--primary-grey);
+}
+
+.modal.close{
+    animation-name: closeModal;
+    animation-duration: 0.3s;
+    transform: scale(0);
+}
+
+
+.header-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+}
+
+#inst-input{
+    height: 35px;
+    flex: 1;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    font-weight: 500;
+    border: 2px solid var(--white-grey);
+    padding: 5px 10px;
+}
+
+button{
+    padding: 10px 20px;
+    font-weight: 600;
+    background-color: var(--secondary-yellow);
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--primary-grey);
+    cursor: pointer;
+}
+
+@keyframes overlaySlow {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+
+@keyframes showModal {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes closeModal {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+}

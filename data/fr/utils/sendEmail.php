@@ -22,7 +22,7 @@ function sendEmail($email,$name, $link){
     $mail->addAddress($email, $name);
 
     
-    
+    $mail->CharSet = 'UTF-8';
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Vérification email';
     $mail->Body    = "Cliquer sur lien suivant pour vérifier votre email: <a href='$link' target='_blank'>Vérification</a";

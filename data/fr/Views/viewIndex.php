@@ -21,11 +21,11 @@ require_once 'Controllers/controllerIndex.php';
 <html lang="fr">
 <head>
     <?php include('Views/Templates/head.php');?>
-    <link rel="stylesheet" href="../../Public/CSS/viewIndex.css">
-    <link rel="stylesheet" href="../../Public/CSS/atelier.css">
-    <link rel="stylesheet" href="../../Public/CSS/footer.css">
+    <link rel="stylesheet" href="/Public/CSS/viewIndex.css">
+    <link rel="stylesheet" href="/Public/CSS/atelier.css">
+    <link rel="stylesheet" href="/Public/CSS/footer.css">
 </head>
-<body>
+<body class="preload">
 
 <?php include('Views/Templates/header.php');?>
 
@@ -39,10 +39,10 @@ require_once 'Controllers/controllerIndex.php';
         </div>
         <div class="container_pictures">
             <div class="inner_container">
-                <img class="default_picture" src="./Public/media/musician.webp" />
-                <img class="default_picture" src="./Public/media/piano.webp" />
+                <img class="default_picture" src="/Public/media/musician.webp" />
+                <img class="default_picture" src="/Public/media/piano.webp" />
             </div>
-            <img class="default_picture" src="./Public/media/piano.webp" />
+            <img class="default_picture" src="/Public/media/piano.webp" />
         </div>
     </div>
 
@@ -54,7 +54,7 @@ require_once 'Controllers/controllerIndex.php';
                 <div class="search_component_btn_list">
                     <select id="insturment-select" class="select">
                         <option value="">Instrument</option>
-                        <option value="dog">Dog</option>
+                        <option value="dog">Dog</option> 
                         <option value="cat">Cat</option>
                         <option value="hamster">Hamster</option>
                         <option value="parrot">Parrot</option>
@@ -111,6 +111,7 @@ require_once 'Controllers/controllerIndex.php';
 <script type="module" src="../../Public/js/event.js"></script>
 <script src="../../Public/js/map.js"></script>
 <script src="../../Public/js/event.js"></script>
+<script type="module" src="../../Public/js/all.js"></script>
 
 </body>
 </html>

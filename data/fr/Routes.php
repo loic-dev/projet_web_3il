@@ -22,13 +22,13 @@ Router::addTwoWay(
     }
 );
 
-Router::addNoLoggedWay(
+Router::add(
      '/login', function () {
          Controller::createView('viewLogin');
     }
 );
 
- Router::addLoggedWay(
+ Router::add(
     '/publish-an-ad', function () {
         Controller::createView('publishAnAd');
    }
@@ -41,12 +41,6 @@ Router::addRouteWithAttr(
 );
 
 Router::addRouteWithAttr(
-    '/musicLesson?', function () {
-        Controller::createView('viewMusicLesson');
-   }
-);
-
-Router::add(
     '/musicLesson?', function () {
         Controller::createView('viewMusicLesson');
    }

@@ -15,7 +15,7 @@
 
 // require_once 'Controllers/controllerIndex.php';
 
-if (session_status() === 1) {
+/*if (session_status() === 1) {
     session_start();
 }
 $autolog = new Structure();
@@ -25,11 +25,13 @@ $autolog::fetchUserData();
 // var_dump($_SESSION);
 
 $autolog::login();
-// var_dump($_SESSION);
-
-
-
+// var_dump($_SESSION);*/
+session_start();
+if($_SESSION['login']){
+    header("location: /fr/");
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -40,7 +42,7 @@ $autolog::login();
 <body class="preload">
     <section class="auth-page">
         <div class="container-logo">
-            <img src="/Public/images/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
+            <img src="../Public/media/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
         </div>
         <form action="" method="post" id="login-form">
             <section class="section-form">

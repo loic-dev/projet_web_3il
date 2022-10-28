@@ -1,6 +1,7 @@
 <?php
-require_once 'utils/regex.php'; 
-require_once 'utils/functions.php'; 
+require_once '../utils/ClientJsonException.php'; 
+require_once '../utils/regex.php'; 
+require_once '../utils/functions.php'; 
 require_once 'Database.php'; 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -142,8 +143,8 @@ class Structure
     
     private static function fetchAlreadyExistDb() {
         /* verifier que l'utilisateur n'existe pas deja */
-        $result = Database::selectDb("MailStructure", "Structure", [
-            "MailStructure = ?"
+        $result = Database::selectDb("Mail", "Structure", [
+            "Mail = ?"
         ], [
             self::$mail
         ]);
@@ -164,6 +165,15 @@ class Structure
     public static function verifyMailValid() {
         if( self::$mailValid === 0){
             throw new ClientJsonException("Email non verifié", 500);
+        }
+    }
+
+    public static function validMail() {
+        if(self::fetchAlreadyExistDb()){
+            $db = Database::getPdo();
+            $sql = "UPDATE Structure SET MailValid = 1 WHERE mail = ?";
+            $result = $db->prepare($sql);
+            $result->execute([self::$mail]);
         }
     }
     
@@ -191,8 +201,8 @@ class Structure
     }
     
     public static function login() {
+        session_start();
         $_SESSION["login"] = true;
-
         $_SESSION["Structure"]["mail"] = self::$mail;
         $_SESSION["Structure"]["name"] = self::$name;
         $_SESSION["Structure"]["website"] = self::$website;
@@ -200,41 +210,8 @@ class Structure
         $_SESSION["Structure"]["canton"] = self::$canton;
         $_SESSION["Structure"]["mailValid"] = self::$mailValid;
 
-    }
+        
 
-    public static function createToken() {
-        try {
-        
-            /* create JSON WEB TOKEN */
-            $created_at = new DateTimeImmutable();
-            $expire_at = $created_at->modify('+1440 minutes')->getTimestamp();
-        
-            $payload = [
-                'iat' => $created_at->getTimestamp(),
-                'iss' => 'localhost',
-                'nbf' => $created_at->getTimestamp(),
-                'exp' => $expire_at,
-                // 'userId' => $userId
-            ];
-        
-        
-            try {
-                $jwt = JWT::encode($payload, getenv('KEY_JWT'), 'HS256');
-                $response = json_response(200, ["token" => $jwt]);
-            } catch (Exception $e) {
-                $error = json_response(500, 'error create JWT');
-            }
-        
-        
-            if(empty($error)){
-                echo $response;
-            } else {
-                echo $error;
-            }
-        
-        } catch (Exception $e) {
-        
-        }
     }
 
 }

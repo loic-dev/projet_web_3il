@@ -9,7 +9,7 @@
 <body class="preload">
     <section class="auth-page">
         <div class="container-logo">
-            <img src="/Public/images/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
+            <img src="../Public/media/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
         </div>
         <div id="container-ring"><div class="lds-dual-ring"></div></div>
         <section class="section-form">

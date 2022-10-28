@@ -15,6 +15,8 @@
 
 require_once '../vendor/autoload.php';
 require_once '../utils/functions.php'; 
+require_once '../utils/ClientJsonException.php'; 
+require_once '../Models/Structure.php'; 
 require_once 'dbConnect.php'; 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -28,22 +30,17 @@ try {
     $decoded = JWT::decode($token, new Key(getenv('KEY_JWT'), 'HS256'));
     $userId = $decoded->userId;
 
-    $sql = "SELECT email_verify FROM structure WHERE id = ?";
-    $result = $db->prepare($sql);
-    $result->execute([$userId]);
-    $verified = $result->fetchColumn();
-
-    if($verified == 0){
-        $sql = "UPDATE structure SET email_verify = 1 WHERE id = ?";
-        $result = $db->prepare($sql);
-        $result->execute([$userId]);
-    }
-    $response = json_response(200, 'email verified');
+    
+    $struct = new Structure();
+    $struct->setMail($userId);
+    $struct::validMail();
+    
+    $response = new ClientJsonException("Votre email à été verifié", 200);
+    $response->sendJsonValid(true);
 } catch (Exception $e) {
-    $response = json_response(500, 'error during process');
+    $error = new ClientJsonException("Une erreur est survenue durant le processus de validation", 500);
+    $error->sendJsonError(true);
 }
-
-echo $response;
 
 
 

@@ -1,4 +1,4 @@
-
+<?php $auth = $_SESSION['login'];?>
 <header id="hamburger_menu">
     <div class="section-header">
         <div class="hamburger_menu_div">

@@ -1,6 +1,10 @@
 <?php 
-// require_once 'Controllers/verifyUserConnected.php';
+session_start();
+if(!$_SESSION['login']){
+    header("location: /fr/login");
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">

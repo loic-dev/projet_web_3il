@@ -16,8 +16,6 @@
 
 require_once 'RequireAll.php';
 
-session_start();
-
 
 /**
  * Class Router
@@ -116,7 +114,7 @@ class Router
         if ($_SESSION['login'] === true) {
             self::add($route, $innerText);
         } else {
-            // header('Location: /fr/login');
+            header('Location: /fr/login');
         }
     }
 
@@ -130,16 +128,17 @@ class Router
      */
     public static function addNoLoggedWay($route, callable $innerText)
     {
+        echo "<script>alert(\"2\")</script>";
         if ($_SESSION['login'] !== true) {
             self::add($route, $innerText);
         } else {
-            // header('Location: /fr/');
+            header('Location: /fr/');
         }
     }
 
     public static function addRouteWithAttr($routeStartWith, callable $innerText) {
-        self::$url[$routeStartWith] = $routeStartWith;
-        if(substr($_SERVER["REQUEST_URI"], 0, strlen($routeStartWith)) === $routeStartWith) {
+        self::$url["/fr" .$routeStartWith] = "/fr" .$routeStartWith;
+        if(substr($_SERVER["REQUEST_URI"], 0, strlen($routeStartWith) + 3) === "/fr" .$routeStartWith) {
             $innerText();
         }
     }

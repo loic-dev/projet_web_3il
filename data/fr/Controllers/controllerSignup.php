@@ -19,6 +19,7 @@ $signStruct = new Structure();
 $signStruct->setMail($_POST["email"]);
 $signStruct->setPassword($_POST["password"]);
 $signStruct->setName($_POST["name"]);
+$signStruct->setMailValid(0);
 
 try {
 
@@ -27,6 +28,7 @@ try {
     $signStruct::isPasswordWeak();
     $signStruct::verifyPasswordIdentical($_POST["confirmPassword"]);
     $signStruct::verifyDosentAlredyExistMailDb();
+    $signStruct::setPassword($signStruct::encryptPassword());
     $signStruct::insertDb();
 
 } catch (ClientJsonException $e) {
@@ -53,7 +55,7 @@ try {
 }
 
 $host = $headerHost['host'];
-$link_verify_email = "https://$host/verify?token={$jwt}";
+$link_verify_email = "https://$host/fr/verify?token={$jwt}";
 try {
     sendEmail($signStruct->getMail(), $signStruct->getName(), $link_verify_email);
     $data = ['name' => $signStruct->getName(), 'email' => $signStruct->getMail()];

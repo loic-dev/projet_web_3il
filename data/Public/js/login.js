@@ -36,6 +36,7 @@ const login = async (event) => {
         }).then(function (response) {
             return response.json();
         }).then(function (data) {
+            console.log(data)
             if(!data.status){
                 addError(data.message);
                 submitButton.innerHTML = `connexion`;

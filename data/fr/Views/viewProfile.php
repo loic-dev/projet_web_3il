@@ -17,45 +17,73 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <?php include('Views/Templates/head.php');?>
+    <?php include('Views/Templates/head.php'); ?>
     <link rel="stylesheet" href="../../Public/CSS/viewUserProfile.css">
 </head>
 <body class="preload">
-    <?php include('Views/Templates/header.php');?>
-    <div class="stdr_view user_profile_view">
-        <p class="title_welcome_user">Bonjour, {username}</p>
-        <div class="change_information">
-            <div class="edit_name">
-                <p>Information</p>
-                <button class="list_menu button yellowButton">Editer</button>
+    <?php include('Views/Templates/header.php'); ?>
+    <div class="profilePage">
+        <div class="container-profile">
+            <div class="container-title">
+                <span class="title">Mon compte</span>
             </div>
-            <span class="delimiter"></span>
+            <div class="container-row">
+                <div class="input-container disabled">
+                    <span class="input-text">Nom de la structure</span>
+                    <input value="<?php echo $_SESSION["Structure"]["name"] ?>" type="text" name="nameStruct" id="name-struct" disabled>
+                    <em class="fa-pen svg-primary-grey icon-15 pen-icon"> </em> 
+                </div>
+                <div class="input-container disabled">
+                    <span class="input-text">Adresse</span>
+                    <input value="<?php echo $_SESSION["Structure"]["adress"] ?>" type="text" name="adresseStruct" id="adresse-struct" disabled >
+                    <em class="fa-pen svg-primary-grey icon-15 pen-icon"> </em>
+                </div>
+                <div class="input-container disabled">
+                    <span class="input-text">Email</span>
+                    <input value="<?php echo $_SESSION["Structure"]["mail"] ?>" type="text" name="emailStruct" id="email-struct" disabled >
+                    <em class="fa-pen svg-primary-grey icon-15 pen-icon"> </em>
+                </div>
+                <div class="input-container disabled">
+                    <span class="input-text">Site web</span>
+                    <input value="<?php echo $_SESSION["Structure"]["website"] ?>" type="text" name="websiteStruct" id="website-struct" disabled>
+                    <em class="fa-pen svg-primary-grey icon-15 pen-icon"> </em>
+                </div>
+                <div class="input-container disabled">
+                    <span class="input-text">Téléphone</span>
+                    <input value="<?php echo $_SESSION["Structure"]["phone"] ?>" type="tel" name="phoneStruct" id="phone-struct" disabled>
+                    <em class="fa-pen svg-primary-grey icon-15 pen-icon"> </em>
+                </div>
+            </div>
+            <span class="separator"></span>
+            <div class="container-column">
+                <div class="container-title">
+                    <span class="title">Changer votre mot de passe</span>
+                </div>
+                <div class="input-container">
+                    <span class="input-text">Mot de passe actuel</span>
+                    <input placeholder="**********" type="password" name="nameStruct" id="name-struct">
+                </div>
+                <div class="input-container">
+                    <span class="input-text">Nouveau mot de passe</span>
+                    <input value="<?php echo $_SESSION["Structure"]["adress"] ?>" type="password" name="adresseStruct" id="adresse-struct">
+                </div>
+                <div class="input-container">
+                    <input type="submit" id="btn-submit" value="Sauvegarder" disabled>
+                </div>
+            </div>
+            <span class="separator"></span>
+            <div class="container-row">
+                <span id="delete-account">Supprimer le compte</span>
+            </div>
+            
 
-            <label>
-                Nom d'utilisateur
-                <input class="input-text" disabled type="text" />
-            </label>
-            <label>
-                Nom
-                <input class="input-text" disabled type="text" />
-            </label>
+            
+
+
         </div>
-        <div class="change_information">
-            <div class="edit_name">
-                <p>Mot de passe</p>
-                <button class="list_menu button yellowButton">Editer</button>
-            </div>
-            <span class="delimiter"></span>
-            <label>
-                Mot de passe
-                <input class="input-text" disabled type="text" />
-            </label>
-            <label>
-                Confirmer son mot de passe
-                <input class="input-text" disabled type="text" />
-            </label>
-        </div>
-        <button id="remove_account">Supprimer son compte</button>
+
+
+
     </div>
     <?php include_once "Views/Templates/footer.php" ?>
     <script type="module" src="../../Public/js/all.js"></script>

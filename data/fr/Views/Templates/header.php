@@ -11,7 +11,8 @@
                 <?php if(!$auth){ ?>
                     <span class="list_menu buttons greyButton"><a href="../fr/login">Connectez-vous</a></span>
                 <?php } else { ?>
-                    <span class="list_menu"><a href="../fr/my-account">Mon compte</a></span>
+                    <span class="list_menu"><a href="../fr/my-adverts">Mes annonces</a></span>
+                    <span class="list_menu"><a href="../fr/profile">Mon compte</a></span>
                 <?php }?>
 
             </div>

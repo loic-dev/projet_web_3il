@@ -47,8 +47,8 @@ Router::addRouteWithAttr(
 );
 
 Router::add(
-    '/userProfile', function () {
-        Controller::createView('viewUserProfile');
+    '/profile', function () {
+        Controller::createView('viewProfile');
    }
 );
 

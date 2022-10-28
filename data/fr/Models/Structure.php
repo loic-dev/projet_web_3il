@@ -209,6 +209,7 @@ class Structure
         $_SESSION["Structure"]["adress"] = self::$adress;
         $_SESSION["Structure"]["canton"] = self::$canton;
         $_SESSION["Structure"]["mailValid"] = self::$mailValid;
+        $_SESSION["Structure"]["phone"] = self::$tel;
 
         
 

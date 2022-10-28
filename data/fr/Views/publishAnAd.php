@@ -1,5 +1,5 @@
 <?php 
-require_once 'Controllers/verifyUserConnected.php';
+// require_once 'Controllers/verifyUserConnected.php';
 ?>
 
 <!DOCTYPE html>

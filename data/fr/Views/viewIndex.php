@@ -12,8 +12,47 @@
  * @link       ****
  * @since      1.0.0
  */
-require_once 'Controllers/controllerIndex.php';
+// require_once 'Controllers/controllerIndex.php';
 
+new Database();
+
+// $rs = Database::selectRandomDb("*","Advert", [
+//     "canton = ?"
+// ], [
+//     "Millau-1"
+// ], 5);
+// var_dump($rs);
+
+// $s = new Structure();
+
+// $s::setMail("francoisdks@gmail.com");
+// $s::fetchUserData();
+
+// var_dump(password_verify("test",$result["password"]));
+
+// $t = new Advert();
+// $t->setTitle("hynk^pjn,mù");
+// $t->setDescription("test123");
+// $t->setAdress("azd");
+// $t->setPicture1("../././/");
+// $t->setPicture2("../././/");
+// $t->setPicture3("../././/");
+// $t->setMailStructure("francoisdks@gmail.com");
+// $t->setInstrument("Flute");
+// $t->setLevel("Easy");
+// $t->setRubric("Study");
+// $t->setCanton("Millau-1");
+ 
+// $t->insertDb();
+
+
+// $result = Database::selectDb("Password", "Structure", [
+//     "Mail = ?"
+// ], [
+//     "francoisdks@gmail.com"
+// ]);
+
+// var_dump($result[0]["Password"]);
 
 ?>
 
@@ -110,7 +149,7 @@ require_once 'Controllers/controllerIndex.php';
 <?php include_once "Views/Templates/footer.php" ?>
 <script type="module" src="../../Public/js/event.js"></script>
 <script src="../../Public/js/map.js"></script>
-<script src="../../Public/js/event.js"></script>
+<!-- <script src="../../Public/js/event.js"></script> -->
 <script type="module" src="../../Public/js/all.js"></script>
 
 </body>

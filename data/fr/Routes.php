@@ -22,22 +22,15 @@ Router::addTwoWay(
     }
 );
 
-Router::add(
+Router::addNoLoggedWay(
      '/login', function () {
          Controller::createView('viewLogin');
     }
 );
 
- Router::add(
+ Router::addLoggedWay(
     '/publish-an-ad', function () {
         Controller::createView('publishAnAd');
-   }
-);
-
-
-Router::add(
-    '/login', function () {
-        Controller::createView('viewLogin');
    }
 );
 

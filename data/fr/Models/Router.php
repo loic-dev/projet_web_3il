@@ -113,9 +113,11 @@ class Router
      */
     public static function addLoggedWay($route, callable $innerText)
     {
-        // if ($_SESSION['login'] == 'ok') {
+        if ($_SESSION['login'] === true) {
             self::add($route, $innerText);
-        // }
+        } else {
+            // header('Location: /fr/login');
+        }
     }
 
     /**
@@ -128,9 +130,11 @@ class Router
      */
     public static function addNoLoggedWay($route, callable $innerText)
     {
-        // if ($_SESSION['login'] != 'ok') {
+        if ($_SESSION['login'] !== true) {
             self::add($route, $innerText);
-        // }
+        } else {
+            // header('Location: /fr/');
+        }
     }
 
     public static function addRouteWithAttr($routeStartWith, callable $innerText) {

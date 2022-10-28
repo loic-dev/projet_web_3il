@@ -15,13 +15,10 @@ $content = trim(file_get_contents("php://input"));
 $_POST = json_decode($content, true);
 $headerHost = parse_url($_SERVER['HTTP_REFERER']);
 
-
-
-
 $signStruct = new Structure();
-$signStruct::setMail($_POST["email"]);
-$signStruct::setPassword($_POST["password"]);
-$signStruct::setName($_POST["name"]);
+$signStruct->setMail($_POST["email"]);
+$signStruct->setPassword($_POST["password"]);
+$signStruct->setName($_POST["name"]);
 
 try {
 
@@ -29,8 +26,8 @@ try {
     $signStruct::isMailValid();
     $signStruct::isPasswordWeak();
     $signStruct::verifyPasswordIdentical($_POST["confirmPassword"]);
-    $signStruct::verifyAlredyMailExistDb();
-    $signStruct::insertStructureDb();
+    $signStruct::verifyDosentAlredyExistMailDb();
+    $signStruct::insertDb();
 
 } catch (ClientJsonException $e) {
     $e->sendJsonError();
@@ -46,7 +43,7 @@ $payload = [
     'iss' => 'localhost',
     'nbf' => $created_at->getTimestamp(),
     'exp' => $expire_at,
-    'userId' => $signStruct::getId()
+    'userId' => $signStruct->getMail()
 ];
 
 try {
@@ -58,8 +55,8 @@ try {
 $host = $headerHost['host'];
 $link_verify_email = "https://$host/verify?token={$jwt}";
 try {
-    sendEmail($signStruct::getMail(), $signStruct::getName(), $link_verify_email);
-    $data = ['name' => $signStruct::getName(), 'email' => $signStruct::getMail()];
+    sendEmail($signStruct->getMail(), $signStruct->getName(), $link_verify_email);
+    $data = ['name' => $signStruct->getName(), 'email' => $signStruct->getMail()];
     $response = json_response(200, $data);
 } catch (Exception $e) {
     $error = json_response(500, $e->getMessage());

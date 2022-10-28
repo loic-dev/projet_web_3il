@@ -14,11 +14,14 @@
  * @since      1.0.0
  */
 
+if($_SERVER["REQUEST_URI"] === "/") header('Location: ./fr/');
 
 session_set_cookie_params([
-    'path' => '/fr/',
+    'lifetime' => 7200,
+    'path' => '/',
+    'domain' => $_SERVER['HTTP_HOST'],
+    'secure' => true,
+    'httponly' => true,
 ]);
-
-if($_SERVER["REQUEST_URI"] === "/") header('Location: ./fr/');
 
 require_once 'Routes.php';

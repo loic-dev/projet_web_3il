@@ -5,7 +5,6 @@ require_once '../utils/regex.php';
 require_once '../utils/functions.php'; 
 
 
-
 $content = trim(file_get_contents("php://input"));
 $_POST = json_decode($content, true);
 

@@ -13,7 +13,21 @@
  * @since      1.0.0
  */
 
-require_once 'Controllers/controllerIndex.php';
+// require_once 'Controllers/controllerIndex.php';
+
+if (session_status() === 1) {
+    session_start();
+}
+$autolog = new Structure();
+
+$autolog::setMail("francoisdks@gmail.com");
+$autolog::fetchUserData();
+// var_dump($_SESSION);
+
+$autolog::login();
+// var_dump($_SESSION);
+
+
 
 ?>
 <!DOCTYPE html>

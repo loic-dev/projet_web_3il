@@ -38,8 +38,6 @@ let instrumentsInput = {
 }
 
 
-console.log(AddInstrumentModal)
-
 let button_submit = document.getElementById("btn-submit");
 let addPhotoPanel = document.getElementById("panel-add-photos");
 let inputFile = document.getElementById("file-input");
@@ -64,7 +62,6 @@ const updateViewInstruments = () => {
 
 
     listInstrument.forEach((instruments,i) => {
-        console.log(instruments)
         let view = `<span id="panel-instrument-${i}" class="${instrumentsInput.id === i ? `select panel-instruments` : `panel-instruments`}">
             <em class="fa-${instruments.icon} svg-primary-grey icon-30"></em>
             <p>${instruments.name}</p>
@@ -108,7 +105,6 @@ const setDescription = (value) => {
 }
 
 const setPlace = (value) => {
-    console.log(value)
     if(value === ""){
         document.querySelector('#panel-place').innerText = "Adresse";
     } else {
@@ -134,32 +130,22 @@ const uniqId = () => {
     return Math.floor((1 + Math.random()) * 0x10000)
         .toString(16)
         .substring(1);
-  }
+}
+
+
+const addError = (err) => {
+    let errorContainer = document.querySelector('#error-container');
+    errorContainer.innerHTML =  `<span>${err}</span>`;
+    errorContainer.classList.add('show');
+
+    setTimeout(() => {
+        errorContainer.classList.remove('show');
+    }, 3000);
+
+}
 
 
 let idPhoto = null;
-
-const uploadPhotos = async (e) => {
-
-    var listFile = [];
-    for (let index = 0; index < 3; index++) {
-        listFile.push(e.target.files[index]);
-    }
-
-    if(listPhotos.length < 3){
-        for (const file in listFile) {
-            idPhoto = uniqId();
-            reader.readAsDataURL(file);
-            listPhotos.push({
-                id:idPhoto,
-                file:file
-            })
-            inputFile.value = "";
-        }
-    }
-    
-}
-
 
 function uploadPhoto(files) {
 
@@ -167,39 +153,57 @@ function uploadPhoto(files) {
     
     
     const readFile = (index) => {
-      if( index >= 3 || index >= files.length ) {
-        inputFile.value = "";
-        return;
-      }
+        var file = files[index];
 
+        if( index >= 3 || index >= files.length  ) {
+            inputFile.value = "";
+            return;
+        }
+
+
+        
+
+
+
+        //check extention
+        var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+        if (!allowedExtensions.exec(inputFile.value)) {
+            addError("Invalid file type");
+            return false;
+        }
+
+
+        //check file size
+        if (file.size / (1024 * 1024) > 1) {
+            addError("File size is too large (max 1 MB)");
+            return false;
+        }
       
+        idPhoto = uniqId();
+        listPhotos.push({
+            id:idPhoto,
+            file:file
+        })
 
-      var file = files[index];
-      console.log(file)
-      idPhoto = uniqId();
-      listPhotos.push({
-        id:idPhoto,
-        file:file
-      })
+        reader.onload = function(e) {  
+            listPhotos[listPhotos.findIndex(data => data.id === idPhoto)].preview = e.target.result;
+            idPhoto = null;
+            if(listPhotos.length < 3){
+                readFile(index+1);
+            }
+            updateViewPhoto();
+        }
 
-
-      reader.onload = function(e) {  
-        var bin = e.target.result;
-        listPhotos[listPhotos.findIndex(data => data.id === idPhoto)].preview = e.target.result;
-        idPhoto = null;
-        readFile(index+1);
-      }
-
-      reader.readAsDataURL(file);
+        reader.readAsDataURL(file);
     }
     readFile(0);
-    updateViewPhoto();
+    
 }
 
 
 
-const remove = (e,id) => {
-    listPhotos.splice(listPhotos.findIndex(data => data.id === id), 1);
+const remove = (e,index) => {
+    listPhotos.splice(index, 1);
     updateViewPhoto();
 }
 
@@ -222,7 +226,6 @@ const updateStateImgPreview = () => {
 }
 
 const movePreview = (direction) => {
-    console.log(direction)
     let nextSelect = null;
     let value = 0;
     if(previewSelect === 3){
@@ -234,7 +237,6 @@ const movePreview = (direction) => {
         nextSelect = previewSelect-1;
     }
     value=nextSelect*100;
-    console.log(value);
     previewSelect = nextSelect;
     updateStateImgPreview();
    
@@ -254,18 +256,16 @@ const updateViewPhoto  = () => {
     //delete state list photos
     let getNodePhotos = document.querySelectorAll(".edit-photo-span");
     getNodePhotos.forEach((node,i) => {
-        node.removeEventListener("click",(e) => remove(e,i), true);
+        let index = listPhotos.findIndex(data => data.id === node.id)
+        node.removeEventListener("click",(e) => remove(e,index), true);
         node.remove();
     })
 
     
-
-
     //delete preview state
     let getNodePreviewPhotos = document.querySelectorAll(".img-preview");
     getNodePreviewPhotos.forEach((node,i) => {
         node.remove();
-
     })
 
 
@@ -281,11 +281,8 @@ const updateViewPhoto  = () => {
     }
 
 
-    console.log(listPhotos)
 
     listPhotos.forEach((link) => {
-
-        console.log(link)
 
         /*input photos*/
         let newPhotoEditComponent = `
@@ -294,7 +291,8 @@ const updateViewPhoto  = () => {
                 <em class="deleteIcon fa-trash svg-primary-grey icon-30"> </em>
             </span>`
         containerPhoto.prepend(document.createRange().createContextualFragment(newPhotoEditComponent));
-        document.getElementById(`edit-photo-span-${link.id}`).addEventListener("click", (e) => remove(e,link.id));
+        let index = listPhotos.findIndex(data => data.id === link.id)
+        document.getElementById(`edit-photo-span-${link.id}`).addEventListener("click", (e) => remove(e,index));
 
 
 
@@ -389,7 +387,7 @@ const searchPlace = (value) => {
                 document.getElementById(data.properties.id).addEventListener("click", e => completePlaceInput(data.properties));
             })
         }).catch(function (err) {
-            console.log(err)
+            addError(err);
         });
     } else {
         document.querySelector("#list-search").classList.remove("show");
@@ -431,7 +429,6 @@ document.querySelector('#add-instruments').addEventListener("click", (e) => show
 
 
 EventBus.register("addInstrument", (evt) => {
-    console.log(evt)
     let newSelection = {
         "name":evt.detail.value,
         "icon":"music"
@@ -461,27 +458,17 @@ const publish = (e) => {
         Object.keys(ad).forEach(key => {
             if(key === "images"){
                 ad[key].forEach((data,i) => {
-                    form_data.append(`image-${i}`, data);
+                    form_data.append(`image-${data.id}`, data.file);
                 })
             } else {
                 form_data.append(key, ad[key]);
             }
         })
 
-        console.log(...form_data)
-        
-
-       
-
-
 
 
         fetch('Controllers/controllerAd.php',{
             method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
             body: form_data
         }).then(function (response) {
             return response.json();
@@ -489,6 +476,7 @@ const publish = (e) => {
             console.log(data)
         }).catch(function (err) {
             addError(err);
+            console.log(err)
         });
     } else {
         addError("un problème est survenue");

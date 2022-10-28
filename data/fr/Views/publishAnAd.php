@@ -13,6 +13,8 @@
         <?php include('Views/Templates/header.php');?>
         
         <section class="publishAd-page">
+            <div id="error-container">
+            </div>
             <div class="container-section">
                 <div class="container-form">
                     <a class="back" href="../">

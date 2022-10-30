@@ -37,7 +37,7 @@
 }
 
 .container-title{
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .title{
@@ -77,6 +77,10 @@
     opacity: 0.5;
 }
 
+.input-container input.focus {
+    border-color: var(--primary-grey);
+}
+
 .input-container #btn-submit{
     background-color: var(--secondary-yellow);
     height: 40px;
@@ -101,8 +105,29 @@
     color: var(--error-color);
 }
 
+.infospan{
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.infospan.valid{
+    color: var(--valid-color);
+}
+
+.infospan.error{
+    color: var(--error-color);
+}
 
 
+#deletePassword{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#delete-account{
+    cursor: pointer;
+}
 
 
 
@@ -116,7 +141,7 @@
         justify-content: space-between;
     }
 
-    .input-container{
+    .input-container, .info-container{
         max-width: 45%;
     }
 

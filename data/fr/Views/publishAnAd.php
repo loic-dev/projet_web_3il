@@ -16,10 +16,10 @@ if(!$_SESSION['login']){
     <body class="preload">
         <?php include('Views/Templates/header.php');?>
         
-        <section class="publishAd-page">
+        <section class="page">
             <div id="error-container">
             </div>
-            <div class="container-section">
+            <div class="container-page">
                 <div class="container-form">
                     <a class="back" href="../">
                         <em class="fa-arrow-left svg-primary-grey icon-20"> </em>

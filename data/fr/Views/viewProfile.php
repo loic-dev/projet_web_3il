@@ -1,18 +1,8 @@
-<?php
-/**
- * Main Index file
- *
- * PHP VERSION 7.2.22
- *
- * @category   View
- * @package    Standard
- * @subpackage Standard
- * @author     loic-dev <loic.charrie.12@gmail.com>
- * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
- * @link       ****
- * @since      1.0.0
- */
-
+<?php 
+session_start();
+if(!$_SESSION['login']){
+    header("location: /fr/login");
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,8 +13,8 @@
 </head>
 <body class="preload">
     <?php include('Views/Templates/header.php'); ?>
-    <div class="profilePage">
-        <div class="container-profile">
+    <div class="page">
+        <div class="container-page">
             <div class="container-title">
                 <span class="title">Mon compte</span>
             </div>

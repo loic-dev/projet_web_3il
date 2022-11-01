@@ -53,6 +53,12 @@ Router::add(
 );
 
 Router::add(
+    '/my-adverts', function () {
+        Controller::createView('myAdverts');
+   }
+);
+
+Router::add(
     '/signup', function () {
         Controller::createView('viewSignup');
    }

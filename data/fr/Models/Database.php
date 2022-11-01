@@ -85,6 +85,17 @@ class Database
                         throw $e;
                 } 
         }
+
+        public static function searchDb($what, $from, $match, $orderBy, $limit = 1) {
+                try {
+                        $sql = "SELECT * FROM Advert where Title LIKE '%$match' ORDER BY $orderBy LIMIT $limit;";
+                        $result = Database::getPdo()->prepare($sql);
+                        $result->execute();
+                        return $result->fetchAll();
+                } catch (exception $e) {
+                        throw $e;
+                } 
+        }
         
 }
 ?>

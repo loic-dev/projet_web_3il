@@ -88,8 +88,8 @@ new Database();
     <div class="search_result">
         <div class="search_component">
             <h1>Trouver un cours de musique en Aveyron</h1>
-            <form class="search_box">
-                <input class="search_input_box" type="text"></input>
+            <div class="search_box">
+                <input id="inputSearchAdvert" class="search_input_box" type="text"></input>
                 <div class="search_component_btn_list">
                     <select id="insturment-select" class="select">
                         <option value="">Instrument</option>
@@ -118,9 +118,9 @@ new Database();
                         <option value="spider">Spider</option>
                         <option value="goldfish">Goldfish</option>
                     </select>
-                    <button class="button_menu_nav yellow">Rechercher</button>
+                    <button id="searchAdvertBtn" class="button_menu_nav yellow">Rechercher</button>
                 </div> 
-            </form>
+</div>
         </div>
 
         <div class="map_component">

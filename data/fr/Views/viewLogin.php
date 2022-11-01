@@ -18,10 +18,10 @@
 /*if (session_status() === 1) {
     session_start();
 }
-$autolog = new Structure();
+// $autolog = new Structure();
 
-$autolog::setMail("francoisdks@gmail.com");
-$autolog::fetchUserData();
+// $autolog::setMail("francoisdks@gmail.com");
+// $autolog::fetchUserData();
 // var_dump($_SESSION);
 
 $autolog::login();

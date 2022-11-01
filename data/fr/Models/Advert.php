@@ -123,6 +123,10 @@ class Advert
     static function getRandomAdvert($limit) {
         return Database::selectRandomDb("*","Advert", ["1 = 1"], [], $limit);
     }
+
+    static function searchAdvert($title,$limit) {
+        return Database::selectRandomDb("*","Advert", ["1 = 1"], [], $limit);
+    }
     
     function insertDb() {
         Database::insertDb("Advert", [

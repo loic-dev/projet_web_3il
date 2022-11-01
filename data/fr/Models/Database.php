@@ -75,7 +75,7 @@ class Database
                         foreach ($conditions as $condition) {
                                 $sql .= $condition . " ";
                         }
-                        $sql .= "ORDER BY RAND() LIMIT $limit";
+                        $sql .= "ORDER BY IdAdvert DESC LIMIT $limit";
                         // var_dump($sql);
                         // var_dump(Database::getPdo());
                         $result = Database::getPdo()->prepare($sql);

@@ -34,12 +34,20 @@ function fetchAdvert(canton = "Rodez-1") {
     },
     body: JSON.stringify({canton:canton})
   }).then(function (response) {
+    console.log("test");
     return response.json();
   }).then(function (data) {
+    let i = 0;
     data.forEach(element => {
-      console.log(element);
+      ++i;
       createNewAtelier(element["Title"],element["Picture1"],element["MailStructure"]);
     });
+    if(i < 6) {
+      while(i < 6) {
+        createNewAtelier(element["Title"],element["Picture1"],element["MailStructure"]);
+        ++i;
+      }
+    }
     hiddenSpanToLoad();
 
     function removeActualSpan() {
@@ -49,7 +57,7 @@ function fetchAdvert(canton = "Rodez-1") {
     let observer = new IntersectionObserver(function(entries) {
       if(entries[0].isIntersecting === true) {
      
-        fetchAdvert();
+        // fetchAdvert();
     
         removeActualSpan();
         hiddenSpanToLoad();
@@ -106,7 +114,10 @@ window.addEventListener("load", (e) => {
 
   setClick(document.getElementById("1216 Rodez-1"));
   cleanAllAdvert();
+  
   fetchAdvert(cantonSelected);
+
+
   // document.getElementById("1216 Rodez-1").click();
 
 })

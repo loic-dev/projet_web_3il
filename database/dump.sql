@@ -153,7 +153,7 @@ CREATE TABLE `Structure` (
 --
 
 INSERT INTO `Structure` (`Name`, `Tel`, `Mail`, `Website`, `Adress`, `Password`, `Canton`, `MailValid`) VALUES
-('Francois', '06 06 06 06 06', 'francoisdks@gmail.com', 'ffff.fr', '15 aavvv', '123456', 'Millau-1', 0);
+('francoisdks', '', 'francoisdks@gmail.com', '', '', '$2y$10$mMNisqE8SnVS4q.isuOM9eLuWJgWJV1vjnpagI6KcyXi9qALmPLRG', 'Millau-1', 1);
 
 --
 -- Indexes for dumped tables
@@ -275,6 +275,9 @@ INSERT INTO `Advert`
   ipsum lorem consectetur tellus, non commodo orci eros non ex. Donec a ligula euismod, congue sapien ut, venenatis risus.
    Nam tristique dictum enim. Sed suscipit, ex eu scelerisque accumsan, sem.\r\n', 'lieu annonce1', '\\imgAnnonce5\\img1.webp',
     '\\imgAnnonce5\\img2.webp', '\\imgAnnonce5\\img3.webp', 'francoisdks@gmail.com', 'Flute', 'Easy', 'Study', 'Millau-1');
+
+
+
 
 -- INSERT INTO `Advert` 
 -- (`IdAdvert`, `Title`, `Description`, `Adress`, `Picture1`, `Picture2`, `Picture3`, `MailStructure`, `Instrument`, `Level`, `Rubric`, `Canton`)

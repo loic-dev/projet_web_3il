@@ -27,7 +27,7 @@
 <body class="preload">
     <section class="auth-page">
         <div class="container-logo">
-            <img src="../Public/media/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
+           <!-- <img src="../Public/media/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">-->
         </div>
         <form class="form-post" id="signup-form">
             <section class="section-form">

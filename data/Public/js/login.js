@@ -33,9 +33,9 @@ const login = async (event) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({email:email.value,password:password.value})
-        }).then(function (response) {
+        }).then( (response) => {
             return response.json();
-        }).then(function (data) {
+        }).then((data) => {
             console.log(data)
             if(!data.status){
                 addError(data.message);

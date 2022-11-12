@@ -1,21 +1,9 @@
 
 
 
-.publishAd-page{
-    flex: 1;
-    color: var(--primary-grey);
-}
-
 .container-form{
     margin: 20px 10px;
     flex: 1;
-}
-
-.container-section{
-    max-width: 1280px;
-    padding: 0 10px;
-    display: flex;
-    flex-direction: column;
 }
 
 h2{
@@ -225,6 +213,7 @@ h2{
     align-items: center;
     font-weight: 500;
     cursor: pointer;
+    width: fit-content;
     text-decoration: none;
     color: var(--primary-grey);
 }
@@ -448,7 +437,7 @@ h2{
 
 /* desktop */
 @media screen and (min-width: 1024px){
-    .container-section{
+    .container-page{
         flex-direction: row;
         justify-content: space-between;
         margin: auto;

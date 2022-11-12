@@ -73,7 +73,7 @@ new Database();
 
     <div class="presentation_component">
         <div class="title_content">
-            <h1>Bienvenue, sur Anac</h1>
+            <h1>Bienvenue, sur Musique Pratique 12</h1>
             <h3>Site d'annonces musicales en Aveyron</p>
         </div>
         <div class="container_pictures">

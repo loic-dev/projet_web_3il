@@ -93,6 +93,16 @@
     mask: url(../../Public/media/pen.svg)  no-repeat center / contain; 
 }
 
+.fa-ellipsis{
+    -webkit-mask: url(../../Public/media/ellipsis-vertical.svg)  no-repeat center / contain;
+    mask: url(../../Public/media/ellipsis-vertical.svg)  no-repeat center / contain; 
+}
+
+
+
+
+
+
 
 .icon-15{
     width: 15px;

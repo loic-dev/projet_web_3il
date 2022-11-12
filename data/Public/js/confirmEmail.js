@@ -7,20 +7,20 @@ const token = urlParams.get('token');
 const confirmEmailComponentSuccess = () => {
     return `
             <div class="container_logo">
-                    <img class="valid_picture" src="./Public/media/valid.webp" />
+                    <img class="valid_picture" src="../Public/media/valid.webp" />
             </div>
             <p>Votre email à été confirmé avec succès</p>
-            <a href="../login" ><button class="form-submit-button activeDefault">Connectez-vous</button></a>
+            <a href="../fr/login" ><button class="form-submit-button activeDefault">Connectez-vous</button></a>
         `
 }
 
 
-const confirmEmailComponentError = () => {
+const confirmEmailComponentError = (err) => {
     return `
             <div class="container_logo">
-                    <img class="valid_picture" src="./Public/media/error.webp" />
+                    <img class="valid_picture" src="../Public/media/error.webp" />
             </div>
-            <p>Une erreur est survenue</p>`
+            <p>${err}</p>`
 }
 
 const verifyEmail = () => {
@@ -37,10 +37,10 @@ const verifyEmail = () => {
         document.querySelector('#container-ring').classList.remove('load');
         let containerBox = document.querySelector('.container-box');
         if(data.status){
-            containerBox.innerHTML = confirmEmailComponentSuccess();
+            containerBox.innerHTML = confirmEmailComponentSuccess(data.message);
             containerBox.classList.add('active');
         } else {
-            containerBox.innerHTML = confirmEmailComponentError();
+            containerBox.innerHTML = confirmEmailComponentError(data.message);
             containerBox.classList.add('active');
         }
     }).catch(function (err) {

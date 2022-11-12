@@ -1,0 +1,174 @@
+.container-title{
+    margin-bottom: 20px;
+}
+
+.title{
+    font-size: 1.2rem;
+    color: var(--primary-grey);
+    font-weight: 600;
+}
+
+#container-list-adverts{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex:1;
+}
+
+.body-container{
+    overflow: auto;
+    padding-right: 10px;
+}
+
+.body-container::-webkit-scrollbar {
+    width: 5px;
+  }
+
+
+
+.c-adverts {
+    max-width: 300px;
+    position: relative;
+    height: 350px;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.container-option{
+    position: absolute;
+    z-index: 100;
+    right: 25px;
+    top: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.options{
+    position: absolute;
+    
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    right: 15px;
+    top: 20px;
+    background-color: white;
+    border-radius: 3px;
+    overflow: hidden;
+    transition-duration: 0.3s;
+    max-width: 0;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+
+.options.show{
+    padding: 10px;
+    max-width: 200px;
+}
+
+.options span{
+    cursor: pointer;
+}
+
+.container-option #menu{
+    width: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.delete{
+    color: var(--error-color);
+}
+
+.photo-container{
+    height: 40%;
+    display: flex;
+    background-color: var(--white-grey);
+    border-radius: 5px;
+    margin-bottom: 15px ;
+}
+
+.a-header{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.title-ad-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title-ad-container span{
+    overflow-wrap: break-word;
+}
+
+
+.a-title{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.a-address{
+    font-weight: 400;
+}
+
+
+.section-desc{
+    display: -webkit-box;
+    max-width: 300px;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.input-container .input-text{
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--primary-grey);
+}
+
+.input-container input {
+    height: 40px;
+    padding-left: 10px;
+    border: 2px solid var(--white-grey);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--primary-grey);
+    outline: none;
+}
+
+.input-container.disabled input {
+    padding-right: 40px;
+    opacity: 0.5;
+}
+
+.input-container input.focus {
+    border-color: var(--primary-grey);
+}
+
+
+#deleteButton{
+    opacity: 0.5;
+    cursor: pointer;
+}
+

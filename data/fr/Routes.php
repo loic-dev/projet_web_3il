@@ -34,13 +34,6 @@ Router::add(
    }
 );
 
-
-Router::add(
-    '/login', function () {
-        Controller::createView('viewLogin');
-   }
-);
-
 Router::addRouteWithAttr(
     '/verify', function () {
         Controller::createView('viewConfirmEmail');
@@ -54,14 +47,14 @@ Router::addRouteWithAttr(
 );
 
 Router::add(
-    '/musicLesson?', function () {
-        Controller::createView('viewMusicLesson');
+    '/profile', function () {
+        Controller::createView('viewProfile');
    }
 );
 
 Router::add(
-    '/userProfile', function () {
-        Controller::createView('viewUserProfile');
+    '/my-adverts', function () {
+        Controller::createView('myAdverts');
    }
 );
 

@@ -4,7 +4,7 @@ import {regex_input_text,regex_input_email,regex_input_password} from "./regex.j
 
 let signup_form = document.getElementById("signup-form");
 let name = document.getElementById("signup-input-name");
-let surname = document.getElementById("signup-input-surname");
+
 let email = document.getElementById("signup-input-email");
 let password = document.getElementById("signup-input-password");
 let confirmPassword = document.getElementById("signup-input-confirmPassword");
@@ -14,7 +14,6 @@ let button_submit = document.getElementById("submit-button");
 
 if(name !== undefined) {
     name.addEventListener("change", (e) => check_validity(e,"text"));
-    surname.addEventListener("change", (e) => check_validity(e,"text"));
     email.addEventListener("change", (e) => check_validity(e,"email"));
     password.addEventListener("change", (e) => check_validity(e,"password"));
     confirmPassword.addEventListener("change", (e) => check_validity(e,"confirmPassword"));
@@ -68,7 +67,7 @@ const check_validity = (event, type) => {
             active_error_input(event.target,validity);
             break;
         case "all":
-            validity = regex_input_text(name.value) && regex_input_text(surname.value) && regex_input_email(email.value) &&  regex_input_password(password.value) && password.value === confirmPassword.value;
+            validity = regex_input_text(name.value)  && regex_input_email(email.value) &&  regex_input_password(password.value) && password.value === confirmPassword.value;
             active_submit_button(validity);
             break;
         default:
@@ -82,7 +81,7 @@ const newModalSuccess = (email, nom) => {
    return `
         <section class='success_signup_section'>
             <div class="container_logo">
-                <img class="valid_picture" src="./Public/media/valid.webp" />
+                <img class="valid_picture" src="../Public/media/valid.webp" />
             </div>
             <span class="bigtext">Bravo ${nom},</span>
             <p>Votre compte à été créé avec succès !!!</p>

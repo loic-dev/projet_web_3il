@@ -3,7 +3,7 @@ import EventBus from "../js/eventBus.class.js";
 
 const template = document.createElement('template');
 template.innerHTML = `
-<link rel="stylesheet" href="Public/components/addInstrumentModal.style.css">
+<link rel="stylesheet" href="../Public/components/addInstrumentModal.style.css">
 <div class="overlay-modal">
   <div class="modal">
     <div class="header-container">

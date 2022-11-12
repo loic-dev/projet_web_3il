@@ -22,5 +22,12 @@
                 die();
             }
         }
+
+        public function sendJsonValid($die = true) {
+            echo json_response(200, $this->getMessage());
+            if($die) {
+                die();
+            }
+        }
     }
 ?>

@@ -13,7 +13,7 @@
  * @since      1.0.0
  */
 
-require_once 'Controllers/controllerIndex.php'
+// require_once 'Controllers/controllerIndex.php'
 ?>
 
 <!DOCTYPE html>
@@ -34,9 +34,9 @@ require_once 'Controllers/controllerIndex.php'
 
 <?php include_once "Views/Templates/footer.php" ?>
 <script type="module" src="../../Public/js/event.js"></script>
-<script src="../../Public/js/map.js"></script>
-<script src="../../Public/js/event.js"></script>
+<!-- <script src="../../Public/js/event.js"></script> -->
 <script type="module" src="../../Public/js/all.js"></script>
+<script src="../../Public/js/map.js"></script>
 
 </body>
 </html>

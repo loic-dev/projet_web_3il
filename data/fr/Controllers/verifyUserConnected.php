@@ -40,6 +40,7 @@ function verifyUserConnected($token,$db){
         $decoded = JWT::decode($tokenReplace, new Key(getenv('KEY_JWT'), 'HS256'));
         $userId = $decoded->userId;
     
+
         $sql = "SELECT * FROM structure WHERE id = ?";
         $result = $db->prepare($sql);
         $result->execute([$userId]);
@@ -52,8 +53,6 @@ function verifyUserConnected($token,$db){
     }
 
     return $response;
-    
-    
 }
 
 

@@ -29,9 +29,10 @@ const login = async (event) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({email:email.value,password:password.value})
-        }).then(function (response) {
+        }).then( (response) => {
             return response.json();
-        }).then(function (data) {
+        }).then((data) => {
+            console.log(data)
             if(!data.status){
                 addError(data.message);
                 submitButton.innerHTML = `connexion`;
@@ -40,7 +41,7 @@ const login = async (event) => {
             } else {
                 let token = "bearer "+data.message.token;
                 document.cookie = "token=" + token;
-                document.location.href = '../publish-an-ad';
+                document.location.href = '../fr/publish-an-ad';
             }
         }).catch(function (err) {
             addError(err);

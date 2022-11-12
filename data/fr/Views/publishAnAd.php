@@ -1,6 +1,10 @@
 <?php 
-require_once 'Controllers/verifyUserConnected.php';
+session_start();
+if(!$_SESSION['login']){
+    header("location: /fr/login");
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -12,8 +16,10 @@ require_once 'Controllers/verifyUserConnected.php';
     <body class="preload">
         <?php include('Views/Templates/header.php');?>
         
-        <section class="publishAd-page">
-            <div class="container-section">
+        <section class="page">
+            <div id="error-container">
+            </div>
+            <div class="container-page">
                 <div class="container-form">
                     <a class="back" href="../">
                         <em class="fa-arrow-left svg-primary-grey icon-20"> </em>

@@ -15,10 +15,20 @@
  */
 
 
-session_set_cookie_params([
-    'path' => '/fr/',
-]);
 
 if($_SERVER["REQUEST_URI"] === "/") header('Location: ./fr/');
+
+
+
+
+session_set_cookie_params([
+    'lifetime' => 7200,
+    'path' => '/',
+    'domain' => $_SERVER['HTTP_HOST'],
+    'secure' => true,
+    'httponly' => true,
+]);
+
+session_start();
 
 require_once 'Routes.php';

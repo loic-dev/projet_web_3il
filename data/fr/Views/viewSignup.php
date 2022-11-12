@@ -13,7 +13,7 @@
  * @since      1.0.0
  */
 
-require_once 'Controllers/controllerIndex.php';
+// require_once 'Controllers/controllerIndex.php';
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ require_once 'Controllers/controllerIndex.php';
 <body class="preload">
     <section class="auth-page">
         <div class="container-logo">
-            <img src="/Public/images/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">
+           <!-- <img src="../Public/media/club-logo.png" alt="logo - Le Club - SALLE DE CONCERT">-->
         </div>
         <form class="form-post" id="signup-form">
             <section class="section-form">
@@ -40,18 +40,14 @@ require_once 'Controllers/controllerIndex.php';
                         <span class="small-title">Créez votre compte pour découvrir toutes nos fonctionnalités.</span>
                     </div>
                     <div class="container-form">
-                        <div class="input-row-container">
-                            <div class="container-input">
-                                <span>Nom</span>
-                                <input type="text" name="name" id="signup-input-name" class="form-input" required>
-                                <small id="name_error">Lettres uniquement</small>
-                            </div>
-                            <div class="container-input">
-                                <span>Prenom</span>
-                                <input type="text" name="surname" id="signup-input-surname" class="form-input" required>
-                                <small id="surname_error">Lettres uniquement</small>
-                            </div>
+                       
+                        <div class="container-input">
+                            <span>Nom de la structure</span>
+                            <input type="text" name="name" id="signup-input-name" class="form-input" required>
+                            <small id="name_error">Lettres uniquement</small>
                         </div>
+                    
+                        
 
                         <div class="container-input">
                             <span>email</span>
@@ -73,7 +69,7 @@ require_once 'Controllers/controllerIndex.php';
 
                         <button class="form-submit-button" id="submit-button" type="submit">S'inscrire</button>
                         
-                        <span class="other-form-text">Vous avez déja un compte ? <a href="localhost:8000/login">Connectez-vous</a></span>
+                        <span class="other-form-text">Vous avez déja un compte ? <a href="localhost:8000/fr/login">Connectez-vous</a></span>
                     </div>
                 </div>
             <section>

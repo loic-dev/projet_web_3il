@@ -203,6 +203,11 @@ class Structure
     public static function login() {
         session_start();
         $_SESSION["login"] = true;
+        self::updateSessionVar();
+    }
+
+    public static function updateSessionVar() {
+        session_start();
         $_SESSION["Structure"]["mail"] = self::$mail;
         $_SESSION["Structure"]["name"] = self::$name;
         $_SESSION["Structure"]["website"] = self::$website;
@@ -210,11 +215,64 @@ class Structure
         $_SESSION["Structure"]["canton"] = self::$canton;
         $_SESSION["Structure"]["mailValid"] = self::$mailValid;
         $_SESSION["Structure"]["phone"] = self::$tel;
+    }
 
-        
 
+    public static function updateCurrentUser($mapValue) {
+        Database::updateDb("Structure","Mail",$_SESSION["Structure"]["mail"],$mapValue);
+        self::updateSessionVar();
+    }
+
+    public static function updateDbName($newName) {
+        self::setName($newName);
+        self::updateCurrentUser([
+            "Name" => $newName
+        ]);
+    }
+
+    public static function updateDbPhone($newValue) {
+        self::setTel($newValue);
+        self::updateCurrentUser([
+            "Tel" => $newValue
+        ]);
+    }
+
+    public static function updateDbWebsite($newValue) {
+        self::setWebsite($newValue);
+        self::updateCurrentUser([
+            "Website" => $newValue
+        ]);
+    }
+
+    public static function updateDbAdress($newValue) {
+        self::setAdress($newValue);
+        self::updateCurrentUser([
+            "Adress" => $newValue
+        ]);
+    }
+
+    /**
+     * $newValue : need the hashed password
+     */
+    public static function updateDbPassword($newValue) {
+        self::setPassword($newValue);
+        self::updateCurrentUser([
+            "Password" => $newValue
+        ]);
+    }
+
+    public static function updateDbCanton($newValue) {
+        self::setCanton($newValue);
+        self::updateCurrentUser([
+            "Canton" => $newValue
+        ]);
+    }
+
+    public static function updateMailValid($newValue) {
+        self::setMailValid($newValue);
+        self::updateCurrentUser([
+            "mailValid" => $newValue
+        ]);
     }
 
 }
-
-?>

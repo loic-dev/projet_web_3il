@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -31,12 +31,13 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Ceci est un exemple de la façon dont vous pouvez lancer le projet localement.
+Pour obtenir une copie locale opérationnelle, suivez ces étapes d'exemple.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Ceci est un exemple de la liste des choses dont vous avez besoin pour utiliser le logiciel et comment les installer.
+
 * Docker
   ```sh
   Téléchargez sur https://www.docker.com/ l'utilitaire
@@ -82,10 +83,10 @@ Grâce à docker absolument tout est prêt et configuré ! par défaut sur https
 - [x] Index
     - [x] View mobile
     - [x] View full width
-    - [-] Mobile search
-    - [-] Full width search
+    - [ ] (Partial) Mobile search
+    - [ ] (Partial) Full width search
     - [x] Model
-    - [-] Controller
+    - [ ] (Partial) Controller
 - [x] Register
   - [x] View mobile
   - [x] View full width
@@ -129,9 +130,9 @@ Grâce à docker absolument tout est prêt et configuré ! par défaut sur https
   - [x] Ne télécharger pas des images inutilement
   - [x] Valider le javascript
   - [x] Taille maximum des cookies par domaine(<512 Octets)
-  - [-] Minifier les css et js
-  - [-] Minifier les css et js
-  - [-] Pas de cookie pour les ressources statiques
+  - [ ] (Partial) Minifier les css et js
+  - [ ] (Partial) Minifier les css et js
+  - [ ] (Partial) Pas de cookie pour les ressources statiques
   - [x] Eviter les redirections
   - [x] Optimiser les images bitmap
   - [x] Optimiser les images svg
@@ -142,12 +143,10 @@ Grâce à docker absolument tout est prêt et configuré ! par défaut sur https
   - [x] Privilégier HTTP/2 à HTTP/1
   - [x] Utiliser des polices de caractères standards
 - [ ] Cleaning code
-- [ ] Build a prod file for greenit (minify etc..)
+- [ ] Build a prod version for greenit (minify etc..)
 - [x] Valid W3C Css
-- [-] Valid W3C Html
-- [-] readme
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+- [ ] Valid W3C Html
+- [ ] readme
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -163,9 +162,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Loïc Charrié - [Mail](mailto:charriel@3il.fr) - charriel@3il.fr
+François Siderikoudis - [Mail](mailto:siderikf@3il.fr) - siderikf@3il.fr
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/loic-dev/projet_web_3il](https://github.com/loic-dev/projet_web_3il)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -174,4 +174,3 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [product-screenshot]: images_git/screenshot.png
-

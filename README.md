@@ -15,7 +15,7 @@
     <a href="#getting-started"><strong>Installation</strong></a>
     <br />
     <br />
-    <a href="roadmap">Roadmap</a>
+    <a href="#roadmap">Roadmap</a>
     ·
     <a href="#contact">Contact</a>
   </p>

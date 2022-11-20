@@ -28,8 +28,6 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -52,16 +50,23 @@ _Below is an example of how you can instruct your audience on installing and set
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/loic-dev/projet_web_3il.git
    ```
-3. Install NPM packages
+2. Install Docker
    ```sh
-   npm install
+   Télécharger sur https://www.docker.com/ l'utilitaire
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+   Depuis un powershell, installer wsl avec 
+   ```sh
+   wsl --install ou wsl --install -d Ubuntu
    ```
+   ou depuis le microsoft store en cherchant 'Ubuntu'
+3. Avec le powershell positionnez vous dans le dossier correspondant du projet
+   ```sh
+   docker-compose up --build
+   ```
+
+Grâce à docker absolument tout est prêt et configuré ! :)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

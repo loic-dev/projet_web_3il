@@ -156,7 +156,7 @@ CREATE TABLE `Structure` (
 -- ('francoisdks', '', 'francoisdks@gmail.com', '', '', '$2y$10$mMNisqE8SnVS4q.isuOM9eLuWJgWJV1vjnpagI6KcyXi9qALmPLRG', 'Millau-1', 1);
 
 INSERT INTO `Structure` (`Name`, `Tel`, `Mail`, `Website`, `Adress`, `Password`, `Canton`, `MailValid`) VALUES
-('Admin', '', 'admin@admin.dev', '', '', '$2y$10$fOsw.78Z7EtyWsXKWZOkH.voFh3bAvb4MKiilVIu1OqFL0oT5LAEi', 'Millau-1', 0),
+('Admin', '', 'admin@admin.fr', '', '', '$2y$10$lmlU3vm15bkvSTUXqpj/Su3esomYPmcnThyPeKdn2Sz.2WhUQ.hRC', '', 1),
 ('francoisdks', '', 'francoisdks@gmail.com', '', '', '$2y$10$mMNisqE8SnVS4q.isuOM9eLuWJgWJV1vjnpagI6KcyXi9qALmPLRG', 'Millau-1', 1);
 
 --

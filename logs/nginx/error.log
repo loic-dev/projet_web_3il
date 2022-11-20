@@ -3857,3 +3857,16 @@
 2022/11/20 08:43:32 [notice] 1#1: start worker process 32
 2022/11/20 08:43:32 [notice] 1#1: start worker process 33
 2022/11/20 08:43:32 [notice] 1#1: start worker process 34
+2022/11/20 20:31:21 [warn] 1#1: only the last index in "index" directive should be absolute in /etc/nginx/conf.d/default.conf:12
+2022/11/20 20:31:21 [notice] 1#1: using the "epoll" event method
+2022/11/20 20:31:21 [notice] 1#1: nginx/1.23.2
+2022/11/20 20:31:21 [notice] 1#1: built by gcc 11.2.1 20220219 (Alpine 11.2.1_git20220219) 
+2022/11/20 20:31:21 [notice] 1#1: OS: Linux 5.15.74.2-microsoft-standard-WSL2
+2022/11/20 20:31:21 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2022/11/20 20:31:21 [notice] 1#1: start worker processes
+2022/11/20 20:31:21 [notice] 1#1: start worker process 29
+2022/11/20 20:31:21 [notice] 1#1: start worker process 30
+2022/11/20 20:31:21 [notice] 1#1: start worker process 31
+2022/11/20 20:31:21 [notice] 1#1: start worker process 32
+2022/11/20 20:31:21 [notice] 1#1: start worker process 33
+2022/11/20 20:31:21 [notice] 1#1: start worker process 34

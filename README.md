@@ -39,34 +39,33 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+* Docker
   ```sh
-  npm install npm@latest -g
+  Téléchargez sur https://www.docker.com/ l'utilitaire
   ```
 
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/loic-dev/projet_web_3il.git
-   ```
-2. Install Docker
-   ```sh
-   Télécharger sur https://www.docker.com/ l'utilitaire
-   ```
+* Wsl (nécessaire pour démarrer un docker)
    Depuis un powershell, installer wsl avec 
    ```sh
    wsl --install ou wsl --install -d Ubuntu
    ```
    ou depuis le microsoft store en cherchant 'Ubuntu'
-3. Avec le powershell positionnez vous dans le dossier correspondant du projet
+
+### Installation
+
+_Voici un exemple pour démarrer le serveur sous docker_
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/loic-dev/projet_web_3il.git
+   ```
+
+2. Avec un powershell positionnez vous dans le dossier correspondant du projet
    ```sh
    docker-compose up --build
    ```
 
-Grâce à docker absolument tout est prêt et configuré ! :)
+Grâce à docker absolument tout est prêt et configuré ! par défaut sur https://localhost/ (le site ne marche volontairement qu'en https) :)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

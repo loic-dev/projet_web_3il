@@ -73,7 +73,8 @@ Grâce à docker absolument tout est prêt et configuré ! par défaut sur https
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-
+Identifiant de test : admin@admin.fr
+Mdp de test : MotDePasse@13 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

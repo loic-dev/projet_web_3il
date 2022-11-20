@@ -119,7 +119,7 @@ Grâce à docker absolument tout est prêt et configuré ! par défaut sur https
   - [ ] View full width
   - [ ] Controller
   - [ ] Model
-- [-] GreenIt
+- [ ] GreenIt
   - [x] Ajouter des expires ou cache-control headers
   - [x] Compresser les ressources (>= 95%)
   - [x] Limiter le nombre de domaines (<6)
@@ -146,7 +146,7 @@ Grâce à docker absolument tout est prêt et configuré ! par défaut sur https
 - [ ] Build a prod version for greenit (minify etc..)
 - [x] Valid W3C Css
 - [ ] Valid W3C Html
-- [ ] readme
+- [ ] (Partial) Readme
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

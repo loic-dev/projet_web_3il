@@ -1,8 +1,10 @@
 <?php
-require_once '../utils/ClientJsonException.php'; 
-require_once '../utils/regex.php'; 
-require_once '../utils/functions.php'; 
+require_once 'utils/ClientJsonException.php'; 
+require_once 'utils/regex.php'; 
+require_once 'utils/functions.php'; 
 require_once 'Database.php'; 
+
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 class Structure

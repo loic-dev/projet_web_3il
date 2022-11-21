@@ -55,27 +55,27 @@ class Advert
     public function setPicture2($picture2){
         $this->picture2 =$picture2;
     }
-    private function getAddress()
+    public function getAddress()
     {
         return $this->address;
     }
-    private function getPicture3()
+    public function getPicture3()
     {
         return $this->picture3;
     }
-    private function getMailStructure()
+    public function getMailStructure()
     {
         return $this->mailStructure;
     }
-    private function getInstrument()
+    public function getInstrument()
     {
         return $this->instrument;
     }
-    private function getLevel()
+    public function getLevel()
     {
         return $this->level;
     }
-    private function getRubric()
+    public function getRubric()
     {
         return $this->rubric;
     }
@@ -126,6 +126,22 @@ class Advert
 
     static function searchAdvert($title,$limit) {
         return Database::selectRandomDb("*","Advert", ["1 = 1"], [], $limit);
+    }
+
+    function getAdvert($id) {
+        $advert = Database::selectDb("*","Advert", ["idAdvert = ?"], [$id]);
+        $this->setIdAdvert($advert[0]['idAdvert']);
+        $this->setTitle($advert[0]['Title']);
+        $this->setDescription($advert[0]['Description']);
+        $this->setAdress($advert[0]['Adress']);
+        $this->setPicture1($advert[0]['Picture1']);
+        $this->setPicture2($advert[0]['Picture2']);
+        $this->setPicture3($advert[0]['Picture3']);
+        $this->setMailStructure($advert[0]['MailStructure']);
+        $this->setInstrument($advert[0]['Instrument']);
+        $this->setLevel($advert[0]['Level']);
+        $this->setRubric($advert[0]['Rubric']);
+        $this->setCanton($advert[0]['Canton']);
     }
     
     function insertDb() {

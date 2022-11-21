@@ -1,5 +1,5 @@
 <?php
-    require_once '../utils/functions.php'; 
+    require_once 'utils/functions.php'; 
 
     class ClientJsonException extends Exception
     {

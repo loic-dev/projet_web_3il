@@ -13,10 +13,10 @@
  * @since      1.0.0
  */
 
-require_once '../vendor/autoload.php';
-require_once '../utils/functions.php'; 
-require_once '../utils/ClientJsonException.php'; 
-require_once '../Models/Structure.php'; 
+require_once 'vendor/autoload.php';
+require_once 'utils/functions.php'; 
+require_once 'utils/ClientJsonException.php'; 
+require_once 'Models/Structure.php'; 
 require_once 'dbConnect.php'; 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;

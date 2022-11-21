@@ -3,6 +3,11 @@ session_start();
 if(!$_SESSION['login']){
     header("location: /fr/login");
 }
+
+require_once 'Controllers/controllerPublishAnAdvert.php';
+
+
+
 ?>
 
 
@@ -45,8 +50,18 @@ if(!$_SESSION['login']){
                         <div class="input-container">
                             <span class="input-text">Niveau</span>
                             <select name="level" id="level-input">
-                                <option value="A1">A1</option>
-                                <option value="A2">A2</option>
+                                <?php foreach ($levels as $level) { ?>
+                                    <option value="<?php echo $level->getName(); ?>"><?php echo $level->getName(); ?></option>
+                                <?php } ?>
+                            </select>
+                            <span class="error-input"></span>
+                        </div>
+                        <div class="input-container">
+                            <span class="input-text">Rubrique</span>
+                            <select name="level" id="level-input">
+                                <?php foreach ($rubrics as $rubric) { ?>
+                                    <option value="<?php echo $rubric->getName(); ?>"><?php echo $rubric->getName(); ?></option>
+                                <?php } ?>
                             </select>
                             <span class="error-input"></span>
                         </div>
@@ -61,8 +76,19 @@ if(!$_SESSION['login']){
                         <div class="input-container">
                             <span class="input-text">Instruments</span>
                             <div class="container-instruments">
+                                <?php 
+                                    $index=0;
+                                    foreach ($instruments as $inst) { ?>
+                                    <span id="<?php echo $index; ?>" class="panel-instruments">
+                                        <em class="fa-<?php echo $inst->getIcon(); ?> svg-primary-grey icon-30"></em>
+                                        <p><?php echo $inst->getName(); ?> </p>
+                                    </span>
+                                <?php $index++; } ?>
+
+
+
+
                             </div>
-                            <span id="add-instruments">Votre instrument n'est pas dans la liste ?</span>
                         </div>
                         <div class="input-container">
                             <span class="input-text">Photos</span>

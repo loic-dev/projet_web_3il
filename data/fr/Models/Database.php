@@ -37,6 +37,19 @@ class Database
                 }
         }
 
+        public static function selectAllDb($what, $from)
+        {
+                try {
+                        $sql = "SELECT $what FROM $from";
+                        $result = Database::getPdo()->prepare($sql);
+                        $result->execute();
+                        return $result->fetchAll();
+                } catch (exception $e) {
+                        throw $e;
+                }
+        }
+
+
         public static function selectDb($what, $from, $conditions = [], $attr = [])
         {
                 try {

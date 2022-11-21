@@ -9,36 +9,7 @@ let titleInput = document.getElementById("title-input");
 let placeInput = document.getElementById("place-input");
 let levelInput = document.getElementById("level-input");
 let descriptionInput = document.getElementById("desc-input");
-let listInstrument = [{
-        "name":"Guitare",
-        "icon":"guitar"},
-    {
-        "name":"Batterie",
-        "icon":"drum"
-    },
-    {
-        "name":"Piano",
-        "icon":"piano"
-    },
-    {
-        "name":"Saxophone",
-        "icon":"saxophone"
-    },
-    {
-        "name":"violon",
-        "icon":"violin"
-    }
-]
 
-
-let instrumentsInput = {
-    "id":0,
-    "name":"Guitare",
-    "icon":"guitar"
-}
-
-
-let button_submit = document.getElementById("btn-submit");
 let addPhotoPanel = document.getElementById("panel-add-photos");
 let inputFile = document.getElementById("file-input");
 let containerPhoto = document.querySelector(".container-photos");
@@ -48,52 +19,8 @@ let notPreviewImg = document.querySelector('.not-img-preview')
 let backPreview = document.querySelector('#back');
 let nextPreview = document.querySelector('#next');
 
-const reader = new FileReader();
 
-
-let containerInstrument = document.querySelector(".container-instruments");
 let title = "";
-
-const updateViewInstruments = () => {
-
-    document.querySelectorAll('.panel-instruments').forEach(node => {
-        node.remove();
-    })
-
-
-    listInstrument.forEach((instruments,i) => {
-        let view = `<span id="panel-instrument-${i}" class="${instrumentsInput.id === i ? `select panel-instruments` : `panel-instruments`}">
-            <em class="fa-${instruments.icon} svg-primary-grey icon-30"></em>
-            <p>${instruments.name}</p>
-        </span>` 
-        let element = document.createRange().createContextualFragment(view);
-        containerInstrument.append(element);
-        instruments.id = i;
-        document.querySelector(`#panel-instrument-${i}`).addEventListener("click", e => selectInstrument(instruments));
-    })
-}
-
-
-const updatePreviewInstrument = () => {
-    let preview = `
-        <em class="fa-${instrumentsInput.icon} svg-white icon-30"></em>
-        <span>${instrumentsInput.name}</span>
-    `
-    document.querySelector('#preview-icon-insts').innerHTML = preview;
-}
-
-
-updateViewInstruments();
-updatePreviewInstrument();
-
-
-
-
-function selectInstrument(instruments){
-    instrumentsInput = instruments;
-    updateViewInstruments();
-    updatePreviewInstrument();
-}
 
 const setDescription = (value) => {
     if(value === ""){
@@ -418,26 +345,6 @@ addPhotoPanel.addEventListener("click", (e) => inputFile.click());
 
 inputFile.addEventListener('change', (e) => uploadPhoto(e.target.files));
 
-const showModalAddInstruments = () => {
-    let viewModal = `<modal-instrument>
-
-    </modal-instrument>`
-    document.querySelector('body').prepend(document.createRange().createContextualFragment(viewModal));
-}
-
-document.querySelector('#add-instruments').addEventListener("click", (e) => showModalAddInstruments());
-
-
-EventBus.register("addInstrument", (evt) => {
-    let newSelection = {
-        "name":evt.detail.value,
-        "icon":"music"
-    }
-    newSelection.id = listInstrument.length;
-    listInstrument.push(newSelection);
-    selectInstrument(newSelection);
-});
-
 
 const publish = (e) => {
     e.preventDefault();
@@ -465,8 +372,6 @@ const publish = (e) => {
             }
         })
 
-        console.log(form_data)
-
 
         fetch('Controllers/controllerAd.php',{
             method: 'POST',
@@ -486,18 +391,6 @@ const publish = (e) => {
 
 
 const verifyAllForm = () => {
-    console.log(titleInput.value)
-    console.log(regex_input_alphaNum(titleInput.value))
-
-    console.log(placeInput.value)
-    console.log(regex_input_alphaNum(placeInput.value))
-
-    console.log(levelInput.value)
-    console.log(regex_input_alphaNum(levelInput.value))
-
-    console.log(descriptionInput.value)
-    console.log(descriptionInput.value)
-
     return titleInput.value && regex_input_alphaNum(titleInput.value) &&
     placeInput.value &&
     levelInput.value && regex_input_alphaNum(levelInput.value) &&

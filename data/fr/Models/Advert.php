@@ -1,5 +1,8 @@
 <?php 
 
+
+require_once 'Database.php';
+
 class Advert
 {
     private $idAdvert;
@@ -23,7 +26,7 @@ class Advert
         return $this->idAdvert;
     }
     public function setIdAdvert($idAdvert){
-        $this->idAdvert =$idAdvert;
+        $this->idAdvert = $idAdvert;
     }
     public function getTitle(){
         return $this->title;
@@ -129,8 +132,8 @@ class Advert
     }
 
     function getAdvert($id) {
-        $advert = Database::selectDb("*","Advert", ["idAdvert = ?"], [$id]);
-        $this->setIdAdvert($advert[0]['idAdvert']);
+        $advert = Database::selectDb("*","Advert", ["IdAdvert = ?"], [$id]);
+        $this->setIdAdvert($advert[0]['IdAdvert']);
         $this->setTitle($advert[0]['Title']);
         $this->setDescription($advert[0]['Description']);
         $this->setAdress($advert[0]['Adress']);
@@ -142,6 +145,31 @@ class Advert
         $this->setLevel($advert[0]['Level']);
         $this->setRubric($advert[0]['Rubric']);
         $this->setCanton($advert[0]['Canton']);
+    }
+
+    static function fetchAllAdvertForStructure($mail) {
+        $advertsDatabase = Database::selectDb("*","Advert", ["MailStructure = ?"], [$mail]);
+        
+        
+        
+        $listAdverts=array();
+        foreach ($advertsDatabase as $advert) {
+            $ad = new Advert();
+            $ad->setIdAdvert($advert['IdAdvert']);
+            $ad->setTitle($advert['Title']);
+            $ad->setDescription($advert['Description']);
+            $ad->setAdress($advert['Adress']);
+            $ad->setPicture1($advert['Picture1']);
+            $ad->setPicture2($advert['Picture2']);
+            $ad->setPicture3($advert['Picture3']);
+            $ad->setMailStructure($advert['MailStructure']);
+            $ad->setInstrument($advert['Instrument']);
+            $ad->setLevel($advert['Level']);
+            $ad->setRubric($advert['Rubric']);
+            $ad->setCanton($advert['Canton']);
+            array_push($listAdverts, $ad);
+        }
+        return $listAdverts;
     }
     
     function insertDb() {

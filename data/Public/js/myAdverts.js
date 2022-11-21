@@ -85,5 +85,16 @@ deleteAllButton.forEach(deleteButton => {
 })
 
 
+let allAdverts = document.querySelectorAll('.c-adverts');
+allAdverts.forEach(advert => {
+    advert.addEventListener("click", () => {
+        document.location.href = "../fr/advert?q="+advert.id;
+    })
+})
+
+
+
+
+
 
 

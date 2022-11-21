@@ -13,8 +13,8 @@
  * @since      1.0.0
  */
 
-require_once 'vendor/autoload.php';
-require_once 'Controllers/dbConnect.php';
+require_once '../vendor/autoload.php';
+require_once 'dbConnect.php';
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 

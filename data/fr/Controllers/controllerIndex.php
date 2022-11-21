@@ -1,6 +1,6 @@
 <?php 
-require_once 'Models/RequireAll.php';
-require_once 'utils/functions.php'; 
+require_once '../Models/RequireAll.php';
+require_once '../utils/functions.php'; 
 
 new Database();
 

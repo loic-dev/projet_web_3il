@@ -4,6 +4,10 @@ if(!$_SESSION['login']){
     header("location: /fr/login");
 }
 require_once 'Controllers/controllerAdvert.php';
+
+
+$pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPicture3());
+
 ?>
 
 
@@ -11,8 +15,8 @@ require_once 'Controllers/controllerAdvert.php';
 <html lang="fr">
 <head>
     <?php include('Views/Templates/head.php'); ?>
-    <link rel="stylesheet" href="../Public/CSS/modal.css">
-    <link rel="stylesheet" href="../Public/CSS/advert.css">
+    <link rel="stylesheet" href="../../Public/CSS/modal.css">
+    <link rel="stylesheet" href="../../Public/CSS/advert.css">
 </head>
 <body class="preload">
     <?php include('Views/Templates/header.php'); ?>
@@ -27,21 +31,29 @@ require_once 'Controllers/controllerAdvert.php';
                             <span class="t-level"><?php echo $advert->getLevel(); ?></span>
                         </div>
                         <div class="c-address">
-                            <span class="i-address"></span>
+                            <em class="fa-location-dot svg-grey icon-20"> </em>
                             <span class="t-address"><?php echo $advert->getAdress(); ?></span>
                         </div>
                     </div>
                     <div class="s-inst">
-                        <span class="i-inst"></span>
+                    <em class="fa-<?php echo $advert->getInstrument(); ?> svg-grey icon-20"> </em>
                         <span class="t-inst"><?php echo $advert->getInstrument(); ?></span>
                     </div>
                     
                 </div>
                 <div class="d-text">
-                    <span>blbabalala</span>
+                    <span><?php echo $advert->getDescription(); ?></span>
                 </div>
             </div>
-            <div class="c-images"></div>
+            <div class="c-images">
+                <?php foreach ($pictures as $pict) {
+                    if ($pict) {
+                        ?> <span class="image" style="background-image:url(..<?php echo $pict?>)"></span> <?php
+                    }
+                }
+                ?>
+
+            </div>
 
            
         </div>

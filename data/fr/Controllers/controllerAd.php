@@ -1,13 +1,9 @@
 <?php
-
-require_once 'dbConnect.php';  
-require_once 'utils/regex.php'; 
-require_once 'utils/functions.php'; 
-
-
-$content = trim(file_get_contents("php://input"));
-$_POST = json_decode($content, true);
-
+session_start();
+require_once 'dbConnect.php';
+require_once '../Models/Advert.php';
+require_once '../utils/ClientJsonException.php'; 
+require_once '../utils/regex.php'; 
 
 $title = $_POST["title"];
 $place = $_POST["place"];
@@ -16,51 +12,67 @@ $description = $_POST["description"];
 $instruments = $_POST["instruments"];
 $images = $_POST["images"];
 
-if(regex_input_text($title) === 0){
-    $error = json_response(500, 'error title');
-} else if(!regex_input_text($place)){
-    $error = json_response(500, 'error place');
-} else if(regex_input_text($level) === 0){
-    $error = json_response(500, 'error level');
+
+if(!regex_input_text($title)){
+    throw new ClientJsonException("error title", 500);
+} else if(!$place){
+    throw new ClientJsonException("error place", 500);
+} else if(regex_input_alpha($level) === 0){
+    throw new ClientJsonException("error level", 500);
 } else if(regex_input_text($description) === 0){
-    $error = json_response(500, 'error description');
+    throw new ClientJsonException("error description", 500);
 } else if(regex_input_text($instruments) === 0){
-    $error = json_response(500, 'error instruments');
+    throw new ClientJsonException("error instruments", 500);
 }
 
+$picture1 = null;
+$picture2 = null;
+$picture3 = null;
+
+
+if(isset($_FILES)){
+    $index = 0;
+    foreach ($_FILES as $file) {
+        $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+        $new_name = $index . '-' . time() . '-'. $_SESSION["Structure"]["mail"] . '.' . $extension;
+        move_uploaded_file($file['tmp_name'], '../../images/' . $new_name);
+        ${"picture" . $index} = "/images/" . $new_name;
+        $index++;
+    }
+}
+
+var_dump($picture1);
+
+$title = $_POST["title"];
+$place = $_POST["place"];
+$level = $_POST["level"];
+$description = $_POST["description"];
+$instruments = $_POST["instruments"];
+
+$ad = new Advert();
+$ad->setTitle($title);
+$ad->setDescription($description);
+$ad->setAdress($place);
+$ad->setPicture1($picture1);
+$ad->setPicture2($picture2);
+$ad->setPicture3($picture3);
+$ad->setMailStructure($_SESSION["Structure"]["mail"]);
+$ad->setInstrument($instruments);
+$ad->setLevel($level);
+$ad->setRubric("Study");
+$ad->setCanton("Millau-1");
 
 
 
-$id = uniqid();
-$now = new DateTimeImmutable();
-$structure = [
-    'id' => $id,
-    'created_datetime' => $now ->getTimestamp(),
-    'updated_datetime' => $now ->getTimestamp()
-];
 
 
-
-/*$sql = "INSERT INTO structure (id, name, email, password, email_verify, created_datetime, updated_datetime) VALUES (:id, :name, :email, :password, :email_verify, :created_datetime, :updated_datetime)";
 try {
-    $db->prepare($sql)->execute($structure);
-} catch (PDOException $e) {
-    $error = json_response(500, 'error database');
-}*/
-
-
-
-if(empty($error)){
-    echo $response;
-} else {
-    echo $error;
+    $ad->insertDb();
+    $reponse = new ClientJsonException("advert add successfully", 200);
+    $reponse->sendJsonValid(true);
+} catch (ClientJsonException $e) {
+    $e->sendJsonError();
+    die();
 }
-
-
-
-
-
-
-
 
 ?>

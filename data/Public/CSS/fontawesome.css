@@ -140,6 +140,10 @@
     background-color:var(--white-grey);
 }
 
+.svg-grey {
+    background-color:var(--grey);
+}
+
 .svg-primary-grey{
     background-color:var(--primary-grey);
 }

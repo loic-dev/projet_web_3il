@@ -88,14 +88,23 @@ INSERT INTO `Canton` (`Canton`, `City`) VALUES
 
 CREATE TABLE `Instrument` (
   `Name` varchar(50) NOT NULL
+  `Icon` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Instrument`
 --
 
-INSERT INTO `Instrument` (`Name`) VALUES
-('Flute');
+INSERT INTO `Instrument` (`Name`, `Icon`) VALUES
+('Batterie', 'drum');
+INSERT INTO `Instrument` (`Name`, `Icon`) VALUES
+('Guitare', 'guitar');
+INSERT INTO `Instrument` (`Name`, `Icon`) VALUES
+('Piano', 'piano');
+INSERT INTO `Instrument` (`Name`, `Icon`) VALUES
+('Saxophone', 'saxophone');
+INSERT INTO `Instrument` (`Name`, `Icon`) VALUES
+('violon', 'violin');
 
 -- --------------------------------------------------------
 
@@ -113,6 +122,8 @@ CREATE TABLE `Level` (
 
 INSERT INTO `Level` (`Level`) VALUES
 ('Easy');
+INSERT INTO `Level` (`Level`) VALUES
+('Medium');
 
 -- --------------------------------------------------------
 

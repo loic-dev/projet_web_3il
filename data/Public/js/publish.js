@@ -352,7 +352,7 @@ const createSearchItemComponent = (data) => {
 const completePlaceInput = (data) => {
     setPlace(data.label);
     placeInput.value = data.label;
-    document.querySelector('#panel-place').innerText = value;
+    document.querySelector('#panel-place').innerText = data.label;
     document.querySelector("#list-search").classList.remove("show");
 }
 
@@ -465,6 +465,7 @@ const publish = (e) => {
             }
         })
 
+        console.log(form_data)
 
 
         fetch('Controllers/controllerAd.php',{
@@ -485,8 +486,20 @@ const publish = (e) => {
 
 
 const verifyAllForm = () => {
+    console.log(titleInput.value)
+    console.log(regex_input_alphaNum(titleInput.value))
+
+    console.log(placeInput.value)
+    console.log(regex_input_alphaNum(placeInput.value))
+
+    console.log(levelInput.value)
+    console.log(regex_input_alphaNum(levelInput.value))
+
+    console.log(descriptionInput.value)
+    console.log(descriptionInput.value)
+
     return titleInput.value && regex_input_alphaNum(titleInput.value) &&
-    placeInput.value && regex_input_alphaNum(placeInput.value) &&
+    placeInput.value &&
     levelInput.value && regex_input_alphaNum(levelInput.value) &&
     descriptionInput.value && instrumentsInput.name;
 }

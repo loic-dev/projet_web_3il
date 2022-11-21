@@ -1,5 +1,5 @@
 <?php
-require_once 'utils/functions.php'; 
+require_once '../utils/functions.php'; 
 $query = $_GET['search'];
 $query = str_replace(' ', '+', $query);
 $api = "https://api-adresse.data.gouv.fr/search?q=".$query."+Aveyron+12+Occitanie";

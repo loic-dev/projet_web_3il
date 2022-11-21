@@ -3,6 +3,10 @@ session_start();
 if(!$_SESSION['login']){
     header("location: /fr/login");
 }
+
+require_once 'Controllers/controllerMyAdverts.php';
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,39 +23,36 @@ if(!$_SESSION['login']){
                 <span class="title">Mes annonces</span>
             </div>
             <div id="container-list-adverts">
-                <span id="12" class="c-adverts">
-                    <div class="container-option">
-                        <div class="options">
-                            <span class="edit">Modifier</span>
-                            <span class="delete">Supprimer</span>
-                        </div>
+                <?php foreach ($myAdverts as $advert) {?>
                     
-                        <div id="menu">
-                            <em class="fa-ellipsis svg-primary-grey icon-15"> </em>
-                        </div>
-                    </div>
-                    <span class="photo-container"></span>
-                    <div class="body-container">
-                        <div class="a-header">
-                            <div class="title-ad-container">
-                                <span class="a-title">Titre de l'annonce</span>
-                                <span class="a-address">21 avenue jean monnet</span>
-
+                    <span id="<?php echo $advert->getIdAdvert(); ?>" class="c-adverts">
+                        <div class="container-option">
+                            <div class="options">
+                                <span class="edit">Modifier</span>
+                                <span class="delete">Supprimer</span>
                             </div>
-                            <div class="icon-music">
-                                <em></em>
-                                <span>piano</span>
+                        
+                            <div id="menu">
+                                <em class="fa-ellipsis svg-primary-grey icon-15"> </em>
                             </div>
                         </div>
-                        <div class="section-desc">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, soluta animi ea eius culpa quaerat laborum possimus voluptatum, sunt illo tempore perferendis incidunt quas optio eum nisi repellat dicta blanditiis.ea eius culpa quaerat laborum possimus voluptatum, sunt illo tempore perferendis incidunt quas optio eum nisi repellat dicta blanditiis.
+                        <span class="photo-container" style="background-image:url(<?php echo $advert->getPicture1(); ?>)"></span>
+                        <div class="body-container">
+                            <div class="a-header">
+                                <div class="title-ad-container">
+                                    <span class="a-title"><?php echo $advert->getTitle(); ?></span>
+                                    <span class="a-address"><?php echo $advert->getAddress(); ?></span>
+
+                                </div>
+                                <div class="icon-music">
+                                    <em></em>
+                                    <span><?php echo $advert->getInstrument(); ?></span>
+                                </div>
+                            </div>
+                            <div class="section-desc"><?php echo $advert->getDescription(); ?></div>
                         </div>
-
-                    </div>
-
-
-                </span>
-
+                    </span>
+                <?php } ?>
             </div>
         </div>
 

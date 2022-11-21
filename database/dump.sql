@@ -60,7 +60,7 @@ CREATE TABLE `Advert` (
 --
 
 -- INSERT INTO `Advert` (`IdAdvert`, `Title`, `Description`, `Adress`, `Picture1`, `Picture2`, `Picture3`, `MailStructure`, `Instrument`, `Level`, `Rubric`, `Canton`) VALUES
--- (12, 'test', 'test123', '', '../././/', '../././/', '../././/', 'francoisdks@gmail.com', 'Flute', 'Easy', 'Study', 'Millau-1');
+-- (12, 'test', 'test123', '', '../././/', '../././/', '../././/', 'francoisdks@gmail.com', 'Guitare', 'Easy', 'Study', 'Millau-1');
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,7 @@ INSERT INTO `Canton` (`Canton`, `City`) VALUES
 --
 
 CREATE TABLE `Instrument` (
-  `Name` varchar(50) NOT NULL
+  `Name` varchar(50) NOT NULL,
   `Icon` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -252,7 +252,7 @@ INSERT INTO `Advert`
   Praesent quis ipsum magna. Sed venenatis augue et dolor sodales finibus. Nulla facilisis, felis sit amet porttitor commodo, 
   ipsum lorem consectetur tellus, non commodo orci eros non ex. Donec a ligula euismod, congue sapien ut, venenatis risus.
    Nam tristique dictum enim. Sed suscipit, ex eu scelerisque accumsan, sem.\r\n', 'lieu annonce1', '\\imgAnnonce1\\img1.webp',
-    '\\imgAnnonce1\\img2.webp', '\\imgAnnonce1\\img3.webp', 'francoisdks@gmail.com', 'Flute', 'Easy', 'Study', 'Millau-1');
+    '\\imgAnnonce1\\img2.webp', '\\imgAnnonce1\\img3.webp', 'francoisdks@gmail.com', 'Guitare', 'Easy', 'Study', 'Millau-1');
 
 
 INSERT INTO `Advert` 
@@ -261,7 +261,7 @@ INSERT INTO `Advert`
   Praesent quis ipsum magna. Sed venenatis augue et dolor sodales finibus. Nulla facilisis, felis sit amet porttitor commodo, 
   ipsum lorem consectetur tellus, non commodo orci eros non ex. Donec a ligula euismod, congue sapien ut, venenatis risus.
    Nam tristique dictum enim. Sed suscipit, ex eu scelerisque accumsan, sem.\r\n', 'lieu annonce1', '\\imgAnnonce2\\img1.webp',
-    '\\imgAnnonce2\\img2.webp', '\\imgAnnonce2\\img3.webp', 'francoisdks@gmail.com', 'Flute', 'Easy', 'Study', 'Millau-1');
+    '\\imgAnnonce2\\img2.webp', '\\imgAnnonce2\\img3.webp', 'francoisdks@gmail.com', 'Guitare', 'Easy', 'Study', 'Millau-1');
 
 INSERT INTO `Advert` 
 (`IdAdvert`, `Title`, `Description`, `Adress`, `Picture1`, `Picture2`, `Picture3`, `MailStructure`, `Instrument`, `Level`, `Rubric`, `Canton`)
@@ -269,7 +269,7 @@ INSERT INTO `Advert`
   Praesent quis ipsum magna. Sed venenatis augue et dolor sodales finibus. Nulla facilisis, felis sit amet porttitor commodo, 
   ipsum lorem consectetur tellus, non commodo orci eros non ex. Donec a ligula euismod, congue sapien ut, venenatis risus.
    Nam tristique dictum enim. Sed suscipit, ex eu scelerisque accumsan, sem.\r\n', 'lieu annonce1', '\\imgAnnonce3\\img1.webp',
-    '\\imgAnnonce3\\img2.webp', '\\imgAnnonce3\\img3.webp', 'francoisdks@gmail.com', 'Flute', 'Easy', 'Study', 'Millau-1');
+    '\\imgAnnonce3\\img2.webp', '\\imgAnnonce3\\img3.webp', 'francoisdks@gmail.com', 'Guitare', 'Easy', 'Study', 'Millau-1');
 
 INSERT INTO `Advert` 
 (`IdAdvert`, `Title`, `Description`, `Adress`, `Picture1`, `Picture2`, `Picture3`, `MailStructure`, `Instrument`, `Level`, `Rubric`, `Canton`)
@@ -277,7 +277,7 @@ INSERT INTO `Advert`
   Praesent quis ipsum magna. Sed venenatis augue et dolor sodales finibus. Nulla facilisis, felis sit amet porttitor commodo, 
   ipsum lorem consectetur tellus, non commodo orci eros non ex. Donec a ligula euismod, congue sapien ut, venenatis risus.
    Nam tristique dictum enim. Sed suscipit, ex eu scelerisque accumsan, sem.\r\n', 'lieu annonce1', '\\imgAnnonce4\\img1.webp',
-    '\\imgAnnonce4\\img2.webp', '\\imgAnnonce4\\img3.webp', 'francoisdks@gmail.com', 'Flute', 'Easy', 'Study', 'Millau-1');
+    '\\imgAnnonce4\\img2.webp', '\\imgAnnonce4\\img3.webp', 'francoisdks@gmail.com', 'Guitare', 'Easy', 'Study', 'Millau-1');
 
 INSERT INTO `Advert` 
 (`IdAdvert`, `Title`, `Description`, `Adress`, `Picture1`, `Picture2`, `Picture3`, `MailStructure`, `Instrument`, `Level`, `Rubric`, `Canton`)
@@ -285,7 +285,7 @@ INSERT INTO `Advert`
   Praesent quis ipsum magna. Sed venenatis augue et dolor sodales finibus. Nulla facilisis, felis sit amet porttitor commodo, 
   ipsum lorem consectetur tellus, non commodo orci eros non ex. Donec a ligula euismod, congue sapien ut, venenatis risus.
    Nam tristique dictum enim. Sed suscipit, ex eu scelerisque accumsan, sem.\r\n', 'lieu annonce1', '\\imgAnnonce5\\img1.webp',
-    '\\imgAnnonce5\\img2.webp', '\\imgAnnonce5\\img3.webp', 'francoisdks@gmail.com', 'Flute', 'Easy', 'Study', 'Millau-1');
+    '\\imgAnnonce5\\img2.webp', '\\imgAnnonce5\\img3.webp', 'francoisdks@gmail.com', 'Guitare', 'Easy', 'Study', 'Millau-1');
 
 
 
@@ -296,7 +296,7 @@ INSERT INTO `Advert`
 --   Praesent quis ipsum magna. Sed venenatis augue et dolor sodales finibus. Nulla facilisis, felis sit amet porttitor commodo, 
 --   ipsum lorem consectetur tellus, non commodo orci eros non ex. Donec a ligula euismod, congue sapien ut, venenatis risus.
 --    Nam tristique dictum enim. Sed suscipit, ex eu scelerisque accumsan, sem.\r\n', 'lieu annonce1', '\\imgAnnonce5\\img1.webp',
---     '\\imgAnnonce5\\img2.webp', '\\imgAnnonce5\\img3.webp', 'francoisdks@gmail.com', 'Flute', 'Easy', 'Study', 'Millau-1');
+--     '\\imgAnnonce5\\img2.webp', '\\imgAnnonce5\\img3.webp', 'francoisdks@gmail.com', 'Guitare', 'Easy', 'Study', 'Millau-1');
 
 -- INSERT INTO `Canton` (`Canton`, `City`) VALUES ("Rodez-1","Rodez");
 -- -- INSERT INTO `Canton` (`Canton`, `City`) VALUES ("Millau-1","Millau");

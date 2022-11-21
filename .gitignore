@@ -1,5 +1,3 @@
 data/fr/vendor/
 data/images/
-logs/
-*.log
-
+logs/nginx/

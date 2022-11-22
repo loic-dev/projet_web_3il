@@ -36,7 +36,7 @@ $pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPic
                         </div>
                     </div>
                     <div class="s-inst">
-                    <em class="fa-<?php echo $advert->getInstrument(); ?> svg-grey icon-20"> </em>
+                        <em class="fa-<?php echo $instrument->getIcon(); ?> svg-primary-grey icon-45"> </em>
                         <span class="t-inst"><?php echo $advert->getInstrument(); ?></span>
                     </div>
                     

@@ -41,6 +41,12 @@ class Instrument
         return $listInstruments;
     }
 
+    public function fetchOneInstruments() {
+        $instrument = Database::selectDb("*","Instrument", ["Name = ?"], [$this->getName()]);
+        $this->setIcon($instrument[0]['Icon']);
+        
+    }
+
     public function insertInstrumentDb() {
 
     }

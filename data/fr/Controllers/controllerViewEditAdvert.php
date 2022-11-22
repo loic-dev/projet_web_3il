@@ -1,6 +1,6 @@
 <?php 
 
-
+new Database();
 
 $advert = new Advert();
 $structure = new Structure();
@@ -9,9 +9,7 @@ $advert->getAdvert($id_advert);
 $structure->setMail($advert->getMailStructure());
 $structure->fetchUserData();
 
-$instrument = new Instrument();
-$instrument->setName($advert->getInstrument());
-$instrument->fetchOneInstruments();
-
-
+$instruments=Instrument::fetchAllInstruments();
+$levels=Level::fetchAllLevels();
+$rubrics=Rubric::fetchAllRubrics();
 ?>

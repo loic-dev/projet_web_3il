@@ -38,7 +38,7 @@ require_once 'Controllers/controllerMyAdverts.php';
                             </div>
                         </div>
                         <span class="photo-container" style="background-image:url(<?php echo $advert->getPicture1(); ?>)"></span>
-                        <div class="body-container">
+                        <div class="adverts-body-container">
                             <div class="a-header">
                                 <div class="title-ad-container">
                                     <span class="a-title"><?php echo $advert->getTitle(); ?></span>

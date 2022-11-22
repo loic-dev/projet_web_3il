@@ -46,6 +46,12 @@ Router::addRouteWithAttr(
    }
 );
 
+Router::addRouteWithAttr(
+    '/advert-edit?q=', function () {
+        Controller::createView('viewEditAdvert');
+   }
+);
+
 Router::add(
     '/profile', function () {
         Controller::createView('viewProfile');

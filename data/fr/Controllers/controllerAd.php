@@ -19,7 +19,7 @@ if(!regex_input_text($title)){
     throw new ClientJsonException("error place", 500);
 } else if(regex_input_alpha($level) === 0){
     throw new ClientJsonException("error level", 500);
-} else if(regex_input_text($description) === 0){
+} else if(!$description){
     throw new ClientJsonException("error description", 500);
 } else if(regex_input_text($instruments) === 0){
     throw new ClientJsonException("error instruments", 500);

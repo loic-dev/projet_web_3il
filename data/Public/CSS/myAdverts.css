@@ -28,11 +28,11 @@
 
 .c-adverts {
     max-width: 300px;
+    min-width: 300px;
     position: relative;
     height: 350px;
     border-radius: 5px;
     padding: 15px;
-    cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -71,7 +71,7 @@
     cursor: pointer;
 }
 
-.container-option #menu{
+.container-option .menu{
     width: 20px;
     cursor: pointer;
     display: flex;
@@ -92,6 +92,8 @@
     background-color: var(--white-grey);
     border-radius: 5px;
     margin-bottom: 15px ;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .a-header{

@@ -8,7 +8,7 @@ function json_response($code = 200, $message = null)
         500 => '500 Internal Server Error'
         );
     // ok, validation error, or failure
-    header("Status: {$status[$code]}");
+    //header("Status: {$status[$code]}");
     // return the encoded json
     return json_encode(array(
         'status' => $code < 300, // success or not?
@@ -25,7 +25,7 @@ function object_json_response($code = 200, $object = [])
         500 => '500 Internal Server Error'
         );
     // ok, validation error, or failure
-    header("Status: {$status[$code]}");
+    //header("Status: {$status[$code]}");
     // return the encoded json
     return json_encode($object);
 }

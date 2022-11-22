@@ -60,7 +60,7 @@ class Advert
     }
     public function getAddress()
     {
-        return $this->address;
+        return $this->adress;
     }
     public function getPicture3()
     {
@@ -147,11 +147,12 @@ class Advert
         $this->setCanton($advert[0]['Canton']);
     }
 
+    public function deleteAdvert() {
+        Database::deleteDb("Advert",  ["MailStructure = ? AND IdAdvert = ?"], [$this->getMailStructure(), $this->getIdAdvert()]);
+    }
+
     static function fetchAllAdvertForStructure($mail) {
         $advertsDatabase = Database::selectDb("*","Advert", ["MailStructure = ?"], [$mail]);
-        
-        
-        
         $listAdverts=array();
         foreach ($advertsDatabase as $advert) {
             $ad = new Advert();

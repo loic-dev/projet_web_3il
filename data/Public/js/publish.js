@@ -8,7 +8,11 @@ let signup_form = document.getElementById("publish-add-form");
 let titleInput = document.getElementById("title-input");
 let placeInput = document.getElementById("place-input");
 let levelInput = document.getElementById("level-input");
+let rubricInput = document.getElementById("rubric-input");
 let descriptionInput = document.getElementById("desc-input");
+let instrumentsInput = document.querySelector('.panel-instruments.select');
+let allInstruments = document.querySelectorAll('.panel-instruments');
+
 
 let addPhotoPanel = document.getElementById("panel-add-photos");
 let inputFile = document.getElementById("file-input");
@@ -18,6 +22,22 @@ let previewSelect = 0;
 let notPreviewImg = document.querySelector('.not-img-preview')
 let backPreview = document.querySelector('#back');
 let nextPreview = document.querySelector('#next');
+
+
+const selectInstrument = (id) => {
+    instrumentsInput = document.querySelector('#'+id);
+    allInstruments.forEach((inst) => {
+        if(inst.id === id){
+            inst.classList.add("select");
+        } else {
+            inst.classList.remove("select");
+        }
+    })
+}
+
+allInstruments.forEach((inst) => {
+    inst.addEventListener("click", () => selectInstrument(inst.id))
+})
 
 
 let title = "";
@@ -350,16 +370,19 @@ const publish = (e) => {
     e.preventDefault();
     if(verifyAllForm()){
 
-    
+     
 
         let ad = {
             "title":titleInput.value,
             "place":placeInput.value,
             "level":levelInput.value,
+            "rubric":rubricInput.value,
             "description":descriptionInput.value,
-            "instruments":instrumentsInput.name,
+            "instruments":instrumentsInput.innerText,
             "images":listPhotos
         }
+
+        console.log(ad);
 
         const form_data = new FormData();
         Object.keys(ad).forEach(key => {
@@ -379,7 +402,7 @@ const publish = (e) => {
         }).then(function (response) {
             return response.json();
         }).then(function (data) {
-            console.log(data)
+            document.location.href = "../fr/my-adverts";
         }).catch(function (err) {
             addError(err);
             console.log(err)
@@ -393,8 +416,9 @@ const publish = (e) => {
 const verifyAllForm = () => {
     return titleInput.value && regex_input_alphaNum(titleInput.value) &&
     placeInput.value &&
+    rubricInput.value &&
     levelInput.value && regex_input_alphaNum(levelInput.value) &&
-    descriptionInput.value && instrumentsInput.name;
+    descriptionInput.value && instrumentsInput.innerText;
 }
 
 

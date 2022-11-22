@@ -31,7 +31,7 @@ $picture3 = null;
 
 
 if(isset($_FILES)){
-    $index = 0;
+    $index = 1;
     foreach ($_FILES as $file) {
         $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
         $new_name = $index . '-' . time() . '-'. $_SESSION["Structure"]["mail"] . '.' . $extension;
@@ -41,13 +41,12 @@ if(isset($_FILES)){
     }
 }
 
-var_dump($picture1);
-
 $title = $_POST["title"];
 $place = $_POST["place"];
 $level = $_POST["level"];
 $description = $_POST["description"];
 $instruments = $_POST["instruments"];
+$rubric = $_POST["rubric"];
 
 $ad = new Advert();
 $ad->setTitle($title);
@@ -59,8 +58,10 @@ $ad->setPicture3($picture3);
 $ad->setMailStructure($_SESSION["Structure"]["mail"]);
 $ad->setInstrument($instruments);
 $ad->setLevel($level);
-$ad->setRubric("Study");
+$ad->setRubric($rubric);
 $ad->setCanton("Millau-1");
+
+
 
 
 

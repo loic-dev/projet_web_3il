@@ -28,11 +28,12 @@ require_once 'Controllers/controllerMyAdverts.php';
                     <span id="<?php echo $advert->getIdAdvert(); ?>" class="c-adverts">
                         <div class="container-option">
                             <div class="options">
+                                <span class="open">Ouvrir</span>
                                 <span class="edit">Modifier</span>
                                 <span class="delete">Supprimer</span>
                             </div>
                         
-                            <div id="menu">
+                            <div class="menu">
                                 <em class="fa-ellipsis svg-primary-grey icon-15"> </em>
                             </div>
                         </div>

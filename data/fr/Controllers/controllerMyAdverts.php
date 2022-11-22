@@ -3,6 +3,6 @@
 
 <?php 
 new Database();
-$myAdverts=Advert::fetchAllAdvertForStructure("francoisdks@gmail.com");
+$myAdverts=Advert::fetchAllAdvertForStructure($_SESSION["Structure"]["mail"]);
 
 ?>

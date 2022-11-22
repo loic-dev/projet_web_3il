@@ -135,4 +135,20 @@ class Database
                         throw $e;
                 }
         }
+
+
+        public static function deleteDb($table, $conditions = [], $attr = [])
+        {
+                try {
+                        $sql = "DELETE FROM $table WHERE ";
+                        foreach ($conditions as $condition) {
+                            $sql .= $condition . " ";
+                        }
+                        $result = Database::getPdo()->prepare($sql);
+                        $result->execute($attr);
+                        
+                } catch (exception $e) {
+                        throw $e;
+                }
+        }
 }

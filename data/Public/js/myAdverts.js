@@ -1,8 +1,13 @@
 import { createModal } from "./createModal.js";
 
-const activeMenu = (e) => {
+const activeMenu = (e,menu) => {
     e.stopPropagation();
-    let optionContainer = document.querySelector('.options');
+
+
+    document.querySelectorAll('.options').forEach(option => {
+        option.classList.remove('show');
+    })
+    let optionContainer =  menu.parentNode.querySelector('.options');
     optionContainer.classList.add('show');
 
     let stopPropagationEvent = (e) => {
@@ -21,10 +26,12 @@ const activeMenu = (e) => {
     })
 }
 
+let allMenu = document.querySelectorAll('.menu');
+allMenu.forEach(menu => {
+    menu.addEventListener('click', (e) => activeMenu(e,menu));
+})
 
 
-
-document.getElementById('menu').addEventListener('click', (e) => activeMenu(e));
 
 
 
@@ -34,12 +41,37 @@ const editAdverts = (e) => {
     document.location.href = "../fr/advert-edit?q="+advert.id;
 }
 
-
-const removeAdvert = (e) => {
-    console.log("annonce supprimer")
+const openAdverts = (e) => {
+    let advert = e.target.parentNode.parentNode.parentNode;
+    document.location.href = "../fr/advert?q="+advert.id;
 }
 
-const deleteAdverts = (e) => {
+
+const removeAdvert = (e,id) => {
+
+
+    fetch('Controllers/controllerDeleteAdvert.php',{
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({id:id})
+    }).then(function (response) {
+        return response.json();
+    }).then(function (data) {
+        console.log(data)
+        document.location.href = "../fr/my-adverts";
+    }).catch(function (err) {
+        addError(err);
+        console.log(err)
+    });
+
+
+}
+
+const deleteAdverts = (e,target) => {
+    let id = target.parentNode.parentNode.parentNode.id;
     e.preventDefault();
     e.stopPropagation();
     let bodyInner = `
@@ -68,11 +100,12 @@ const deleteAdverts = (e) => {
     confirmDelete.addEventListener('keyup', (e) => enabledButton(e));
     
 
-    document.getElementById('deleteButton').addEventListener('click',(e) => removeAdvert(e));
+    document.getElementById('deleteButton').addEventListener('click',(e) => removeAdvert(e, id));
 }
 
 
 let editAllButton = document.querySelectorAll('.edit');
+let openAllButton = document.querySelectorAll('.open');
 let deleteAllButton = document.querySelectorAll('.delete');
 
 
@@ -80,18 +113,13 @@ editAllButton.forEach(editButton => {
     editButton.addEventListener("click", (e) => editAdverts(e))
 })
 
+openAllButton.forEach(openButton => {
+    openButton.addEventListener("click", (e) => openAdverts(e))
+})
+
 deleteAllButton.forEach(deleteButton => {
-    deleteButton.addEventListener("click", (e) => deleteAdverts(e))
+    deleteButton.addEventListener("click", (e) => deleteAdverts(e,deleteButton))
 })
-
-
-let allAdverts = document.querySelectorAll('.c-adverts');
-allAdverts.forEach(advert => {
-    advert.addEventListener("click", () => {
-        document.location.href = "../fr/advert?q="+advert.id;
-    })
-})
-
 
 
 

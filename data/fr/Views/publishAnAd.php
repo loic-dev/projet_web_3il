@@ -58,7 +58,7 @@ require_once 'Controllers/controllerPublishAnAdvert.php';
                         </div>
                         <div class="input-container">
                             <span class="input-text">Rubrique</span>
-                            <select name="level" id="level-input">
+                            <select name="rubric" id="rubric-input">
                                 <?php foreach ($rubrics as $rubric) { ?>
                                     <option value="<?php echo $rubric->getName(); ?>"><?php echo $rubric->getName(); ?></option>
                                 <?php } ?>
@@ -79,7 +79,7 @@ require_once 'Controllers/controllerPublishAnAdvert.php';
                                 <?php 
                                     $index=0;
                                     foreach ($instruments as $inst) { ?>
-                                    <span id="<?php echo $index; ?>" class="panel-instruments">
+                                    <span id="inst-<?php echo $index; ?>" class="panel-instruments <?php if($index === 0) { echo "select"; } ?>">
                                         <em class="fa-<?php echo $inst->getIcon(); ?> svg-primary-grey icon-30"></em>
                                         <p><?php echo $inst->getName(); ?> </p>
                                     </span>

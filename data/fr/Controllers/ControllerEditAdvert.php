@@ -20,7 +20,6 @@ $rubric = $_POST["rubric"];
 
 if(isset($_FILES)){
     foreach ($_FILES as $key=>$file) {
-        var_dump($value);
         $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
         $new_name = $key . '-' . time() . '-'. $_SESSION["Structure"]["mail"] . '.' . $extension;
         move_uploaded_file($file['tmp_name'], '../../images/' . $new_name);

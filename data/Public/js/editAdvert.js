@@ -14,10 +14,33 @@ let instrumentsInput = document.querySelector('.panel-instruments.select');
 let allInstruments = document.querySelectorAll('.panel-instruments');
 
 
-let addPhotoPanel = document.getElementById("panel-add-photos");
-let inputFile = document.getElementById("file-input");
+//get photo server
 let containerPhoto = document.querySelector(".container-photos");
 var listPhotos = [];
+document.querySelectorAll('.edit-photo-span').forEach(span => {
+    
+    listPhotos.push({
+        type:"server",
+        id:span.id,
+    });
+})
+
+//create history
+const historyForm = {
+    "title":titleInput.value,
+    "place":placeInput.value,
+    "level":levelInput.value,
+    "rubric":rubricInput.value,
+    "description":descriptionInput.value,
+    "instruments":instrumentsInput.innerText,
+    "images":[...listPhotos]
+}
+
+
+let addPhotoPanel = document.getElementById("panel-add-photos");
+let inputFile = document.getElementById("file-input");
+
+
 
 
 
@@ -30,6 +53,7 @@ const selectInstrument = (id) => {
             inst.classList.remove("select");
         }
     })
+    activeSubmitButton();
 }
 
 allInstruments.forEach((inst) => {
@@ -65,22 +89,21 @@ const addError = (err) => {
 let idPhoto = null;
 
 function uploadPhoto(files) {
-
     var reader = new FileReader(); 
     
     
     const readFile = (index) => {
         var file = files[index];
 
-        if( index >= 3 || index >= files.length  ) {
-            inputFile.value = "";
-            return;
-        }
 
 
         
+        if( index >= 3 || index >= files.length ) {
+            inputFile.value = "";
+            return;
+        }   
 
-
+        
 
         //check extention
         var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
@@ -97,15 +120,30 @@ function uploadPhoto(files) {
         }
       
         idPhoto = uniqId();
-        listPhotos.push({
-            id:idPhoto,
-            file:file
-        })
+        console.log(idPhoto)
+        let i = listPhotos.findIndex(p => p.id === null)
+        if(i === -1){
+            listPhotos.push({
+                id:idPhoto,
+                file:file,
+                type:"upload"
+            })
+        } else {
+            listPhotos[i] = {
+                id:idPhoto,
+                file:file,
+                type:"upload"
+            }
+        }
+
+        
+
+        
 
         reader.onload = function(e) {  
             listPhotos[listPhotos.findIndex(data => data.id === idPhoto)].preview = e.target.result;
             idPhoto = null;
-            if(listPhotos.length < 3){
+            if(listPhotos.filter(link => link.id !== null).length < 3){
                 readFile(index+1);
             }
             updateViewPhoto();
@@ -120,49 +158,60 @@ function uploadPhoto(files) {
 
 
 const remove = (e,index) => {
-    listPhotos.splice(index, 1);
+    listPhotos[index].id = null;
     updateViewPhoto();
+    activeSubmitButton();
 }
 
 
 
-
-
 const updateViewPhoto  = () => {
-
+    
 
     //delete state list photos
     let getNodePhotos = document.querySelectorAll(".edit-photo-span");
     getNodePhotos.forEach((node,i) => {
+        
         let index = listPhotos.findIndex(data => data.id === node.id)
-        node.removeEventListener("click",(e) => remove(e,index), true);
-        node.remove();
+        if(index === -1 || listPhotos[index].type !== "server"){
+            node.removeEventListener("click",(e) => remove(e,index), true);
+            node.remove();
+        }
     })
 
 
-    listPhotos.forEach((link) => {
+    listPhotos.forEach((link,i) => {
 
-        /*input photos*/
-        let newPhotoEditComponent = `
-            <span id="edit-photo-span-${link.id}" style="background-image: url('${link.preview}');" class="edit-photo-span">
-                <span class="overlay"></span>
-                <em class="deleteIcon fa-trash svg-primary-grey icon-30"> </em>
-            </span>`
-        containerPhoto.prepend(document.createRange().createContextualFragment(newPhotoEditComponent));
-        let index = listPhotos.findIndex(data => data.id === link.id)
-        document.getElementById(`edit-photo-span-${link.id}`).addEventListener("click", (e) => remove(e,index));
+        if(link.id !== null){
+            if(link.type !== "server"){
+                /*input photos*/
+                let newPhotoEditComponent = `
+                <span id="${link.id}" style="background-image: url('${link.preview}');" class="edit-photo-span">
+                    <span class="overlay"></span>
+                    <em class="deleteIcon fa-trash svg-primary-grey icon-30"> </em>
+                </span>`
+                containerPhoto.prepend(document.createRange().createContextualFragment(newPhotoEditComponent));
+            }
+            document.getElementById(`${link.id}`).addEventListener("click", (e) => remove(e,i));
+        }
+        
+        
     })
 
-    
-    if(listPhotos.length > 0){
-        notPreviewImg.classList.add('unshow');
+    let filter = listPhotos.filter(link => link.id !== null);
+    if(filter.length >= 3) {
+        addPhotoPanel.classList.add("unshow")
+        addPhotoPanel.classList.remove("show")
     } else {
-        notPreviewImg.classList.remove('unshow');
-        backPreview.classList.add('not');
-        nextPreview.classList.add('not')
+        addPhotoPanel.classList.remove("unshow")
+        addPhotoPanel.classList.add("show")
     }
-}   
 
+
+}
+
+
+updateViewPhoto();
 
 const createSearchItemComponent = (data) => {
     let component = `
@@ -175,15 +224,11 @@ const createSearchItemComponent = (data) => {
 }
 
 const completePlaceInput = (data) => {
-    setPlace(data.label);
     placeInput.value = data.label;
-    document.querySelector('#panel-place').innerText = data.label;
     document.querySelector("#list-search").classList.remove("show");
 }
 
 const searchPlace = (value) => {
-
-    setPlace(value);
 
     let getNodeSearchItems = document.querySelectorAll(".items-search");
     getNodeSearchItems.forEach((node,i) => {
@@ -233,37 +278,52 @@ addPhotoPanel.addEventListener("click", (e) => inputFile.click());
 inputFile.addEventListener('change', (e) => uploadPhoto(e.target.files));
 
 
-const publish = (e) => {
+const save = (e) => {
     e.preventDefault();
-    if(verifyAllForm()){
+    if(!verifyAllForm()){
 
-     
+        const params = new URLSearchParams(window.location.search)
 
-        let ad = {
-            "title":titleInput.value,
-            "place":placeInput.value,
-            "level":levelInput.value,
-            "rubric":rubricInput.value,
-            "description":descriptionInput.value,
-            "instruments":instrumentsInput.innerText,
-            "images":listPhotos
-        }
-
-        console.log(ad);
-
-        const form_data = new FormData();
-        Object.keys(ad).forEach(key => {
-            if(key === "images"){
-                ad[key].forEach((data,i) => {
-                    form_data.append(`image-${data.id}`, data.file);
+        let adModify = {"id":params.get('q')}
+        
+        createChangedArray().forEach(data => {
+            if(data.changed){
+                Object.keys(data).forEach(key => {
+                    if(key !== "changed"){
+                        adModify[key] = data[key]
+                    }
                 })
-            } else {
-                form_data.append(key, ad[key]);
             }
         })
 
 
-        fetch('Controllers/controllerAd.php',{
+
+        const form_data = new FormData();
+        Object.keys(adModify).forEach(key => {
+            if(key === "images"){
+                adModify[key].forEach((data,i) => {
+                    let index = i+1;
+                    if(data.id === null){
+                        form_data.append(`Picture${index}`, 'delete');
+                    } else {
+                        if(data.type !== "server"){
+                            form_data.append(`${index}`, data.file);
+                        }
+                        
+                    }
+                   
+                })
+            } else {
+                form_data.append(key, adModify[key]);
+            }
+        })
+
+        for (const pair of form_data.entries()) {
+            console.log(`${pair[0]}, ${pair[1]}`);
+          }
+
+    
+        fetch('Controllers/ControllerEditAdvert.php',{
             method: 'POST',
             body: form_data
         }).then(function (response) {
@@ -274,23 +334,37 @@ const publish = (e) => {
             addError(err);
             console.log(err)
         });
+
+
     } else {
         addError("un problème est survenue");
     }
 }
 
 
-const verifyAllForm = () => {
-    return titleInput.value && regex_input_alphaNum(titleInput.value) &&
-    placeInput.value &&
-    rubricInput.value &&
-    levelInput.value && regex_input_alphaNum(levelInput.value) &&
-    descriptionInput.value && instrumentsInput.innerText;
+const verifyAllForm = () => { 
+    return (historyForm.title === titleInput.value && 
+            historyForm.place === placeInput.value && 
+            historyForm.rubric === rubricInput.value && 
+            historyForm.level === levelInput.value && 
+            historyForm.description === descriptionInput.value && 
+            historyForm.instruments === instrumentsInput.innerText && 
+            historyForm.images === listPhotos);
+}
+
+const createChangedArray = () => {
+    return [{"title":titleInput.value, "changed":historyForm.title !== titleInput.value},
+    {"place":placeInput.value, "changed": historyForm.place !== placeInput.value},
+    {"level":rubricInput.value, "changed": historyForm.rubric !== rubricInput.value},
+    {"rubric":levelInput.value, "changed": historyForm.level !== levelInput.value},
+    {"description":descriptionInput.value, "changed": historyForm.description !== descriptionInput.value},
+    {"instruments":instrumentsInput.innerText, "changed": historyForm.instruments !== instrumentsInput.innerText},
+    {"images":listPhotos, "changed": historyForm.images !== listPhotos}]
 }
 
 
 const activeSubmitButton = () => {
-    if(verifyAllForm()){
+    if(!verifyAllForm()){
         document.querySelector('#btn-submit').classList.add("active");
         document.querySelector('#btn-submit').disabled=false;
     } else {
@@ -300,6 +374,6 @@ const activeSubmitButton = () => {
 }
 
 
-signup_form.addEventListener("submit", e => publish(e));
+signup_form.addEventListener("submit", e => save(e));
 
 signup_form.addEventListener("change", () => activeSubmitButton());

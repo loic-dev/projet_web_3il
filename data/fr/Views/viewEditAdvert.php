@@ -15,6 +15,7 @@ $pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPic
 <html lang="fr">
     <head>
         <?php include('Views/Templates/head.php');?>
+        <link rel="stylesheet" href="/Public/CSS/editAdvert.css">
         <link rel="stylesheet" href="/Public/CSS/publishAnAd.css">
         <link rel="stylesheet" href="/Public/CSS/ring.css">
     </head>
@@ -92,10 +93,10 @@ $pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPic
                                 <?php foreach ($pictures as $pict) {
                                     if ($pict) {
                                         ?> 
-                                            <span id="edit-photo-span-${link.id}" style="background-image:url(..<?php echo $pict?>)" class="edit-photo-span">
+                                            <span id="<?php echo $pict ?>" style="background-image:url(..<?php echo $pict?>)" class="edit-photo-span">
                                                 <span class="overlay"></span>
                                                 <em class="deleteIcon fa-trash svg-primary-grey icon-30"> </em>
-                                            </span>`
+                                            </span>
                                         <?php
                                     }
                                 } ?>
@@ -106,7 +107,7 @@ $pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPic
                             </div>
                         </div>
                         <div class="input-submit">
-                            <input type="submit" id="btn-submit" value="Publier" disabled>
+                            <input type="submit" id="btn-submit" value="Sauvegarder" disabled>
                         </div>
                     </form>
                 </div>

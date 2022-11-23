@@ -189,6 +189,22 @@ class Advert
         ]);
     }
 
+
+    public function updateAdvert() {
+        Database::updateDb("Advert","IdAdvert",$this->getIdAdvert(),[
+            "Title" => $this->getTitle(),
+            "Description" => $this->getDescription(),
+            "Adress" => $this->getAddress(),
+            "Picture1" => $this->getPicture1(),
+            "Picture2" => $this->getPicture2(),
+            "Picture3" => $this->getPicture3(),
+            "Instrument" => $this->getInstrument(),
+            "Level" => $this->getLevel(),
+            "Rubric" => $this->getRubric(),
+            "Canton" => $this->getCanton()
+        ]);
+    }
+
     
 }
 

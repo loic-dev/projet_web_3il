@@ -1,0 +1,8 @@
+#btn-submit.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+#btn-submit{
+    visibility: hidden;
+}

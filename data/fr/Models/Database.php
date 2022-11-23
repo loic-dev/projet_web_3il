@@ -121,13 +121,20 @@ class Database
         {
                 try {
                         $sql = "UPDATE $table SET ";
+                        $index = 0;
                         foreach ($values as $key => $value) {
-                                if (array_values($values)[0] !== $value) {
-                                        $sql .= " , ";
+                            if(isset($value)){
+                                if (array_values($values)[0] !== $value && $index !== 0) {
+                                    $sql .= " , ";
                                 }
                                 $sql .= $key . " = " . "'$value'";
+                                $index++;
+                            } 
+                             
                         }
                         $sql .= " WHERE $toMatch = '$match';";
+                       
+                        
                         $result = Database::getPdo()->prepare($sql);
                         $result->execute();
                         

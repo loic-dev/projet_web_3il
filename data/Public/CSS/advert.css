@@ -1,0 +1,111 @@
+.container-page{
+    gap: 30px;
+}
+
+
+.c-text{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    max-width: 1000px;
+}
+
+
+.h-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.c-address, .c-title{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+
+
+
+.t-title{
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.t-level{
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 400;
+    background-color: var(--primary-grey);
+}
+
+.t-address, .struct-name{
+    font-size: 1.1rem;
+    color: var(--grey);
+    font-weight: 300;
+}
+
+
+.d-text{
+    text-align: justify;
+}
+
+
+.d-text span{
+    overflow: hidden;
+    text-align: justify;
+    text-overflow: clip;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.c-images{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+}
+
+
+.image{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 265px;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    border-radius: 5px;
+}
+
+.s-inst{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+
+/* tablet & desktop */
+@media screen and (min-width: 768px){
+    .c-images{
+        flex-direction: row;
+    }
+
+   
+
+}
+
+
+
+
+
+

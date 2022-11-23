@@ -129,6 +129,11 @@
     height: 35px;
 }
 
+.icon-45{
+    width: 45px;
+    height: 45px;
+}
+
 
 
 
@@ -138,6 +143,10 @@
 
 .svg-white-grey {
     background-color:var(--white-grey);
+}
+
+.svg-grey {
+    background-color:var(--grey);
 }
 
 .svg-primary-grey{

@@ -8,37 +8,12 @@ let signup_form = document.getElementById("publish-add-form");
 let titleInput = document.getElementById("title-input");
 let placeInput = document.getElementById("place-input");
 let levelInput = document.getElementById("level-input");
+let rubricInput = document.getElementById("rubric-input");
 let descriptionInput = document.getElementById("desc-input");
-let listInstrument = [{
-        "name":"Guitare",
-        "icon":"guitar"},
-    {
-        "name":"Batterie",
-        "icon":"drum"
-    },
-    {
-        "name":"Piano",
-        "icon":"piano"
-    },
-    {
-        "name":"Saxophone",
-        "icon":"saxophone"
-    },
-    {
-        "name":"violon",
-        "icon":"violin"
-    }
-]
+let instrumentsInput = document.querySelector('.panel-instruments.select');
+let allInstruments = document.querySelectorAll('.panel-instruments');
 
 
-let instrumentsInput = {
-    "id":0,
-    "name":"Guitare",
-    "icon":"guitar"
-}
-
-
-let button_submit = document.getElementById("btn-submit");
 let addPhotoPanel = document.getElementById("panel-add-photos");
 let inputFile = document.getElementById("file-input");
 let containerPhoto = document.querySelector(".container-photos");
@@ -48,52 +23,24 @@ let notPreviewImg = document.querySelector('.not-img-preview')
 let backPreview = document.querySelector('#back');
 let nextPreview = document.querySelector('#next');
 
-const reader = new FileReader();
+
+const selectInstrument = (id) => {
+    instrumentsInput = document.querySelector('#'+id);
+    allInstruments.forEach((inst) => {
+        if(inst.id === id){
+            inst.classList.add("select");
+        } else {
+            inst.classList.remove("select");
+        }
+    })
+}
+
+allInstruments.forEach((inst) => {
+    inst.addEventListener("click", () => selectInstrument(inst.id))
+})
 
 
-let containerInstrument = document.querySelector(".container-instruments");
 let title = "";
-
-const updateViewInstruments = () => {
-
-    document.querySelectorAll('.panel-instruments').forEach(node => {
-        node.remove();
-    })
-
-
-    listInstrument.forEach((instruments,i) => {
-        let view = `<span id="panel-instrument-${i}" class="${instrumentsInput.id === i ? `select panel-instruments` : `panel-instruments`}">
-            <em class="fa-${instruments.icon} svg-primary-grey icon-30"></em>
-            <p>${instruments.name}</p>
-        </span>` 
-        let element = document.createRange().createContextualFragment(view);
-        containerInstrument.append(element);
-        instruments.id = i;
-        document.querySelector(`#panel-instrument-${i}`).addEventListener("click", e => selectInstrument(instruments));
-    })
-}
-
-
-const updatePreviewInstrument = () => {
-    let preview = `
-        <em class="fa-${instrumentsInput.icon} svg-white icon-30"></em>
-        <span>${instrumentsInput.name}</span>
-    `
-    document.querySelector('#preview-icon-insts').innerHTML = preview;
-}
-
-
-updateViewInstruments();
-updatePreviewInstrument();
-
-
-
-
-function selectInstrument(instruments){
-    instrumentsInput = instruments;
-    updateViewInstruments();
-    updatePreviewInstrument();
-}
 
 const setDescription = (value) => {
     if(value === ""){
@@ -352,7 +299,7 @@ const createSearchItemComponent = (data) => {
 const completePlaceInput = (data) => {
     setPlace(data.label);
     placeInput.value = data.label;
-    document.querySelector('#panel-place').innerText = value;
+    document.querySelector('#panel-place').innerText = data.label;
     document.querySelector("#list-search").classList.remove("show");
 }
 
@@ -418,41 +365,24 @@ addPhotoPanel.addEventListener("click", (e) => inputFile.click());
 
 inputFile.addEventListener('change', (e) => uploadPhoto(e.target.files));
 
-const showModalAddInstruments = () => {
-    let viewModal = `<modal-instrument>
-
-    </modal-instrument>`
-    document.querySelector('body').prepend(document.createRange().createContextualFragment(viewModal));
-}
-
-document.querySelector('#add-instruments').addEventListener("click", (e) => showModalAddInstruments());
-
-
-EventBus.register("addInstrument", (evt) => {
-    let newSelection = {
-        "name":evt.detail.value,
-        "icon":"music"
-    }
-    newSelection.id = listInstrument.length;
-    listInstrument.push(newSelection);
-    selectInstrument(newSelection);
-});
-
 
 const publish = (e) => {
     e.preventDefault();
     if(verifyAllForm()){
 
-    
+     
 
         let ad = {
             "title":titleInput.value,
             "place":placeInput.value,
             "level":levelInput.value,
+            "rubric":rubricInput.value,
             "description":descriptionInput.value,
-            "instruments":instrumentsInput.name,
+            "instruments":instrumentsInput.innerText,
             "images":listPhotos
         }
+
+        console.log(ad);
 
         const form_data = new FormData();
         Object.keys(ad).forEach(key => {
@@ -466,14 +396,13 @@ const publish = (e) => {
         })
 
 
-
         fetch('Controllers/controllerAd.php',{
             method: 'POST',
             body: form_data
         }).then(function (response) {
             return response.json();
         }).then(function (data) {
-            console.log(data)
+            document.location.href = "../fr/my-adverts";
         }).catch(function (err) {
             addError(err);
             console.log(err)
@@ -486,9 +415,10 @@ const publish = (e) => {
 
 const verifyAllForm = () => {
     return titleInput.value && regex_input_alphaNum(titleInput.value) &&
-    placeInput.value && regex_input_alphaNum(placeInput.value) &&
+    placeInput.value &&
+    rubricInput.value &&
     levelInput.value && regex_input_alphaNum(levelInput.value) &&
-    descriptionInput.value && instrumentsInput.name;
+    descriptionInput.value && instrumentsInput.innerText;
 }
 
 

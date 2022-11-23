@@ -204,6 +204,7 @@ h2{
     align-items: flex-start;
     padding: 10px;
     overflow-wrap: break-word;
+    overflow: auto;
 }
 
 .back{

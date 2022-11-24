@@ -22,37 +22,46 @@ $_POST = json_decode($content, true);
 // $_POST["level"];
 // $_POST["instrument"];
 
-// $sql = "SELECT * FROM Advert where Title LIKE '%?' AND Canton = '?' AND Instrument = '?' AND Level = '?' AND Rubric ='?' ORDER BY idAdvert LIMIT ?;";
 
+$title = $_POST["title"];
+$canton = $_POST["canton"];
+$instrument = $_POST["instrument"];
+$rubric = $_POST["rubric"];
+$limit = $_POST["limit"];
+$limitMin = $limit - 6;
+$level = $_POST["level"];
 
-$sql = "SELECT * FROM Advert where Title LIKE 'tes%'";
+$sql = "SELECT * FROM Advert where Title LIKE '%?' AND Canton = '?' AND Instrument = '?' AND Level = '?' AND Rubric ='?' ORDER BY idAdvert LIMIT ?, ?;";
+// $sql = "SELECT * FROM Advert where Title LIKE '$title' AND Canton = '$canton' AND Instrument = '$instrument' AND Level = '$level' AND Rubric ='$rubric' ORDER BY idAdvert LIMIT $limit;";
+
+// $sql = "SELECT * FROM Advert where Title LIKE 'tes%'";
 Database::getPdo()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 Database::getPdo()->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+echo object_json_response(200, $sql);
+
 
 // echo object_json_response(200, json_decode($content, true));
 
 
-// new Advert::
 
-// try {
-//     // Database::getPdo()->setAttribute("");
-//     $request = Database::getPdo()->prepare($sql);
+try {
+    $request = Database::getPdo()->prepare($sql);
 
-//     // $request->execute([
-//     $request->execute();
-//     //     $_POST["title"]
-//     //     // $_POST["canton"],
-//     //     // $_POST["instrument"],
-//     //     // $_POST["level"],
-//     //     // $_POST["rubric"],
-//     //     // $_POST["limit"]
-//     // ]);
+    // $request->execute([
+    $request->execute([
+        $_POST["title"],
+        $_POST["canton"],
+        $_POST["instrument"],
+        $_POST["level"],
+        $_POST["rubric"],
+        $_POST["limit"]
+    ]);
 
-//     echo object_json_response(200, $request->fetchAll());
-// } catch (PDOException $e) {
-//     echo $error;
-//     $error = "Une erreur est survenue";
-// }
+} catch (PDOException $e) {
+    echo $error;
+    $error = "Une erreur est survenue";
+}
 
 
 ?>

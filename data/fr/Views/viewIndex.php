@@ -90,37 +90,25 @@ new Database();
             <h1>Trouver un cours de musique en Aveyron</h1>
             <div class="search_box">
                 <input id="inputSearchAdvert" class="search_input_box" type="text"></input>
+                <p class="" style="display:none;">Veuillez remplir l'ensemble des champs et selectionner un canton sur la carte</p>
                 <div class="search_component_btn_list">
                     <select id="insturment-select" class="select">
                         <option value="">Instrument</option>
-                        <option value="dog">Dog</option> 
-                        <option value="cat">Cat</option>
-                        <option value="hamster">Hamster</option>
-                        <option value="parrot">Parrot</option>
-                        <option value="spider">Spider</option>
-                        <option value="goldfish">Goldfish</option>
+                        <option value="Flute">Flute</option>
                     </select>
-                    <select id="category-select" class="select">
+                    <select id="rubric-select" class="select">
                         <option value="">Categorie</option>
-                        <option value="dog">Dog</option>
-                        <option value="cat">Cat</option>
-                        <option value="hamster">Hamster</option>
-                        <option value="parrot">Parrot</option>
-                        <option value="spider">Spider</option>
-                        <option value="goldfish">Goldfish</option>
+                        <option value="dog">Etude</option> 
                     </select>
-                    <select id="pet-select" class="select">
+                    <select id="level-select" class="select">
                         <option value="">Niveau</option>
-                        <option value="dog">Dog</option>
-                        <option value="cat">Cat</option>
-                        <option value="hamster">Hamster</option>
-                        <option value="parrot">Parrot</option>
-                        <option value="spider">Spider</option>
-                        <option value="goldfish">Goldfish</option>
+                        <option value="Easy">Simple</option>
+                        <option value="Medium">Moyenne</option>
+                        <option value="Difficult">Difficile</option>
                     </select>
                     <button id="searchAdvertBtn" class="button_menu_nav yellow">Rechercher</button>
                 </div> 
-</div>
+            </div>
         </div>
 
         <div class="map_component">

@@ -2,7 +2,7 @@
 session_start();
 if(!$_SESSION['login']){
     header("location: /fr/login");
-}
+}var_dump($_SESSION["Structure"]);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -21,31 +21,31 @@ if(!$_SESSION['login']){
             <div class="container-row">
                 <div class="input-container disabled">
                     <span class="input-text">Nom de la structure</span>
-                    <input value="<?php echo $_SESSION["Structure"]["name"] ?>" type="text" name="nameStruct" id="name-struct" disabled>
+                    <input value="<?php echo $_SESSION["Structure"]["name"] ?>" type="text" name="Name" id="name-struct" disabled>
                     <em class="fa-pen svg-primary-grey icon-15 pen-icon"> </em> 
                     <span class="infospan"></span>
                 </div>
                 <div class="input-container disabled">
                     <span class="input-text">Adresse</span>
-                    <input value="<?php echo $_SESSION["Structure"]["adress"] ?>" type="text" name="adresseStruct" id="adresse-struct" disabled >
+                    <input value="<?php echo $_SESSION["Structure"]["adress"] ?>" type="text" name="Adress" id="adresse-struct" disabled >
                     <em class="fa-pen svg-primary-grey icon-15 pen-icon"> </em>
                     <span class="infospan"></span>
                 </div>
                 <div class="input-container disabled">
                     <span class="input-text">Email</span>
-                    <input value="<?php echo $_SESSION["Structure"]["mail"] ?>" type="text" name="emailStruct" id="email-struct" disabled >
+                    <input value="<?php echo $_SESSION["Structure"]["mail"] ?>" type="text" name="Mail" id="email-struct" disabled >
                     <em class="fa-pen svg-primary-grey icon-15 pen-icon"> </em>
                     <span class="infospan"></span>
                 </div>
                 <div class="input-container disabled">
                     <span class="input-text">Site web</span>
-                    <input value="<?php echo $_SESSION["Structure"]["website"] ?>" type="text" name="websiteStruct" id="website-struct" disabled>
+                    <input value="<?php echo $_SESSION["Structure"]["website"] ?>" type="text" name="Website" id="website-struct" disabled>
                     <em class="fa-pen svg-primary-grey icon-15 pen-icon"> </em>
                     <span class="infospan"></span>
                 </div>
                 <div class="input-container disabled">
                     <span class="input-text">Téléphone</span>
-                    <input value="<?php echo $_SESSION["Structure"]["phone"] ?>" type="tel" name="phoneStruct" id="phone-struct" disabled>
+                    <input value="<?php echo $_SESSION["Structure"]["phone"] ?>" type="tel" name="Tel" id="phone-struct" disabled>
                     <em class="fa-pen svg-primary-grey icon-15 pen-icon"> </em>
                     <span class="infospan"></span>
                 </div>
@@ -60,12 +60,12 @@ if(!$_SESSION['login']){
                     <span class="info-container" id="info-container-profile"></span>
                     <div class="input-container">
                         <span class="input-text">Mot de passe actuel</span>
-                        <input type="password" name="currentPasswordStruct" id="current-password-struct">
+                        <input type="password" name="currentPassword" id="current-password-struct">
                         <span class="infospan"></span>
                     </div>
                     <div class="input-container">
                         <span class="input-text">Nouveau mot de passe</span>
-                        <input value="<?php echo $_SESSION["Structure"]["adress"] ?>" type="password" name="newPasswordStruct" id="new-password-struct">
+                        <input type="password" name="newPassword" id="new-password-struct">
                         <span class="infospan"></span>
                     </div>
                     <div class="input-container">

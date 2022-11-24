@@ -1,8 +1,8 @@
 <?php
-require_once '../utils/ClientJsonException.php'; 
-require_once '../utils/regex.php'; 
-require_once '../utils/functions.php'; 
+
 require_once 'Database.php'; 
+
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 class Structure
@@ -230,7 +230,14 @@ class Structure
         ]);
     }
 
-    public static function updateDbPhone($newValue) {
+    public static function updateDbMail($newMail) {
+        self::setMail($newMail);
+        self::updateCurrentUser([
+            "Mail" => $newMail
+        ]);
+    }
+
+    public static function updateDbTel($newValue) {
         self::setTel($newValue);
         self::updateCurrentUser([
             "Tel" => $newValue
@@ -273,6 +280,11 @@ class Structure
         self::updateCurrentUser([
             "mailValid" => $newValue
         ]);
+    }
+
+
+    public function deleteStructure(){
+        Database::deleteDb("Structure",  ["Mail = ?"], [$this->getMail()]);
     }
 
 }

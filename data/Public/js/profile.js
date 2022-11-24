@@ -25,6 +25,8 @@ const focusInput = (input) => {
 }
 
 const sendModify = async (input) => {
+
+    console.log(input)
     const response = await fetch('Controllers/controllerProfile.php',{
             method: 'POST',
             headers: {
@@ -38,11 +40,24 @@ const sendModify = async (input) => {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-
     
+}
 
-
-    console.log(data);
+const sendModifyPassword = async (newPassword, currentPassword) => {
+    const response = await fetch('Controllers/controllerModifyPassword.php',{
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({newPassword:newPassword, currentPassword:currentPassword})
+        }
+    );
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    
 }
 
 const showInfoInput = (input, msg, type ) => {
@@ -70,13 +85,13 @@ const cancelModify = async (input,iconPen) => {
     input.classList.remove('focus');
     let name = input.name;
 
-    if(name === "newPasswordStruct" && !regex_input_password(input.value)){
+    if(name === "newPassword" && !regex_input_password(input.value)){
         showInfoInput(input,"le mot de passe est trop faible","error");
     }
 
-    if(name !== "currentPasswordStruct" && name !== "newPasswordStruct"){
+    if(name !== "currentPassword" && name !== "newPassword"){
         switch (name) {
-            case "nameStruct":
+            case "Name":
                 if(input.value !== nameDefault){
                     if(regex_input_text(input.value)){
                         try {
@@ -92,7 +107,7 @@ const cancelModify = async (input,iconPen) => {
                     }
                 }
                 break;
-            case "adresseStruct":
+            case "Adress":
                 if(input.value !== adressDefault){
                     if(regex_input_alphaNum(input.value)){
                         try {
@@ -108,7 +123,7 @@ const cancelModify = async (input,iconPen) => {
                     }
                 }
                 break;
-            case "emailStruct":
+            case "Mail":
                 if(input.value !== emailDefault){
                     if(regex_input_email(input.value)){
                         try {
@@ -124,7 +139,7 @@ const cancelModify = async (input,iconPen) => {
                     }
                 }
                 break;
-            case "websiteStruct":
+            case "Website":
                 if(input.value !== websiteDefault){
                     if(regex_input_website(input.value)){
                         try {
@@ -140,7 +155,7 @@ const cancelModify = async (input,iconPen) => {
                     }
                 }
                 break;
-            case "phoneStruct":
+            case "Tel":
                 if(input.value !== phoneDefault){
                     if(regex_input_phone(input.value)){
                         try {
@@ -227,7 +242,19 @@ editPasswordForm.addEventListener('change', () => {
     }
 })
 
-const removeAccount = (e) => {
+const removeAccount = async (e) => {
+    const response = await fetch('Controllers/controllerDeleteProfile.php',{
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        }
+        }
+    );
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
     window.location.replace("../fr/");
 }
 
@@ -281,7 +308,7 @@ const showModalConfirmPassword = (e) => {
 
 
 const changePassword = async (e) => {
-
+    let currentNewPassword = document.getElementById("current-password-struct");
     let valueNewPassword = document.getElementById("new-password-struct");
     let valueConfirmPassword = document.getElementById("confirm-password-struct");
 
@@ -292,11 +319,11 @@ const changePassword = async (e) => {
         document.getElementById('close-icon').click();
         document.getElementById('confirmPassword').removeEventListener('click',(e) => changePassword(e));
         try {
-            await sendModify(valueNewPassword);
+            await sendModifyPassword(valueNewPassword.value,currentNewPassword.value);
             showInfoPassword("Votre mot de passe à été modifié", "valid");
         } catch (error) {
             showInfoPassword(error, "error");
-            document.getElementById("current-password-struct").value = "";
+            currentNewPassword.value = "";
             valueNewPassword.value="";
             valueConfirmPassword.value = "";
         }

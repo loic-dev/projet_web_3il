@@ -41,8 +41,14 @@ Router::addRouteWithAttr(
 );
 
 Router::addRouteWithAttr(
-    '/musicLesson?', function () {
-        Controller::createView('viewMusicLesson');
+    '/advert?q=', function () {
+        Controller::createView('viewAdvert');
+   }
+);
+
+Router::addRouteWithAttr(
+    '/advert-edit?q=', function () {
+        Controller::createView('viewEditAdvert');
    }
 );
 

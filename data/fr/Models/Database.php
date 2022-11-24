@@ -37,6 +37,19 @@ class Database
                 }
         }
 
+        public static function selectAllDb($what, $from)
+        {
+                try {
+                        $sql = "SELECT $what FROM $from";
+                        $result = Database::getPdo()->prepare($sql);
+                        $result->execute();
+                        return $result->fetchAll();
+                } catch (exception $e) {
+                        throw $e;
+                }
+        }
+
+
         public static function selectDb($what, $from, $conditions = [], $attr = [])
         {
                 try {
@@ -108,15 +121,38 @@ class Database
         {
                 try {
                         $sql = "UPDATE $table SET ";
+                        $index = 0;
                         foreach ($values as $key => $value) {
-                                if (array_values($values)[0] !== $value) {
-                                        $sql .= " , ";
+                            if(isset($value)){
+                                if (array_values($values)[0] !== $value && $index !== 0) {
+                                    $sql .= " , ";
                                 }
                                 $sql .= $key . " = " . "'$value'";
+                                $index++;
+                            } 
+                             
                         }
                         $sql .= " WHERE $toMatch = '$match';";
+                       
+                        
                         $result = Database::getPdo()->prepare($sql);
                         $result->execute();
+                        
+                } catch (exception $e) {
+                        throw $e;
+                }
+        }
+
+
+        public static function deleteDb($table, $conditions = [], $attr = [])
+        {
+                try {
+                        $sql = "DELETE FROM $table WHERE ";
+                        foreach ($conditions as $condition) {
+                            $sql .= $condition . " ";
+                        }
+                        $result = Database::getPdo()->prepare($sql);
+                        $result->execute($attr);
                         
                 } catch (exception $e) {
                         throw $e;

@@ -69,7 +69,7 @@
 
                         <button class="form-submit-button" id="submit-button" type="submit">S'inscrire</button>
                         
-                        <span class="other-form-text">Vous avez déja un compte ? <a href="localhost:8000/fr/login">Connectez-vous</a></span>
+                        <span class="other-form-text">Vous avez déja un compte ? <a href="../fr/login">Connectez-vous</a></span>
                     </div>
                 </div>
             <section>

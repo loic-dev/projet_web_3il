@@ -1,11 +1,15 @@
 <?php
+require_once '../Models/Database.php'; 
 
 function regex_input_text($text) {
     return preg_match("/^[a-zA-Z ]+$/", $text); 
 }
 function regex_input_text_with_accent($str) {
     // echo preg_replace("/[^A-Za-z0-9.éàèùîï- ]/","",$str);
-    return preg_replace("/[^A-Za-z0-9.éàèùîï ]/","",$str); 
+    // return preg_replace("/[^A-Za-z0-9.éàèùîï ]/","",$str);
+    new Database(); 
+    return Database::getPdo()->quote($str); 
+    // return $str; 
 }
 
 function regex_input_alpha($text) {

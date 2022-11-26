@@ -25,14 +25,29 @@ class Database
                 return self::$_pdo;
         }
 
-        public static function insertDb($table, $array = [])
+        function insertDb($table, $array = [])
         {
                 try {
                         $columns = array_keys($array);
                         $values = array_values($array);
-                        $str = "INSERT INTO $table (" . implode(',', $columns) . ") VALUES ('" . implode("', '", $values) . "' )";
-                        // printf($str);
-                        Database::getPdo()->prepare($str)->execute();
+        
+                        $arrToExec = array();
+        
+                        $str = "INSERT INTO $table (";
+                        foreach($columns as $column) {
+                            $str .= $column;
+                            $str .= ',';
+                        }
+                        $str = substr_replace($str ,"", -1);
+                        $str .= ') VALUES (';
+                        foreach($columns as $key => $column) {
+                            $arrToExec[':' . $column] = $values[$key];
+                            $str .= ':' . $column;
+                            $str .= ',';
+                        } 
+                        $str = substr_replace($str ,"", -1);
+                        $str .= ')';
+                        Database::getPdo()->prepare($str)->execute($arrToExec);
                 } catch (exception $e) {
                         throw $e;
                 }
@@ -41,9 +56,11 @@ class Database
         public static function selectAllDb($what, $from)
         {
                 try {
-                        $sql = "SELECT $what FROM $from";
+                        $sql = "SELECT $what FROM :from";
                         $result = Database::getPdo()->prepare($sql);
-                        $result->execute();
+                        $result->execute([
+                                ':form' => $from
+                        ]);
                         return $result->fetchAll();
                 } catch (exception $e) {
                         throw $e;
@@ -58,8 +75,6 @@ class Database
                         foreach ($conditions as $condition) {
                                 $sql .= $condition . " ";
                         }
-                        // var_dump($sql);
-                        // var_dump(Database::getPdo());
                         $result = Database::getPdo()->prepare($sql);
                         $result->execute($attr);
                         return $result->fetchAll();
@@ -76,8 +91,6 @@ class Database
                                 $sql .= $condition . " ";
                         }
                         $sql .= "ORDER BY IdAdvert LIMIT $limit";
-                        // var_dump($sql);
-                        // var_dump(Database::getPdo());
                         $result = Database::getPdo()->prepare($sql);
                         $result->execute($attr);
                         return $result->fetchAll();
@@ -95,8 +108,6 @@ class Database
                                 $sql .= $condition . " ";
                         }
                         $sql .= "ORDER BY IdAdvert DESC LIMIT $limit";
-                        // var_dump($sql);
-                        // var_dump(Database::getPdo());
                         $result = Database::getPdo()->prepare($sql);
                         $result->execute($attr);
                         return $result->fetchAll();
@@ -108,43 +119,38 @@ class Database
         public static function searchDb($what, $from, $match, $orderBy, $limit = 1)
         {
                 try {
-                        $sql = "SELECT * FROM Advert where Title LIKE '%$match' ORDER BY $orderBy LIMIT $limit;";
+                        $sql = "SELECT * FROM Advert where Title LIKE :match ORDER BY :orderBy LIMIT :limit;";
                         $result = Database::getPdo()->prepare($sql);
-                        $result->execute();
+                        $result->execute([
+                                ':match' => '%' . $match,
+                                ':orderBy' => $orderBy,
+                                ':limit' => $limit
+                        ]);
                         return $result->fetchAll();
                 } catch (exception $e) {
                         throw $e;
                 }
         }
 
-        //what and newvalues should be the same size
-        public static function updateDb($table, $toMatch, $match, $values = [])
+        function updateDb($table, $toMatch, $match, $values = [])
         {
                 try {
                         $sql = "UPDATE $table SET ";
-                        $index = 0;
                         foreach ($values as $key => $value) {
-                            if(isset($value)){
-                                if (array_values($values)[0] !== $value && $index !== 0) {
-                                    $sql .= " , ";
-                                }
-                                $sql .= $key . " = " . "'$value'";
-                                $index++;
-                            } 
-                             
+                                $sql .= "$key = :$key";
+                                $sql .= ',';
                         }
-                        $sql .= " WHERE $toMatch = '$match';";
-                       
-                        
+                        $sql = substr_replace($sql ,"", -1);
+                        $sql .= " WHERE $toMatch = :toMatch ;";
+                        var_dump($sql);
+        
                         $result = Database::getPdo()->prepare($sql);
-                        $result->execute();
+                        $result->execute(array_merge([':toMatch' => $match],$values));
                         
                 } catch (exception $e) {
                         throw $e;
                 }
         }
-
-
         public static function deleteDb($table, $conditions = [], $attr = [])
         {
                 try {

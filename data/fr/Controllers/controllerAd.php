@@ -36,7 +36,6 @@ $picture1 = null;
 $picture2 = null;
 $picture3 = null;
 
-
 if (!file_exists('../../images/')) {
     mkdir('../../images/', 0777, true);
 }
@@ -64,8 +63,6 @@ if(isset($_FILES)){
     }
 }
 
-
-
 $ad = new Advert();
 $ad->setTitle($title);
 $ad->setDescription($description);
@@ -77,7 +74,6 @@ $ad->setMailStructure($_SESSION["Structure"]["mail"]);
 $ad->setInstrument($instruments);
 $ad->setLevel($level);
 $ad->setRubric($rubric);
-
 
 $json_data = file_get_contents('../canton.json');
 $arr = json_decode($json_data, true);
@@ -95,14 +91,7 @@ foreach($arr as $key => $val) {
     }
 }
 
-
 $ad->setCanton($currentStr);
-
-
-
-
-
-
 
 try {
     $ad->insertDb();

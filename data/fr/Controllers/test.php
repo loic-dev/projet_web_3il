@@ -4,6 +4,23 @@ require_once '../utils/regex.php';
 new Database();
 
 
+//NO USER DATA SHOULD PASS BE USED WITH selectAllDb, THIS IS THE ONLY METHOD NOT OWASP COMPLIANT
+//WITH DEVELOPPER DEFINED DATA ENTIERLY SAFE :)
+//THE CHAR * IS AVOIDED BY THE DEFAULT OPTION FOR PREPARE IN ORDER TO AVOID SQL INJECTION this is against the meaning of this function.
+function selectAllDb($what, $from)
+{
+        try {
+                $sql = "SELECT $what FROM $from";
+                $result = Database::getPdo()->prepare($sql);
+                $result->execute();
+                return $result->fetchAll();
+        } catch (exception $e) {
+                throw $e;
+        }
+}
+
+$instsDatabase = selectAllDb("*","Instrument");
+
 
 
 // function insertDb($table, $array = [])
@@ -51,31 +68,31 @@ new Database();
 
 
 
-function updateDb($table, $toMatch, $match, $values = [])
-{
-        try {
-                $sql = "UPDATE $table SET ";
-                foreach ($values as $key => $value) {
-                        $sql .= "$key = :$key";
-                        $sql .= ',';
-                }
-                $sql = substr_replace($sql ,"", -1);
-                $sql .= " WHERE $toMatch = :toMatch ;";
-                var_dump($sql);
+// function updateDb($table, $toMatch, $match, $values = [])
+// {
+//         try {
+//                 $sql = "UPDATE $table SET ";
+//                 foreach ($values as $key => $value) {
+//                         $sql .= "$key = :$key";
+//                         $sql .= ',';
+//                 }
+//                 $sql = substr_replace($sql ,"", -1);
+//                 $sql .= " WHERE $toMatch = :toMatch ;";
+//                 var_dump($sql);
 
-                $result = Database::getPdo()->prepare($sql);
-                // $exec = ;
-                $result->execute(array_merge([':toMatch' => $match],$values));
+//                 $result = Database::getPdo()->prepare($sql);
+//                 // $exec = ;
+//                 $result->execute(array_merge([':toMatch' => $match],$values));
                 
-        } catch (exception $e) {
-                throw $e;
-        }
-}
+//         } catch (exception $e) {
+//                 throw $e;
+//         }
+// }
 
-updateDb("Structure","Mail","francoisdks@gmail.com",[
-    "Name" => '$newName',
-    "Website" => 'test'
-]);
+// updateDb("Structure","Mail","francoisdks@gmail.com",[
+//     "Name" => '$newName',
+//     "Website" => 'test'
+// ]);
 
 
 
@@ -107,6 +124,10 @@ updateDb("Structure","Mail","francoisdks@gmail.com",[
 // var_dump(regex_input_text_with_accent('" or ""="'));
 
 // echo '" or ""="';
+
+
+
+
 ?>
 
 <form action="/fr/Controllers/test.php" method="post">

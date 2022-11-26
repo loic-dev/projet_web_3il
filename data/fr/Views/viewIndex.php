@@ -38,7 +38,7 @@
                     </select>
                     <select id="rubric-select" class="select">
                         <option value="">Categorie</option>
-                        <option value="Study">Etude</option> 
+                        <option value="Study">Etude</option>
                     </select>
                     <select id="level-select" class="select">
                         <option value="">Niveau</option>

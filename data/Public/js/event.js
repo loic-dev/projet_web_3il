@@ -1,19 +1,23 @@
 let cantonSelected = "Millau-1";
 let iterator = 0;
 
-function createNewAtelier(title, img = "/public/media/NoPic.png", structureName, id) {
-    let domNode = document.createElement('a')
-    domNode.classList.add("atelier");
-    domNode.href = "./advert?q=" + id;
+function createNewAtelier(element) {
+// element["Title"],element["Picture1"],element["MailStructure"], element["IdAdvert"]
 
-    if(img !== "/public/media/NoPic.png") {
-      img = img.substring(0,img.indexOf("."))+ ".webp";
+let domNode = document.createElement('a')
+domNode.classList.add("atelier");
+domNode.href = "./advert?q=" + element["id"];
+    let img = undefined;
+    if(element["Picture1"] === "") {
+      img = "/public/media/NoPic.png";
+    } else {
+      img = element["Picture1"].substring(0,element["Picture1"].indexOf("."))+ ".webp";
     }
-    // console.log();
+    
     domNode.innerHTML = `
             <img src="${img}"/>
-            <p>${title}</p>
-            <p>${structureName}</p>
+            <p>${element["Title"]}</p>
+            <p>${element["MailStructure"]}</p>
     `;
     
     document.getElementById("display_event").appendChild(domNode);
@@ -100,13 +104,13 @@ function fetchRandAdvert(limit = 0) {
   });
 }
 
-
 function createAllAdvert(data,reset) {
   if(reset) removeAllAtelier();
 
   if(data.length < 1 && reset) {
 
-    let domNode = document.createElement('div')
+    let domNode = document.createElement('div');
+    domNode.classList.add("liner");
     domNode.innerHTML = `
             <p>Aucun resultat</p>
     `;
@@ -121,42 +125,11 @@ function createAllAdvert(data,reset) {
   } else {
       data.forEach(element => {
         console.log(element);
-        if(element["Picture1"] === "") element["Picture1"] = undefined;
-        createNewAtelier(element["Title"],element["Picture1"],element["MailStructure"], element["IdAdvert"]);
+        createNewAtelier(element);
       });
       hiddenSpanToLoad();
   }
 }
-
-// function fetchRandomAdvertRodez() {
-//   fetch('./Controllers/searchAdvert.php',{
-//     method: 'POST',
-//     headers: {
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({title:resultInput, rubric:category,instrument:instrument, level:level, canton:cantonSelected.substring(1), limit:7})
-//   }).then(function (response) {
-//     return response.json();
-//   }).then(function (data) {
-//     console.log(data);
-//     if(data.length < 1) {
-//       let domNode = document.createElement('div')
-//       domNode.innerHTML = `
-//               <p>Aucun resultat pour Rodez</p>
-//       `;
-//       document.getElementById("display_event").appendChild(domNode);
-//     }
-
-//     data.forEach(element => {
-//       console.log(element);
-//       createNewAtelier(element["Title"],element["Picture1"],element["MailStructure"], element["IdAdvert"]);
-//     });
-
-//   }).catch(function (err) {
-//     console.log(err)
-//   });
-// }
 
 window.addEventListener("load", (e) => {
   let display_content = document.getElementById("display_event");
@@ -172,7 +145,6 @@ window.addEventListener("load", (e) => {
   function setClick(element) {
     cleanAllPath();
     element.style = "fill : red;";
-    // cantonSelected = element.id.slice(5);
     cantonSelected = element.id;
   }
   
@@ -199,102 +171,12 @@ window.addEventListener("load", (e) => {
 
   fetchRandAdvert();
 
-  // fetchAdvert(cantonSelected);
-  // document.getElementById("1216 Rodez-1").click();
-
   document.getElementById("searchAdvertBtn").addEventListener("click",()=> {
     let resultInput = document.getElementById("inputSearchAdvert").value;
     let category = document.getElementById("rubric-select").value;
     let instrument = document.getElementById("insturment-select").value;
-    let level = document.getElementById("level-select").value;
-  
-    console.log(JSON.stringify({title:resultInput, category:category,instrument:instrument, level:level, canton:cantonSelected}));
-  
+    let level = document.getElementById("level-select").value;  
     fetchAdvert(resultInput,category,instrument,level,cantonSelected);
-  
   });
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function fetchAdvert(canton = "Rodez-1") {
-//   fetch('./Controllers/controllerIndex.php',{
-//     method: 'POST',
-//     headers: {
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({canton:canton})
-//   }).then(function (response) {
-//     console.log("test");
-//     return response.json();
-//   }).then(function (data) {
-//     let i = 0;
-//     data.forEach(element => {
-//       ++i;
-//       createNewAtelier(element["Title"],element["Picture1"],element["MailStructure"],element["IdAdvert"]);
-//     });
-//     if(i < 6) {
-//       while(i < 6) {
-//         createNewAtelier(element["Title"],element["Picture1"],element["MailStructure"],element["IdAdvert"]);
-//         ++i;
-//       }
-//     }
-//     hiddenSpanToLoad();
-
-
-    
-
-
-//   }).catch(function (err) {
-//     // console.log(err)
-//   });
-// } 
-
-
-    // hiddenSpanToLoad();
-
-    // function removeActualSpan() {
-    //   document.getElementById("testHidden").remove();
-    // }
-    
-    // let observer = new IntersectionObserver(function(entries) {
-    //   if(entries[0].isIntersecting === true) {
-     
-    //     fetchAdvert();
-    
-    //     removeActualSpan();
-    //     hiddenSpanToLoad();
-    //     observer.observe(document.querySelector("#testHidden"));
-    //   }
-    // }, { threshold: [1] });
-    
-    // observer.observe(document.querySelector("#testHidden"));
-
-
-// hiddenSpanToLoad();
-

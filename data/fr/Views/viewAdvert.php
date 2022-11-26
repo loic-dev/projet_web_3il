@@ -40,7 +40,6 @@ $pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPic
                         <em class="fa-<?php echo $instrument->getIcon(); ?> svg-primary-grey icon-45"> </em>
                         <span class="t-inst"><?php echo $advert->getInstrument(); ?></span>
                     </div>
-                    
                 </div>
                 <div class="d-text">
                     <span><?php echo $advert->getDescription(); ?></span>

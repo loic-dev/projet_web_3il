@@ -5,11 +5,7 @@ if(!$_SESSION['login']){
 }
 
 require_once 'Controllers/controllerPublishAnAdvert.php';
-
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">

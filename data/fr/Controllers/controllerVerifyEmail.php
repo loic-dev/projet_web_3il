@@ -1,16 +1,9 @@
 <?php
 /**
- * Main Index file
- *
- * PHP VERSION 7.2.22
- *
- * @category   View
+ * @category   Controller
  * @package    Standard
- * @subpackage Standard
- * @author     loic-dev <loic.charrie.12@gmail.com>
+ * @author     Loïc, François
  * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
- * @link       ****
- * @since      1.0.0
  */
 
 require_once '../vendor/autoload.php';
@@ -23,8 +16,6 @@ use Firebase\JWT\Key;
 
 $token = $_GET["token"];
 $loader = true;
-
-
 
 try {
     $decoded = JWT::decode($token, new Key(getenv('KEY_JWT'), 'HS256'));

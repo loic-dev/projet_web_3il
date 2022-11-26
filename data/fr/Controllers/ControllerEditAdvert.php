@@ -1,10 +1,16 @@
 <?php
+/**
+ * @category   Controller
+ * @package    Standard
+ * @author     Loïc, François
+ * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
+ */
+
 session_start();
 require_once 'dbConnect.php';
 require_once '../Models/Advert.php';
 require_once '../utils/ClientJsonException.php'; 
 require_once '../utils/regex.php'; 
-
 
 $id = $_POST["id"];
 $picture1 = $_POST["Picture1"];
@@ -17,7 +23,6 @@ $description = $_POST["description"];
 $instruments = $_POST["instruments"];
 $rubric = $_POST["rubric"];
 
-
 if(isset($_FILES)){
     foreach ($_FILES as $key=>$file) {
         $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
@@ -26,9 +31,6 @@ if(isset($_FILES)){
         ${"picture" . $key} = "/images/" . $new_name;
     }
 }
-
-
-
 
 $ad = new Advert();
 $ad->setIdAdvert($id);
@@ -43,9 +45,6 @@ $ad->setInstrument($instruments);
 $ad->setLevel($level);
 $ad->setRubric($rubric);
 $ad->setCanton(NULL);
-
-
-
 
 try {
     $ad->updateAdvert();

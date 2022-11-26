@@ -1,61 +1,3 @@
-<?php
-/**
- * Main Index file
- *
- * PHP VERSION 7.2.22
- *
- * @category   View
- * @package    Standard
- * @subpackage Standard
- * @author     François Al Haddad Siderikoudis <FrancoisAlHaddad@gmail.com>
- * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
- * @link       ****
- * @since      1.0.0
- */
-// require_once 'Controllers/controllerIndex.php';
-
-new Database();
-
-// $rs = Database::selectRandomDb("*","Advert", [
-//     "canton = ?"
-// ], [
-//     "Millau-1"
-// ], 5);
-// var_dump($rs);
-
-// $s = new Structure();
-
-// $s::setMail("francoisdks@gmail.com");
-// $s::fetchUserData();
-
-// var_dump(password_verify("test",$result["password"]));
-
-// $t = new Advert();
-// $t->setTitle("hynk^pjn,mù");
-// $t->setDescription("test123");
-// $t->setAdress("azd");
-// $t->setPicture1("../././/");
-// $t->setPicture2("../././/");
-// $t->setPicture3("../././/");
-// $t->setMailStructure("francoisdks@gmail.com");
-// $t->setInstrument("Flute");
-// $t->setLevel("Easy");
-// $t->setRubric("Study");
-// $t->setCanton("Millau-1");
- 
-// $t->insertDb();
-
-
-// $result = Database::selectDb("Password", "Structure", [
-//     "Mail = ?"
-// ], [
-//     "francoisdks@gmail.com"
-// ]);
-
-// var_dump($result[0]["Password"]);
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -68,9 +10,7 @@ new Database();
 
 <?php include('Views/Templates/header.php');?>
 
-
 <div class="stdr_view index_page">
-
     <div class="presentation_component">
         <div class="title_content">
             <h1>Bienvenue, sur Musique Pratique 12</h1>
@@ -116,15 +56,11 @@ new Database();
                 <?php include_once "Views/Templates/map.php" ?>
             </div>
             <div class="list_event">
-            
                 <div class="map_header">
                     <h3 id="search_title">Annonce : Rodez</h3>
                 </div>
-
                 <div id="display_event">
-
                 </div>
-            
             </div>
         </div>
     </div>
@@ -137,7 +73,6 @@ new Database();
 <?php include_once "Views/Templates/footer.php" ?>
 <script type="module" src="../../Public/js/event.js"></script>
 <script src="../../Public/js/map.js"></script>
-<!-- <script src="../../Public/js/event.js"></script> -->
 <script type="module" src="../../Public/js/all.js"></script>
 </body>
 </html>

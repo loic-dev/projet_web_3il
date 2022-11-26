@@ -1,4 +1,11 @@
 <?php
+/**
+ * @category   Controller
+ * @package    Standard
+ * @author     Loïc, François
+ * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
+ */
+
 require_once '../utils/functions.php'; 
 $query = $_GET['search'];
 $query = str_replace(' ', '+', $query);
@@ -16,6 +23,6 @@ function search($api) {
     return $output;
 
 }
-$result = search($api, $query);
+$result = search($api);
 echo $result;
 ?>

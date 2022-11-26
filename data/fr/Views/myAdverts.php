@@ -5,9 +5,8 @@ if(!$_SESSION['login']){
 }
 
 require_once 'Controllers/controllerMyAdverts.php';
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

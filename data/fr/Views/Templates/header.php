@@ -14,16 +14,7 @@
                     <span class="list_menu"><a href="../fr/my-adverts">Mes annonces</a></span>
                     <span class="list_menu"><a href="../fr/profile">Mon compte</a></span>
                 <?php }?>
-
             </div>
-            
-        
-
         </div>
-
-
-
-
     </div>
-    
 </header>

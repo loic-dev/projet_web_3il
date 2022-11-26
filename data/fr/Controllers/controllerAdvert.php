@@ -1,6 +1,10 @@
 <?php 
-
-
+/**
+ * @category   Controller
+ * @package    Standard
+ * @author     Loïc, François
+ * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
+ */
 
 $advert = new Advert();
 $structure = new Structure();
@@ -12,6 +16,5 @@ $structure->fetchUserData();
 $instrument = new Instrument();
 $instrument->setName($advert->getInstrument());
 $instrument->fetchOneInstruments();
-
 
 ?>

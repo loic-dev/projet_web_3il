@@ -1,31 +1,4 @@
 <?php
-/**
- * Main Index file
- *
- * PHP VERSION 7.2.22
- *
- * @category   View
- * @package    Standard
- * @subpackage Standard
- * @author     loic-dev <loic.charrie.12@gmail.com>
- * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
- * @link       ****
- * @since      1.0.0
- */
-
-// require_once 'Controllers/controllerIndex.php';
-
-/*if (session_status() === 1) {
-    session_start();
-}
-// $autolog = new Structure();
-
-// $autolog::setMail("francoisdks@gmail.com");
-// $autolog::fetchUserData();
-// var_dump($_SESSION);
-
-$autolog::login();
-// var_dump($_SESSION);*/
 session_start();
 if($_SESSION['login']){
     header("location: /fr/");

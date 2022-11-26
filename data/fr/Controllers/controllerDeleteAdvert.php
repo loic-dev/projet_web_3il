@@ -1,4 +1,11 @@
 <?php
+/**
+ * @category   Controller
+ * @package    Standard
+ * @author     Loïc, François
+ * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
+ */
+
 session_start();
 require_once 'dbConnect.php';
 require_once '../utils/ClientJsonException.php';
@@ -10,8 +17,6 @@ $_POST = json_decode($content, true);
 $advert = new Advert();
 $advert->setIdAdvert($_POST["id"]);
 $advert->setMailStructure($_SESSION["Structure"]['mail']);
-
-
 
 try {
     $advert->deleteAdvert();

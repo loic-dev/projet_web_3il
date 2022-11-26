@@ -1,14 +1,18 @@
 <?php
+/**
+ * @category   Util
+ * @package    Standard
+ * @author     Loïc, François
+ * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
+ */
+
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-
 //Create an instance; passing `true` enables exceptions
-
-
 function sendEmail($email,$name, $link){
     $mail = new PHPMailer(true);                    
     $mail->isSMTP();                                          
@@ -21,7 +25,6 @@ function sendEmail($email,$name, $link){
     $mail->setFrom('from@example.com', 'Mailer');
     $mail->addAddress($email, $name);
 
-    
     $mail->CharSet = 'UTF-8';
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Vérification email';

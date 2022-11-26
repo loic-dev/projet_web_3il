@@ -1,4 +1,11 @@
 <?php
+/**
+ * @category   Controller
+ * @package    Standard
+ * @author     Loïc, François
+ * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
+ */
+
 require_once '../vendor/autoload.php';
 session_start();
 require_once 'dbConnect.php';
@@ -12,7 +19,6 @@ $_POST = json_decode($content, true);
 
 $editStruct = new Structure();
 $editStruct->setMail($_SESSION["Structure"]["mail"]);
-
 
 try {
     $editStruct->deleteStructure();

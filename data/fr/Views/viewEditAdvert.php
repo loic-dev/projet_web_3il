@@ -3,13 +3,9 @@ session_start();
 if(!$_SESSION['login']){
     header("location: /fr/login");
 }
-
 require_once 'Controllers/controllerViewEditAdvert.php';
-
 $pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPicture3());
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">

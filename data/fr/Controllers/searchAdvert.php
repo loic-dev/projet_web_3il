@@ -1,5 +1,12 @@
-<?php 
-require_once '../utils/functions.php'; 
+<?php
+/**
+ * @category   Controller
+ * @package    Standard
+ * @author     Loïc, François
+ * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
+ */
+
+require_once '../utils/functions.php';
 require_once '../Models/Database.php';
 require_once '../Models/Advert.php';
 
@@ -31,31 +38,32 @@ $map = [
 ];
 
 $initFlag = false;
-foreach($map as $key => $value) {
-    if(!empty($value)) {
-        if($initFlag) $dfSql .= " AND ";
+foreach ($map as $key => $value) {
+    if (!empty($value)) {
+        if ($initFlag)
+            $dfSql .= " AND ";
         $dfSql .= $key;
-        $initFlag =true;
+        $initFlag = true;
     }
 }
 
 $dfSql .= " LIMIT :min,:max ;";
-$request =  Database::getPdo()->prepare($dfSql);
+$request = Database::getPdo()->prepare($dfSql);
 $arrExec = array();
 
-foreach($map as $key => $value) {
-    if(!empty($value)) {
+foreach ($map as $key => $value) {
+    if (!empty($value)) {
         $realPrepareValue = strstr($key, ':');
-        if(substr($realPrepareValue, -1) == ")") {
-            $realPrepareValue = rtrim($realPrepareValue, ")"); 
+        if (substr($realPrepareValue, -1) == ")") {
+            $realPrepareValue = rtrim($realPrepareValue, ")");
             $value = '%' . $value . '%';
         }
-        array_push($arrExec,$value);
+        array_push($arrExec, $value);
     }
 }
 
-array_push($arrExec,$min);
-array_push($arrExec,$max);
+array_push($arrExec, $min);
+array_push($arrExec, $max);
 
 try {
     $request->execute($arrExec);

@@ -1,8 +1,5 @@
 <?php 
 session_start();
-// if(!$_SESSION['login']){
-//     header("location: /fr/login");
-// }
 require_once 'Controllers/controllerAdvert.php';
 
 
@@ -13,18 +10,11 @@ $pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPic
 
 <!DOCTYPE html>
 <html lang="fr">
-<!-- <head>
-    <?php include('Views/Templates/head.php'); ?>
-    <link rel="stylesheet" href="/Public/CSS/modal.css">
-    <link rel="stylesheet" href="/Public/CSS/advert.css">
-</head> -->
-
     <head>
         <?php include('Views/Templates/head.php');?>
         <link rel="stylesheet" href="/Public/CSS/viewAdvert.css">
         <link rel="stylesheet" href="/Public/CSS/modal.css"> 
     </head>
-
 <body class="preload">
     <?php include('Views/Templates/header.php'); ?>
     <div class="page">
@@ -64,8 +54,6 @@ $pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPic
                 }
                 ?>
             </div>
-
-           
         </div>
     </div>
     <?php include_once "Views/Templates/footer.php" ?>

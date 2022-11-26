@@ -28,12 +28,13 @@
 #display_event > * {
     padding: 10px;
     margin: 10px;
+    cursor: pointer;
 }
 
 #display_event {
     max-height: 620px;
     overflow-y: scroll;
-    overflow-x: none;
+    overflow-x: hidden;
 }
 
 #search_title {

@@ -7,6 +7,12 @@
     background-color: #FCFAF1;
 }
 
+.liner {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
 .title_content {
     display:flex;
     justify-content: space-around;
@@ -94,12 +100,15 @@ h3 {
 .search_input_box {
     width:80%;
     display:flex;
-    height:40px;
-    border-radius: 5px;
     box-shadow: none;
+    height: 40px;
+    padding-left: 10px;
+    border: 2px solid var(--white-grey);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--primary-grey);
     outline: none;
-    border: none;
-
 } 
 .search_component_btn_list {
     display:flex;
@@ -115,7 +124,13 @@ h3 {
 }
 
 .search_component_btn_list > * {
+    min-width: 150px;
     margin: 2px 0;
+}
+#searchAdvertBtn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .map_component {
@@ -151,6 +166,8 @@ h3 {
     width:100%;
     flex-wrap: wrap;
     justify-content: space-around;
+    /* min-height: 45vh; */
+    /* background-color: red; */
 }
 
 #tooltip {
@@ -170,10 +187,13 @@ h3 {
 }  */
 
 .list_event {
+    min-width: 47%;
+    min-height: 100%;
     display: flex;
     align-self: center;
     flex-direction: column;
-    justify-content: space-around;
+    align-content: center;
+    align-items: center;
 }
 
 .select {
@@ -193,21 +213,36 @@ h3 {
     background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
 }
 
-@media screen and (min-width: 1168px) {
-    .index_map {
-        display:flex !important;
-    }
+.index_map {
+    display:flex !important;
+    justify-content: space-around;
+}
+
+@media screen and (min-width: 968px) {
+
 }
 
 @media screen and (min-width: 768px) {
- 
+    .index_map {
+        align-items: center;
+        justify-content: initial;
+    }
+
+    .list_event {
+        justify-content: space-around;
+    }
+
+    #display_event {
+        justify-content: space-between;
+    }    
+
     .select {
         width : 200px;
         margin: 0px 10px 0px 10px !important;
     }
 
     .presentation_component {
-        height:60vh;
+        height: 55vh;
         width: 80%;
         margin: 20px 0;
     }
@@ -223,6 +258,8 @@ h3 {
         width:100%;
         justify-content: space-around;
         padding: 30px 0;
+        /* min-width: 700px; */
+        /* background-color: red; */
     }
 
     .search_component_btn_list {

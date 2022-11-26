@@ -1,4 +1,8 @@
 <?php
+
+require_once '../vendor/autoload.php';
+use WebPConvert\WebPConvert;
+
 session_start();
 require_once 'dbConnect.php';
 require_once '../Models/Advert.php';
@@ -11,7 +15,10 @@ $level = $_POST["level"];
 $description = $_POST["description"];
 $instruments = $_POST["instruments"];
 $images = $_POST["images"];
+$rubric = $_POST["rubric"];
 
+$place = str_replace('"', "", $place);
+$place = str_replace("'", "", $place);
 
 if(!regex_input_text($title)){
     throw new ClientJsonException("error title", 500);
@@ -30,23 +37,34 @@ $picture2 = null;
 $picture3 = null;
 
 
+if (!file_exists('../../images/')) {
+    mkdir('../../images/', 0777, true);
+}
+
 if(isset($_FILES)){
     $index = 1;
+
+    $mainFolderPicture = '../../images/';
+    $generatedOwnFolderName = time(); //Add the rand
+    $fullPath = $mainFolderPicture . $generatedOwnFolderName;
+    if (!file_exists($mainFolderPicture . $generatedOwnFolderName)) {
+        mkdir($mainFolderPicture . $generatedOwnFolderName, 0777, true);
+    }
+
     foreach ($_FILES as $file) {
         $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $new_name = $index . '-' . time() . '-'. $_SESSION["Structure"]["mail"] . '.' . $extension;
-        move_uploaded_file($file['tmp_name'], '../../images/' . $new_name);
-        ${"picture" . $index} = "/images/" . $new_name;
+        $fileName = $index . '.' . $extension;
+        move_uploaded_file($file['tmp_name'], $fullPath . '/' . $fileName);
+        $source = $fullPath . '/' . $fileName;
+        $destination = $fullPath . '/' . $index . '.webp';
+        $options = [];
+        WebPConvert::convert($source, $destination, $options);
+        ${"picture" . $index} = "/images/" . $generatedOwnFolderName .'/' . $fileName;
         $index++;
     }
 }
 
-$title = $_POST["title"];
-$place = $_POST["place"];
-$level = $_POST["level"];
-$description = $_POST["description"];
-$instruments = $_POST["instruments"];
-$rubric = $_POST["rubric"];
+
 
 $ad = new Advert();
 $ad->setTitle($title);
@@ -59,7 +77,26 @@ $ad->setMailStructure($_SESSION["Structure"]["mail"]);
 $ad->setInstrument($instruments);
 $ad->setLevel($level);
 $ad->setRubric($rubric);
-$ad->setCanton("Millau-1");
+
+
+$json_data = file_get_contents('../canton.json');
+$arr = json_decode($json_data, true);
+
+$proba = 0;
+$currentStr = null;
+
+$placeCleaned = strstr(strstr($place, '12'), " ");
+
+foreach($arr as $key => $val) {
+    $newProba = similar_text($key,$placeCleaned);
+    if($newProba > $proba) {
+        $proba = $newProba;
+        $currentStr = $val;
+    }
+}
+
+
+$ad->setCanton($currentStr);
 
 
 

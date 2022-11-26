@@ -90,15 +90,15 @@ new Database();
             <h1>Trouver un cours de musique en Aveyron</h1>
             <div class="search_box">
                 <input id="inputSearchAdvert" class="search_input_box" type="text"></input>
-                <p class="" style="display:none;">Veuillez remplir l'ensemble des champs et selectionner un canton sur la carte</p>
                 <div class="search_component_btn_list">
                     <select id="insturment-select" class="select">
                         <option value="">Instrument</option>
                         <option value="Flute">Flute</option>
+                        <option value="Guitare">Guitare</option>
                     </select>
                     <select id="rubric-select" class="select">
                         <option value="">Categorie</option>
-                        <option value="dog">Etude</option> 
+                        <option value="Study">Etude</option> 
                     </select>
                     <select id="level-select" class="select">
                         <option value="">Niveau</option>
@@ -106,19 +106,19 @@ new Database();
                         <option value="Medium">Moyenne</option>
                         <option value="Difficult">Difficile</option>
                     </select>
-                    <button id="searchAdvertBtn" class="button_menu_nav yellow">Rechercher</button>
+                    <button id="searchAdvertBtn" class="list_menu buttons yellowButton">Rechercher</button>
                 </div> 
             </div>
         </div>
 
         <div class="map_component">
-            <div id="index_map" class="index_map"style="display:none;">
+            <div id="index_map" class="index_map">
                 <?php include_once "Views/Templates/map.php" ?>
             </div>
             <div class="list_event">
             
                 <div class="map_header">
-                    <h3 id="search_title">Annonce: Rodez</h3>
+                    <h3 id="search_title">Annonce : Rodez</h3>
                 </div>
 
                 <div id="display_event">
@@ -139,6 +139,5 @@ new Database();
 <script src="../../Public/js/map.js"></script>
 <!-- <script src="../../Public/js/event.js"></script> -->
 <script type="module" src="../../Public/js/all.js"></script>
-
 </body>
 </html>

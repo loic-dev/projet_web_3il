@@ -1,8 +1,8 @@
 <?php 
 session_start();
-if(!$_SESSION['login']){
-    header("location: /fr/login");
-}
+// if(!$_SESSION['login']){
+//     header("location: /fr/login");
+// }
 require_once 'Controllers/controllerAdvert.php';
 
 

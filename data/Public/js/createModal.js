@@ -35,6 +35,4 @@ export const createModal = (title, body, footer) => {
     document.querySelector('body').prepend(document.createRange().createContextualFragment(template));
     document.querySelector("#close-icon").addEventListener("click", (e) => close(e));
 
-
-
 }

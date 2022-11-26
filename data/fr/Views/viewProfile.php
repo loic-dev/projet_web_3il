@@ -2,7 +2,8 @@
 session_start();
 if(!$_SESSION['login']){
     header("location: /fr/login");
-}var_dump($_SESSION["Structure"]);
+}
+// var_dump($_SESSION["Structure"]);
 ?>
 <!DOCTYPE html>
 <html lang="fr">

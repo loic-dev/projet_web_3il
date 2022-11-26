@@ -6,6 +6,6 @@ new Database();
 
 $ad = new Advert();
 
-echo object_json_response(200, $ad::getOrderAdvertFromCanton(6,"Millau-1"));
+echo object_json_response(200, $ad::getOrderAdvertFromCanton(6,"Rodez-1"));
 
 ?>

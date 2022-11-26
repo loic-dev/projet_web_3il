@@ -31,6 +31,7 @@ class Database
                         $columns = array_keys($array);
                         $values = array_values($array);
                         $str = "INSERT INTO $table (" . implode(',', $columns) . ") VALUES ('" . implode("', '", $values) . "' )";
+                        // printf($str);
                         Database::getPdo()->prepare($str)->execute();
                 } catch (exception $e) {
                         throw $e;

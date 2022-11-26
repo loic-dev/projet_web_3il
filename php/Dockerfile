@@ -6,14 +6,19 @@ RUN apt-get upgrade -y
 RUN alias composer='php /usr/bin/composer'
 
 
+
 # Install unzip utility and libs needed by zip PHP extension 
 RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     libzip-dev \
     unzip
+
+
 RUN docker-php-ext-install zip
 
-
+RUN composer require rosell-dk/webp-convert
 RUN composer require firebase/php-jwt
 RUN composer require phpmailer/phpmailer
 RUN composer require halaxa/json-machine
+
+RUN composer install

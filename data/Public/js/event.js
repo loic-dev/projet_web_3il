@@ -2,11 +2,9 @@ let cantonSelected = "Millau-1";
 let iterator = 0;
 
 function createNewAtelier(title, img = "/public/media/NoPic.png", structureName, id) {
-    let domNode = document.createElement('div')
+    let domNode = document.createElement('a')
     domNode.classList.add("atelier");
-    domNode.onclick = () => {
-      window.location = "/fr/advert?q=" + id;
-    }
+    domNode.href = "./advert?q=" + id;
 
     if(img !== "/public/media/NoPic.png") {
       img = img.substring(0,img.indexOf("."))+ ".webp";
@@ -174,7 +172,8 @@ window.addEventListener("load", (e) => {
   function setClick(element) {
     cleanAllPath();
     element.style = "fill : red;";
-    cantonSelected = element.id.slice(5);
+    // cantonSelected = element.id.slice(5);
+    cantonSelected = element.id;
   }
   
 
@@ -195,7 +194,7 @@ window.addEventListener("load", (e) => {
       }, false);
   }
 
-  setClick(document.getElementById("1216 Rodez-1"));
+  setClick(document.getElementById("Rodez-1"));
   cleanAllAdvert();
 
   fetchRandAdvert();

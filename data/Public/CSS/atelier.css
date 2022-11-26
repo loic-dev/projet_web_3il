@@ -1,14 +1,13 @@
 .atelier {
     /* width:180px; */
-
     width:300px;
-
     background-color: var(--primary-yellow);
     color:black;
     border-radius: 4px;
     /* background-color: yellow; */
     /* height:200px; */
     height:270px;
+    text-decoration: none;
 }
 
 .atelier > img {
@@ -29,6 +28,7 @@
     padding: 10px;
     margin: 10px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 #display_event {

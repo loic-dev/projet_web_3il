@@ -1,6 +1,36 @@
 .container-page{
     gap: 30px;
+
 }
+
+.back{
+    margin-bottom: 20px;
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    font-weight: 500;
+    cursor: pointer;
+    width: fit-content;
+    text-decoration: none;
+    color: var(--primary-grey);
+}
+
+
+
+.back em{
+    margin-right: 10px;
+    transition-duration: 0.3s;
+}
+
+.back:hover em{
+    margin-left: -10px;
+    margin-right: 20px;
+}
+
+.back:hover{
+    color: var(--secondary-yellow);
+}
+
 
 
 .c-text{
@@ -106,7 +136,6 @@
     font-weight: 500;
     display: none;
 }
-
 
 /* tablet & desktop */
 @media screen and (min-width: 768px){

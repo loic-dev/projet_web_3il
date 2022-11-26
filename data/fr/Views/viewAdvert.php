@@ -13,15 +13,26 @@ $pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPic
 
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+<!-- <head>
     <?php include('Views/Templates/head.php'); ?>
-    <link rel="stylesheet" href="../../Public/CSS/modal.css">
-    <link rel="stylesheet" href="../../Public/CSS/advert.css">
-</head>
+    <link rel="stylesheet" href="/Public/CSS/modal.css">
+    <link rel="stylesheet" href="/Public/CSS/advert.css">
+</head> -->
+
+    <head>
+        <?php include('Views/Templates/head.php');?>
+        <link rel="stylesheet" href="/Public/CSS/viewAdvert.css">
+        <link rel="stylesheet" href="/Public/CSS/modal.css"> 
+    </head>
+
 <body class="preload">
     <?php include('Views/Templates/header.php'); ?>
     <div class="page">
         <div class="container-page">
+            <a class="back" href="../">
+                <em class="fa-arrow-left svg-primary-grey icon-20"> </em>
+                <span>Accueil</span>
+            </a>
             <div class="c-text">
                 <div class="h-text">
                     <div class="s-title">
@@ -52,7 +63,6 @@ $pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPic
                     }
                 }
                 ?>
-
             </div>
 
            

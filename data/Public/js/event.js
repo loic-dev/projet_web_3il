@@ -4,9 +4,11 @@ let iterator = 0;
 function createNewAtelier(element) {
 // element["Title"],element["Picture1"],element["MailStructure"], element["IdAdvert"]
 
-let domNode = document.createElement('a')
+let domNode = document.createElement('span');
 domNode.classList.add("atelier");
-domNode.href = "./advert?q=" + element["id"];
+domNode.id = element["IdAdvert"];
+
+domNode.href = "./advert?q=" + element["IdAdvert"];
     let img = undefined;
     if(element["Picture1"] === "") {
       img = "/public/media/NoPic.png";
@@ -14,10 +16,24 @@ domNode.href = "./advert?q=" + element["id"];
       img = element["Picture1"].substring(0,element["Picture1"].indexOf("."))+ ".webp";
     }
     
+    // domNode.innerHTML = `
+    //         <img src="${img}"/>
+    //         <p>${element["Title"]}</p>
+    //         <p>${element["MailStructure"]}</p>
+    // `;
+    
     domNode.innerHTML = `
-            <img src="${img}"/>
-            <p>${element["Title"]}</p>
-            <p>${element["MailStructure"]}</p>
+          <div class="photo-container" style="background-image:url(${img})"></div>
+          <div class="adverts-body-container">
+              <div class="a-header">
+                  <div class="title-ad-container">
+                      <span class="a-title">${element["Title"]}</span>
+                      <span class="a-inst">${element["Instrument"]}</span>
+
+                  </div>
+                  <span class="a-address">${element["Adress"]}</span>
+              </div>
+          </div>
     `;
     
     document.getElementById("display_event").appendChild(domNode);

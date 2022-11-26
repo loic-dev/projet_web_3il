@@ -46,11 +46,6 @@ export default class AddInstrumentModal extends HTMLElement{
     }
  }
 
-
-
-
-
-
  connectedCallback(){
     this.shadowRoot.querySelector("#close-icon").addEventListener("click", (e) => this.close(e));
     this.shadowRoot.querySelector("button").addEventListener("click", (e) => this.addInstrument(e));
@@ -59,7 +54,6 @@ export default class AddInstrumentModal extends HTMLElement{
  disconnectedCallback(){
     console.log("unmount")
  }
-
  
 }
 window.customElements.define('modal-instrument', AddInstrumentModal);

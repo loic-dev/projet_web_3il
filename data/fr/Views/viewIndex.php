@@ -14,13 +14,13 @@
             <h1>Bienvenue, sur Musique Pratique 12</h1>
             <h3>Site d'annonces musicales en Aveyron</p>
         </div>
-        <div class="container_pictures">
+        <!-- <div class="container_pictures">
             <div class="inner_container">
                 <img class="default_picture" alt="musicien" src="/Public/media/musician.webp" />
                 <img class="default_picture" alt="instrument" src="/Public/media/piano.webp" />
             </div>
             <img class="default_picture" alt="instrument" src="/Public/media/piano.webp" />
-        </div>
+        </div> -->
     </div>
 
     <div class="search_result">

@@ -110,6 +110,7 @@ $pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPic
             </div>
         </section>
         <?php include('Views/Templates/footer.php');?>
+        <script src="../../Public/dist/bundle.hamburger.js"></script>
         <script type="module" src="../../Public/js/editAdvert.js"></script>
         <script type="module" src="../../Public/js/all.js"></script>
     </body>

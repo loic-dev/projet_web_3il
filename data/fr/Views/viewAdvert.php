@@ -56,6 +56,7 @@ $pictures = array($advert->getPicture1(), $advert->getPicture2(),$advert->getPic
         </div>
     </div>
     <?php include_once "Views/Templates/footer.php" ?>
+    <script src="../../Public/dist/bundle.hamburger.js"></script>
     <script type="module" src="../../Public/js/all.js"></script>
     <script type="module" src="../../Public/js/advert.js"></script>
     

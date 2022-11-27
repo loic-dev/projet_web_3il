@@ -21,7 +21,6 @@
     </div>
 </footer>
 
-<script src="../../Public/dist/bundle.hamburger.js"></script>
 </body>
 
 </html>

@@ -15,21 +15,33 @@ domNode.href = "./advert?q=" + element["IdAdvert"];
     } else {
       img = element["Picture1"].substring(0,element["Picture1"].indexOf("."))+ ".webp";
     }
+
+    let observer = new IntersectionObserver(function(entries) {
+      if(entries[0].isIntersecting === true) {
+        document.getElementById(element["IdAdvert"] + "photo").style = `background-image:url(${img})`;
+      }
+      }, { threshold: [1] });  
+      observer.observe(domNode);
+    
     
     domNode.innerHTML = `
-          <div class="photo-container" style="background-image:url(${img})"></div>
-          <div class="adverts-body-container">
-              <div class="a-header">
-                  <div class="title-ad-container">
-                      <span class="a-title">${element["Title"]}</span>
-                      <span class="a-inst">${element["Instrument"]}</span>
-                  </div>
-                  <span class="a-address">${element["Adress"]}</span>
-              </div>
-          </div>
+    <div class="photo-container" id="${element["IdAdvert"] + "photo"}" ></div>
+    <div class="adverts-body-container">
+    <div class="a-header">
+    <div class="title-ad-container">
+    <span class="a-title">${element["Title"]}</span>
+    <span class="a-inst">${element["Instrument"]}</span>
+    </div>
+    <span class="a-address">${element["Adress"]}</span>
+    </div>
+    </div>
     `;
     
     document.getElementById("display_event").appendChild(domNode);
+
+
+
+
 }
  
 function removeActualSpan() {

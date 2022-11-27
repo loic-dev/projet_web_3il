@@ -80,6 +80,7 @@ if(!$_SESSION['login']){
         </div>
     </div>
     <?php include_once "Views/Templates/footer.php" ?>
+    <script src="../../Public/dist/bundle.hamburger.js"></script>
     <script type="module" src="../../Public/js/createModal.js"></script>
     <script type="module" src="../../Public/js/all.js"></script>
     <script type="module" src="../../Public/js/profile.js"></script>

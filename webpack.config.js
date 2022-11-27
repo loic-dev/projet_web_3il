@@ -40,7 +40,7 @@ var headCss = Object.assign({}, config,{
 });
 
 var viewIndexJs = Object.assign({}, config,{
-  entry: ['./data/Public/js/all.js', './data/Public/js/event.js'],
+  entry: ['./data/Public/js/all.js', './data/Public/js/event.js', './data/Public/js/hamburger.js'],
   output: {
     filename: '../data/Public/dist/bundle.viewIndex.js',
   },

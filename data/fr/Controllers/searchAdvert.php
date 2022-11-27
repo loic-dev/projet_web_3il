@@ -65,9 +65,19 @@ foreach ($map as $key => $value) {
 array_push($arrExec, $min);
 array_push($arrExec, $max);
 
+
+
+
+// echo object_json_response(200, $arr);
+
 try {
     $request->execute($arrExec);
-    echo object_json_response(200, $request->fetchAll());
+    $ad = new Advert();
+    $arr = [
+        "advert"=> $request->fetchAll(),
+        "numberOfResult" => $ad::fetchNumberOfAdvert()
+    ];
+    echo object_json_response(200, $arr);
 } catch (PDOException $e) {
     $error = "Une erreur est survenue";
     echo $error;

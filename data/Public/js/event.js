@@ -37,14 +37,17 @@ function removeActualSpan() {
 }
 
 function hiddenSpanToLoad() {
+  let onlyOne = false;
   let domNode = document.createElement('span');
   domNode.id = "testHidden"
+  domNode.classList.add("liner");
   domNode.innerText = "Chargement de nouvelles annonces ..."
   domNode.style = "height:15px"
   document.getElementById("display_event").appendChild(domNode);
   
   let observer = new IntersectionObserver(function(entries) {
-  if(entries[0].isIntersecting === true) {
+  if(entries[0].isIntersecting === true && !onlyOne) {
+    onlyOne = true;
     let resultInput = document.getElementById("inputSearchAdvert").value;
     let category = document.getElementById("rubric-select").value;
     let instrument = document.getElementById("insturment-select").value;
@@ -53,10 +56,9 @@ function hiddenSpanToLoad() {
     console.log(JSON.stringify({title:resultInput, category:category,instrument:instrument, level:level, canton:cantonSelected}));
     
     iterator += 6;
-    
-    fetchAdvert(resultInput,category,instrument,level,cantonSelected, iterator, false);  
-    removeActualSpan();
-
+    setTimeout(()=> {
+      fetchAdvert(resultInput,category,instrument,level,cantonSelected, iterator, false);  
+    }, 200);
   }
   }, { threshold: [1] });  
   observer.observe(document.querySelector("#testHidden"));
@@ -74,7 +76,7 @@ function setCantonTitle(element) {
   document.getElementById("search_title").innerText = "Annonce : " + element;
 }
 
-function fetchAdvert(resultInput,category,instrument,level,cantonSelected, limit = 0, reset=true) {
+function fetchAdvert(resultInput,category,instrument,level,cantonSelected, limit = 0, reset = true) {
   fetch('./Controllers/searchAdvert.php',{
     method: 'POST',
     headers: {
@@ -85,65 +87,49 @@ function fetchAdvert(resultInput,category,instrument,level,cantonSelected, limit
   }).then(function (response) {
     return response.json();
   }).then(function (data) {
+    if(reset) removeAllAtelier();
     setCantonTitle(cantonSelected);
     console.log(data);
-    createAllAdvert(data,reset);
-  }).catch(function (err) {
-    console.log(err)
-  });
-}
-
-function fetchRandAdvert(limit = 0) {
-  fetch('./Controllers/controllerIndex.php',{
-    method: 'POST',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({limit:limit})
-  }).then(function (response) {
-    return response.json();
-  }).then(function (data) {
-    setCantonTitle(cantonSelected);
-    console.log(data);
-
-
-    createAllAdvert(data.advert, true);
-
     data.numberOfResult.forEach(element => {
       document.getElementById(element[1]).setAttribute("var",element[0]);
     });
-
+    if(data.advert < 1 && limit > 0) {
+      removeActualSpan();
+      addLinerResultEnded();
+    } else if(limit > 0) {
+      removeActualSpan();
+      addAllAdvert(data.advert);
+    } else {
+      addAllAdvert(data.advert);
+    }
   }).catch(function (err) {
     console.log(err)
   });
 }
 
-function createAllAdvert(data,reset) {
-  if(reset) removeAllAtelier();
+function addLinerNoResult() {
+  let domNode = document.createElement('div');
+  domNode.classList.add("liner");
+  domNode.innerHTML = `
+          <p>Aucun resultat</p>
+  `;
+  document.getElementById("display_event").appendChild(domNode);
+}
 
-  if(data.length < 1 && reset) {
-
-    let domNode = document.createElement('div');
-    domNode.classList.add("liner");
-    domNode.innerHTML = `
-            <p>Aucun resultat</p>
-    `;
-
-    document.getElementById("display_event").appendChild(domNode);
-  } else if(data.length < 1 && !reset) {
+function addLinerResultEnded() {
     let domNode = document.createElement('div');
     domNode.classList.add("liner");
     domNode.innerHTML = `<p>Fin des resultats</p>`;
     document.getElementById("display_event").appendChild(domNode);
-    removeActualSpan();
-  } else {
-      data.forEach(element => {
-        console.log(element);
-        createNewAtelier(element);
-      });
-      hiddenSpanToLoad();
-  }
+    // removeActualSpan();
+}
+
+function addAllAdvert(data) {
+  data.forEach(element => {
+    createNewAtelier(element);
+  });
+  hiddenSpanToLoad();
+
 }
 
 window.addEventListener("load", (e) => {
@@ -195,9 +181,11 @@ window.addEventListener("load", (e) => {
   setClick(document.getElementById("Rodez-1"));
   cleanAllAdvert();
 
-  fetchRandAdvert();
+  fetchAdvert(undefined,undefined,undefined,undefined,"Rodez-1");
 
   document.getElementById("searchAdvertBtn").addEventListener("click",()=> {
+    iterator = 0;
+    document.getElementById('display_event').scrollTop = 0;
     let resultInput = document.getElementById("inputSearchAdvert").value;
     let category = document.getElementById("rubric-select").value;
     let instrument = document.getElementById("insturment-select").value;

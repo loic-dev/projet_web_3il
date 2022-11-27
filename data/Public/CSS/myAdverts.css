@@ -24,7 +24,33 @@
     width: 5px;
   }
 
+  .back{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 500;
+    cursor: pointer;
+    width: fit-content;
+    text-decoration: none;
+    color: var(--primary-grey);
+}
 
+
+
+.back em{
+    margin-right: 10px;
+    transition-duration: 0.3s;
+}
+
+.back:hover em{
+    margin-left: -10px;
+    margin-right: 20px;
+}
+
+.back:hover{
+    color: var(--secondary-yellow);
+}
 
 .c-adverts {
     max-width: 300px;

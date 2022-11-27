@@ -5,6 +5,10 @@ if(!$_SESSION['login']){
 }
 
 require_once 'Controllers/controllerMyAdverts.php';
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,11 +22,19 @@ require_once 'Controllers/controllerMyAdverts.php';
     <?php include('Views/Templates/header.php'); ?>
     <div class="page">
         <div class="container-page">
+            <a class="back" href="../">
+                        <em class="fa-arrow-left svg-primary-grey icon-20"> </em>
+                        <span>Accueil</span>
+            </a>
             <div class="container-title">
                 <span class="title">Mes annonces</span>
             </div>
+            
             <div id="container-list-adverts">
-                <?php foreach ($myAdverts as $advert) {?>
+                <?php foreach ($myAdverts as $advert) {
+                    $picThumbsnail = substr($advert->getPicture1(), 0, strpos($advert->getPicture1(), ".")) . ".webp";
+
+                    ?>
                     
                     <span id="<?php echo $advert->getIdAdvert(); ?>" class="c-adverts">
                         <div class="container-option">
@@ -36,7 +48,7 @@ require_once 'Controllers/controllerMyAdverts.php';
                                 <em class="fa-ellipsis svg-primary-grey icon-15"> </em>
                             </div>
                         </div>
-                        <span class="photo-container" style="background-image:url(<?php echo $advert->getPicture1(); ?>)"></span>
+                        <span class="photo-container" style="background-image:url(<?php echo $picThumbsnail ?>)"></span>
                         <div class="adverts-body-container">
                             <div class="a-header">
                                 <div class="title-ad-container">

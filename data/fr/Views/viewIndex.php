@@ -18,10 +18,10 @@
         </div>
         <div class="container_pictures">
             <div class="inner_container">
-                <img class="default_picture" src="/Public/media/musician.webp" />
-                <img class="default_picture" src="/Public/media/piano.webp" />
+                <img class="default_picture" alt="musicien" src="/Public/media/musician.webp" />
+                <img class="default_picture" alt="instrument" src="/Public/media/piano.webp" />
             </div>
-            <img class="default_picture" src="/Public/media/piano.webp" />
+            <img class="default_picture" alt="instrument" src="/Public/media/piano.webp" />
         </div>
     </div>
 

@@ -177,6 +177,13 @@ class Advert
         }
         return $listAdverts;
     }
+
+    static function fetchNumberOfAdvert() {
+        $sql = "SELECT COUNT(*),Canton FROM `Advert` GROUP BY `Canton`;";
+        $result = Database::getPdo()->prepare($sql);
+        $result->execute();
+        return $result->fetchAll();
+    }
     
     function insertDb() {
         Database::insertDb("Advert", [

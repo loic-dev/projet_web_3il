@@ -184,6 +184,7 @@ header {
     .list_menu a{
         text-decoration: none;
         color: var(--primary-grey);
+        /* margin: 10px; */
     }
 
 

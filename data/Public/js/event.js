@@ -23,7 +23,6 @@ domNode.href = "./advert?q=" + element["IdAdvert"];
                   <div class="title-ad-container">
                       <span class="a-title">${element["Title"]}</span>
                       <span class="a-inst">${element["Instrument"]}</span>
-
                   </div>
                   <span class="a-address">${element["Adress"]}</span>
               </div>
@@ -106,8 +105,14 @@ function fetchRandAdvert(limit = 0) {
     return response.json();
   }).then(function (data) {
     setCantonTitle(cantonSelected);
-    // console.log(data);
-    createAllAdvert(data, true);
+    console.log(data);
+
+
+    createAllAdvert(data.advert, true);
+
+    data.numberOfResult.forEach(element => {
+      document.getElementById(element[1]).setAttribute("var",element[0]);
+    });
 
   }).catch(function (err) {
     console.log(err)
@@ -170,7 +175,18 @@ window.addEventListener("load", (e) => {
           tooltip.style.display = "none";
       }, false);
       element.addEventListener('mousemove', (e)=> {
-          tooltip.innerHTML = e.target.id;
+          tooltip.innerHTML = e.target.id + '\n'
+          if(e.target.getAttribute("var") !== null) {
+            let $nbRes = e.target.getAttribute("var");
+            tooltip.innerHTML += "( " + e.target.getAttribute("var");
+            if($nbRes === 1) {
+              tooltip.innerHTML += " annonce" + " )";
+            } else {
+              tooltip.innerHTML += " annonces" + " )";
+            }
+          } else {
+            tooltip.innerHTML += "( 0 annonce )";
+          }
           tooltip.style.left = e.pageX + 'px';
           tooltip.style.top = e.pageY + 'px';
       }, false);

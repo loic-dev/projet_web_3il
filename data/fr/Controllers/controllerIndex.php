@@ -13,6 +13,12 @@ new Database();
 
 $ad = new Advert();
 
-echo object_json_response(200, $ad::getOrderAdvertFromCanton(6,"Rodez-1"));
+
+$arr = [
+    "advert"=> $ad::getOrderAdvertFromCanton(6,"Rodez-1"),
+    "numberOfResult" => $ad::fetchNumberOfAdvert()
+];
+
+echo object_json_response(200, $arr);
 
 ?>

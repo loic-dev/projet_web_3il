@@ -33,18 +33,39 @@ if(isset($_FILES)){
 }
 
 $ad = new Advert();
-$ad->setIdAdvert($id);
-$ad->setTitle($title);
-$ad->setDescription($description);
-$ad->setAdress($place);
-$ad->setPicture1($picture1);
-$ad->setPicture2($picture2);
-$ad->setPicture3($picture3);
-$ad->setMailStructure($_SESSION["Structure"]["mail"]);
-$ad->setInstrument($instruments);
-$ad->setLevel($level);
-$ad->setRubric($rubric);
-$ad->setCanton(NULL);
+
+$ad->getAdvert($id);
+
+if($title != null) $ad->setTitle($title);
+if($description != null) $ad->setDescription($description);
+if($place != null)  {
+    $ad->setAdress($place);
+    $json_data = file_get_contents('../canton.json');
+    $arr = json_decode($json_data, true);
+
+
+    $proba = 0;
+    $currentStr = null;
+
+    $placeCleaned = strstr(strstr($place, '12'), " ");
+
+    foreach($arr as $key => $val) {
+        $newProba = similar_text($key,$placeCleaned);
+        if($newProba > $proba) {
+            $proba = $newProba;
+            $currentStr = $val;
+        }
+    }
+    $ad->setCanton($currentStr);
+
+}
+if($picture1 != null) $ad->setPicture1($picture1);
+if($picture2 != null) $ad->setPicture2($picture2);
+if($picture3 != null) $ad->setPicture3($picture3);
+if($instruments != null) $ad->setInstrument($instruments);
+if($level != null) $ad->setLevel($level);
+if($rubric != null) $ad->setRubric($rubric);
+
 
 try {
     $ad->updateAdvert();

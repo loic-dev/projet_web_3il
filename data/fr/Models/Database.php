@@ -29,7 +29,7 @@ class Database
                 return self::$_pdo;
         }
 
-        function insertDb($table, $array = [])
+        public static function insertDb($table, $array = [])
         {
                 try {
                         $columns = array_keys($array);
@@ -135,16 +135,16 @@ class Database
                 }
         }
 
-        function updateDb($table, $toMatch, $match, $values = [])
+        public static function updateDb($table, $toMatch, $match, $values = [])
         {
                 try {
                         $sql = "UPDATE $table SET ";
                         foreach ($values as $key => $value) {
-                                $sql .= "$key = :$key";
+                                $sql .= " $key = :$key";
                                 $sql .= ',';
                         }
                         $sql = substr_replace($sql ,"", -1);
-                        $sql .= " WHERE $toMatch = :toMatch ;";        
+                        $sql .= " WHERE $toMatch = :toMatch ;";
                         $result = Database::getPdo()->prepare($sql);
                         $result->execute(array_merge([':toMatch' => $match],$values));
                         

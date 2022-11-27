@@ -137,6 +137,7 @@ class Advert
     }
 
     function getAdvert($id) {
+
         $advert = Database::selectDb("*","Advert", ["IdAdvert = ?"], [$id]);
         $this->setIdAdvert($advert[0]['IdAdvert']);
         $this->setTitle($advert[0]['Title']);
@@ -150,6 +151,9 @@ class Advert
         $this->setLevel($advert[0]['Level']);
         $this->setRubric($advert[0]['Rubric']);
         $this->setCanton($advert[0]['Canton']);
+
+
+
     }
 
     public function deleteAdvert() {
@@ -203,6 +207,7 @@ class Advert
 
 
     public function updateAdvert() {
+
         Database::updateDb("Advert","IdAdvert",$this->getIdAdvert(),[
             "Title" => $this->getTitle(),
             "Description" => $this->getDescription(),

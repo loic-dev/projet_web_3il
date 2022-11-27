@@ -1,5 +1,5 @@
 <footer>
-    <p class="item_footer">© 2023 Pratique musique 12 - Tout droit reservés </p>
+    <p class="item_footer">© 2023 Pratique musique 12 - Tous droit reservés </p>
     <div class="icon_component">
         <svg class="item_footer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             version="1.1" id="Layer_1" x="0px" y="0px" viewBox="73 0 267 266.9" enable-background="new 73 0 267 266.9"

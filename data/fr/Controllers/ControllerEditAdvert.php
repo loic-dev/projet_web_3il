@@ -6,6 +6,9 @@
  * @license    https://www.gnu.org/licenses/gpl-3.0.txt GNU/GPLv3
  */
 
+require_once '../vendor/autoload.php';
+use WebPConvert\WebPConvert;
+
 session_start();
 require_once 'dbConnect.php';
 require_once '../Models/Advert.php';
@@ -13,9 +16,6 @@ require_once '../utils/ClientJsonException.php';
 require_once '../utils/regex.php'; 
 
 $id = $_POST["id"];
-$picture1 = $_POST["Picture1"];
-$picture2 = $_POST["Picture2"];
-$picture3 = $_POST["Picture3"];
 $title = $_POST["title"];
 $place = $_POST["place"];
 $level = $_POST["level"];
@@ -23,14 +23,48 @@ $description = $_POST["description"];
 $instruments = $_POST["instruments"];
 $rubric = $_POST["rubric"];
 
+
+
+
+$picture1 = null;
+$picture2 = null;
+$picture3 = null;
+
+if (!file_exists('../../images/')) {
+    mkdir('../../images/', 0777, true);
+}
+
 if(isset($_FILES)){
-    foreach ($_FILES as $key=>$file) {
+    $index = 1;
+
+    $mainFolderPicture = '../../images/';
+    $generatedOwnFolderName = time() . rand(1, 99999999);
+    $fullPath = $mainFolderPicture . $generatedOwnFolderName;
+    if (!file_exists($mainFolderPicture . $generatedOwnFolderName)) {
+        mkdir($mainFolderPicture . $generatedOwnFolderName, 0777, true);
+    }
+
+    foreach ($_FILES as $file) {
         $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $new_name = $key . '-' . time() . '-'. $_SESSION["Structure"]["mail"] . '.' . $extension;
-        move_uploaded_file($file['tmp_name'], '../../images/' . $new_name);
-        ${"picture" . $key} = "/images/" . $new_name;
+        $fileName = $index . '.' . $extension;
+        move_uploaded_file($file['tmp_name'], $fullPath . '/' . $fileName);
+        $source = $fullPath . '/' . $fileName;
+        $destination = $fullPath . '/' . $index . '.webp';
+        $options = [];
+        WebPConvert::convert($source, $destination, $options);
+        ${"picture" . $index} = "/images/" . $generatedOwnFolderName .'/' . $fileName;
+        $index++;
     }
 }
+
+
+
+
+
+
+
+
+
 
 $ad = new Advert();
 

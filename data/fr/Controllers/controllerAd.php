@@ -50,7 +50,7 @@ if(isset($_FILES)){
     $index = 1;
 
     $mainFolderPicture = '../../images/';
-    $generatedOwnFolderName = time(); //Add the rand
+    $generatedOwnFolderName = time() . rand(1, 99999999);
     $fullPath = $mainFolderPicture . $generatedOwnFolderName;
     if (!file_exists($mainFolderPicture . $generatedOwnFolderName)) {
         mkdir($mainFolderPicture . $generatedOwnFolderName, 0777, true);

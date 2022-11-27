@@ -1,0 +1,28 @@
+.container-box{
+    max-width: 450px;
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height .5s ease-in-out; 
+}
+
+.container-box.success{
+    max-height: 250px;
+}
+
+.success_signup_section{
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.container-box.success .container_logo{
+    display: flex;
+    font-size: 2rem;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container-logo .bigtext{
+    font-weight: 600;
+}

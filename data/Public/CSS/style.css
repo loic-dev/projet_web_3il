@@ -1,0 +1,208 @@
+html{
+    height: 100%;
+}
+
+body {
+
+    /* color */
+    --primary-yellow: #fcfaf1;
+    --secondary-yellow:#dfbb68;
+    --secondary-yellow-dark:#b29653;
+    --primary-grey:#314c57;
+    --secondary-grey:#2a414a;
+    --white-grey:#DFDFE8;
+    --grey:#aaaaaa;
+    --tertiary-grey:#1f3137;
+    --error-color:rgba(244, 67, 54);
+    --valid-color:rgba(88, 214, 141);
+    --valid-color-opacity:rgba(35, 155, 86);
+    --error-color-opacity:rgba(244, 67, 54,0.6);
+
+
+    /* breakpoint */
+    --laptop-min:1024px;
+    --laptop-max:1280px;
+    --tablet-max:1023px;
+    --tablet-min:768px;
+    --mobile-max:767px;
+
+
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: white;
+    height: 100%;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+.page{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  color: var(--primary-grey);
+}
+
+.container-page{
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px;
+}
+
+
+
+
+button{
+    font-size: 1.2rem;
+    height: 42px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.info-container{
+   border: 2px solid var(--primary-grey);
+   color: white;
+   display: none;
+   transform: scale(0);
+   padding: 10px;
+   border-radius: 5px;
+   animation-duration: 0.3s;
+   margin-bottom: 20px;
+}
+
+.info-container.open{
+  display: flex;
+  transform: scale(1);
+  animation-duration: 0.3s;
+  animation-name: upShow;
+}
+
+.info-container.close{
+  transform: scale(0);
+  animation-name: downShow;
+}
+
+.info-container.valid{
+  background-color: var(--valid-color);
+  border-color: var(--valid-color-opacity);
+}
+
+.info-container.error{
+  background-color: var(--error-color);
+  border-color: var(--error-color-opacity);
+}
+
+
+
+
+@keyframes upShow {
+  from {
+      transform: scale(0);
+  }
+  to {
+      transform: scale(1);
+  }
+}
+
+@keyframes downShow {
+  from {
+      transform: scale(1);
+  }
+  to {
+      transform: scale(0);
+  }
+}
+
+
+
+
+
+i{
+  display: inline-block;
+  height: 1rem;
+  width: 1rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color:white; 
+  border-radius: 10px;
+  
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--white-grey); 
+  border-radius: 10px;
+}
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+

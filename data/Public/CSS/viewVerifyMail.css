@@ -1,0 +1,30 @@
+.container-box{
+    animation-duration: 0.3s;
+    animation-name: upShow;
+}
+
+#container-ring{
+    display: none;
+    width: 100%;
+    justify-content: center;
+}
+
+#container-ring.load{
+    display: flex;
+}
+
+.container_logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+@keyframes upShow {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}

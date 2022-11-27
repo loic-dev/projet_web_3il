@@ -2,3 +2,7 @@ logs/
 *.log
 logs/nginx/error.log
 *.log
+data/images/
+logs/
+node_modules/
+/dist/

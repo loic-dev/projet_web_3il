@@ -1,0 +1,27 @@
+{
+  "name": "projet_web_3il",
+  "version": "1.0.0",
+  "description": "<a name=\"readme-top\"></a>",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loic-dev/projet_web_3il.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loic-dev/projet_web_3il/issues"
+  },
+  "homepage": "https://github.com/loic-dev/projet_web_3il#readme",
+  "dependencies": {
+    "css-loader": "^6.7.2",
+    "css-minimizer-webpack-plugin": "^4.2.2",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.0",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.6"
+  }
+}

@@ -2,9 +2,7 @@
 <html lang="fr">
 <head>
     <?php include('Views/Templates/head.php');?>
-    <link rel="stylesheet" href="/Public/CSS/viewIndex.css">
-    <link rel="stylesheet" href="/Public/CSS/atelier.css">
-    <link rel="stylesheet" href="/Public/CSS/footer.css">
+    <link rel="stylesheet" href="/Public/dist/bundle.viewIndex.css">
 </head>
 <body class="preload">
 
@@ -75,7 +73,6 @@
 </div>
 
 <?php include_once "Views/Templates/footer.php" ?>
-<script type="module" src="../../Public/js/event.js"></script>
-<script type="module" src="../../Public/js/all.js"></script>
+<script type="module" src="../../Public/dist/bundle.viewIndex.js"></script>
 </body>
 </html>

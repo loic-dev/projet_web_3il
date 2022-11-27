@@ -23,10 +23,10 @@ $instruments = $_POST["instruments"];
 $images = $_POST["images"];
 $rubric = $_POST["rubric"];
 
-$place = str_replace('"', "", $place);
-$place = str_replace("'", "", $place);
+$place = str_replace('"', " ", $place);
+$place = str_replace("'", " ", $place);
 
-if(!regex_input_text($title)){
+if(!regex_input_alpha($title)){
     throw new ClientJsonException("error title", 500);
 } else if(!$place){
     throw new ClientJsonException("error place", 500);

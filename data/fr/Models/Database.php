@@ -58,10 +58,11 @@ class Database
                 }
         }
 
-        public static function selectAllDb($what, $from)
+        public static function selectAllDb($what, $from, $completeSql = "")
         {
                 try {
                         $sql = "SELECT $what FROM $from";
+                        if(!empty($completeSql)) $sql .= $completeSql;
                         $result = Database::getPdo()->prepare($sql);
                         $result->execute();
                         return $result->fetchAll();

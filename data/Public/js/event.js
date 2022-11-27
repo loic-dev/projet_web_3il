@@ -106,8 +106,8 @@ function fetchRandAdvert(limit = 0) {
     return response.json();
   }).then(function (data) {
     setCantonTitle(cantonSelected);
-    console.log(data);
-    createAllAdvert(data);
+    // console.log(data);
+    createAllAdvert(data, true);
 
   }).catch(function (err) {
     console.log(err)

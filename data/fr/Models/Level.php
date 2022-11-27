@@ -24,7 +24,7 @@ class Level
     }
 
     static public function fetchAllLevels(){
-        $levelsDatabase = Database::selectAllDb("*","Level");
+        $levelsDatabase = Database::selectAllDb("*","Level"," ORDER BY difficulty");
         $listLevel=array();
         foreach ($levelsDatabase as $level) {
             $lev = new Level();

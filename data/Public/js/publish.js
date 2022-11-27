@@ -107,11 +107,6 @@ function uploadPhoto(files) {
             return;
         }
 
-
-        
-
-
-
         //check extention
         var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
         if (!allowedExtensions.exec(inputFile.value)) {
@@ -121,8 +116,8 @@ function uploadPhoto(files) {
 
 
         //check file size
-        if (file.size / (1024 * 1024) > 3) {
-            addError("File size is too large (max 3 MB)");
+        if (file.size / (1024 * 1024) > 1) {
+            addError("File size is too large (max 1 MB)");
             return false;
         }
       

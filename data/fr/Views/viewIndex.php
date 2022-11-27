@@ -33,18 +33,22 @@
                 <div class="search_component_btn_list">
                     <select id="insturment-select" class="select">
                         <option value="">Instrument</option>
-                        <option value="Flute">Flute</option>
+                        <option value="Batterie">Batterie</option>
                         <option value="Guitare">Guitare</option>
+                        <option value="Piano">Piano</option>
+                        <option value="Saxophone">Saxophone</option>
+                        <option value="Violon">Violon</option>
                     </select>
                     <select id="rubric-select" class="select">
                         <option value="">Categorie</option>
-                        <option value="Study">Etude</option>
+                        <option value="Etude">Etude</option>
+                        <option value="Initiation">Initiation</option>
                     </select>
                     <select id="level-select" class="select">
                         <option value="">Niveau</option>
-                        <option value="Easy">Simple</option>
-                        <option value="Medium">Moyenne</option>
-                        <option value="Difficult">Difficile</option>
+                        <option value="Facile">Facile</option>
+                        <option value="Moyen">Moyen</option>
+                        <option value="Difficile">Difficile</option>
                     </select>
                     <button id="searchAdvertBtn" class="list_menu buttons yellowButton">Rechercher</button>
                 </div> 

@@ -46,8 +46,22 @@ var viewIndexJs = Object.assign({}, config,{
   },
 });
 
+var printCss = Object.assign({}, config,{
+  name: "print",
+  entry: { 
+    print:   ['./data/Public/CSS/print.css']
+  },
+});
+
+var hamburgerJs = Object.assign({}, config,{
+  entry: ['./data/Public/js/hamburger.js'],
+  output: {
+    filename: '../data/Public/dist/bundle.hamburger.js',
+  },
+});
+
 module.exports = [
-  viewIndexCss, headCss,viewIndexJs   
+  viewIndexCss, headCss, viewIndexJs, printCss, hamburgerJs
 ];
 
 

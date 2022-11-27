@@ -4,7 +4,7 @@ let iterator = 0;
 function createNewAtelier(element) {
 // element["Title"],element["Picture1"],element["MailStructure"], element["IdAdvert"]
 
-let domNode = document.createElement('span');
+let domNode = document.createElement('a');
 domNode.classList.add("atelier");
 domNode.id = element["IdAdvert"];
 
@@ -15,12 +15,6 @@ domNode.href = "./advert?q=" + element["IdAdvert"];
     } else {
       img = element["Picture1"].substring(0,element["Picture1"].indexOf("."))+ ".webp";
     }
-    
-    // domNode.innerHTML = `
-    //         <img src="${img}"/>
-    //         <p>${element["Title"]}</p>
-    //         <p>${element["MailStructure"]}</p>
-    // `;
     
     domNode.innerHTML = `
           <div class="photo-container" style="background-image:url(${img})"></div>

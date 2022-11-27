@@ -45,6 +45,7 @@ class Database
                         $str = substr_replace($str ,"", -1);
                         $str .= ') VALUES (';
                         foreach($columns as $key => $column) {
+                            if($values[$key] == null) $values[$key] = ""; 
                             $arrToExec[':' . $column] = $values[$key];
                             $str .= ':' . $column;
                             $str .= ',';

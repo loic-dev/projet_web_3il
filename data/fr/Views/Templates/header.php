@@ -2,7 +2,7 @@
 <header id="hamburger_menu">
     <div class="section-header">
         <div class="hamburger_menu_div">
-            <p id="logo">Logo</p>
+            <a id="logo" href="/">Logo</a>
             <em id="hamburger_icon" class="fa-bars svg-primary-grey icon-25"> </em>
         </div>
         <div id="hamburger_menu_nav">

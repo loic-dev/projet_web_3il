@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Nov 27, 2022 at 01:54 AM
+-- Generation Time: Nov 27, 2022 at 06:48 PM
 -- Server version: 5.7.40
 -- PHP Version: 8.0.19
 
@@ -65,7 +65,8 @@ INSERT INTO `Advert` (`IdAdvert`, `Title`, `Description`, `Adress`, `Picture1`, 
 (3, 'Initiation 3', 'Initiation3Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada tempor tincidunt.\r\n  Praesent quis ipsum magna. Sed venenatis augue et dolor sodales finibus. Nulla facilisis, felis sit amet porttitor commodo, \r\n  ipsum lorem consectetur tellus, non commodo orci eros non ex. Donec a ligula euismod, congue sapien ut, venenatis risus.\r\n   Nam tristique dictum enim. Sed suscipit, ex eu scelerisque accumsan, sem.', 'Rue dâ€™Athenes 12000 Rodez', '/images/imgAnnonce3/1.jpg', '/images/imgAnnonce3/2.jpg', '/images/imgAnnonce3/3.jpg', 'francoisdks@gmail.com', 'Guitare', 'Facile', 'Etude', 'Rodez-1'),
 (4, 'Initiation 4', 'Initiation4Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada tempor tincidunt.\r\n  Praesent quis ipsum magna. Sed venenatis augue et dolor sodales finibus. Nulla facilisis, felis sit amet porttitor commodo, \r\n  ipsum lorem consectetur tellus, non commodo orci eros non ex. Donec a ligula euismod, congue sapien ut, venenatis risus.\r\n   Nam tristique dictum enim. Sed suscipit, ex eu scelerisque accumsan, sem.', 'Rue de Lisbonne 12000 Rodez', '/images/imgAnnonce4/1.jpg', '/images/imgAnnonce4/2.jpg', '/images/imgAnnonce4/3.jpg', 'francoisdks@gmail.com', 'Piano', 'Moyen', 'Etude', 'Rodez-1'),
 (5, 'Initiation 5', 'Initiation5Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada tempor tincidunt.\r\n  Praesent quis ipsum magna. Sed venenatis augue et dolor sodales finibus. Nulla facilisis, felis sit amet porttitor commodo, \r\n  ipsum lorem consectetur tellus, non commodo orci eros non ex. Donec a ligula euismod, congue sapien ut, venenatis risus.\r\n   Nam tristique dictum enim. Sed suscipit, ex eu scelerisque accumsan, sem.', '4 Rue de Bruxelles 12000 Rodez', '/images/imgAnnonce5/1.jpg', '/images/imgAnnonce5/2.jpg', '/images/imgAnnonce5/3.jpg', 'francoisdks@gmail.com', 'Violon', 'Facile', 'Etude', 'Rodez-1'),
-(6, 'test', 'test', 'Rue des Lilas 12100 Millau', '/images/1669511968/1.jpg', '', '', 'francoisdks@gmail.com', 'Piano', 'Difficile', 'Etude', 'Millau-1');
+(13, 'Lazy Loading', '123456', 'Rue Peyrollerie 12100 Millau', '/images/1669574794/1.png', '', '', 'francoisdks@gmail.com', 'Guitare', 'Facile', 'Etude', 'Millau-1'),
+(14, 'Lazy Loading', '213456', 'Rue Peyrollerie 12100 Millau', '', '', '', 'francoisdks@gmail.com', 'Batterie', 'Facile', 'Etude', 'Millau-1');
 
 -- --------------------------------------------------------
 
@@ -229,7 +230,7 @@ ALTER TABLE `Structure`
 -- AUTO_INCREMENT for table `Advert`
 --
 ALTER TABLE `Advert`
-  MODIFY `IdAdvert` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `IdAdvert` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables

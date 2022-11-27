@@ -28,7 +28,7 @@ var config = {
 var viewIndexCss = Object.assign({}, config, {
   name: "viewIndex",
   entry: { 
-    viewIndex: ['./data/Public/CSS/viewIndex.css', './data/Public/CSS/atelier.css', './data/Public/CSS/footer.css']
+    viewIndex: ['./data/Public/CSS/style.css', './data/Public/CSS/header.css', './data/Public/CSS/footer.css', './data/Public/CSS/viewIndex.css', './data/Public/CSS/atelier.css']
   },
 });
 

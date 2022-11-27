@@ -5,6 +5,11 @@ header {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
 #logo{
     font-size: 20px;
     font-weight: 500;
@@ -85,6 +90,11 @@ header {
 
 
 @media screen and (min-width: 768px) {
+
+    a  {
+        color:var(--primary-grey);
+    }
+
     .button_menu_nav {
         width:100px;
     }

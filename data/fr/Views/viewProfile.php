@@ -8,6 +8,7 @@ if(!$_SESSION['login']){
 <html lang="fr">
 <head>
     <?php include('Views/Templates/head.php'); ?>
+    <link rel="stylesheet" href="/Public/dist/bundle.head.css">
     <link rel="stylesheet" href="../../Public/CSS/modal.css">
     <link rel="stylesheet" href="../../Public/CSS/viewUserProfile.css">
 </head>

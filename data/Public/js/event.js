@@ -22,6 +22,10 @@ domNode.href = "./advert?q=" + element["IdAdvert"];
       }
       }, { threshold: [1] });  
       observer.observe(domNode);
+
+      
+
+
     
     
     domNode.innerHTML = `

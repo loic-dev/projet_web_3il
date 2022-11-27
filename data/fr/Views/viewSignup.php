@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <?php include('Views/Templates/head.php');?>
+    <link rel="stylesheet" href="/Public/dist/bundle.head.css">
     <link rel="stylesheet" href="/Public/CSS/viewAuth.css">
     <link rel="stylesheet" href="/Public/CSS/ring.css">
     <link rel="stylesheet" href="/Public/CSS/viewSignup.css">

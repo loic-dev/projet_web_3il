@@ -11,6 +11,7 @@ require_once 'Controllers/controllerPublishAnAdvert.php';
 <html lang="fr">
     <head>
         <?php include('Views/Templates/head.php');?>
+        <link rel="stylesheet" href="/Public/dist/bundle.head.css">
         <link rel="stylesheet" href="/Public/CSS/publishAnAd.css">
         <link rel="stylesheet" href="/Public/CSS/ring.css">
     </head>

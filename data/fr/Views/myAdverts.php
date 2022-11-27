@@ -15,6 +15,8 @@ require_once 'Controllers/controllerMyAdverts.php';
 <html lang="fr">
 <head>
     <?php include('Views/Templates/head.php'); ?>
+    <link rel="stylesheet" href="/Public/dist/bundle.head.css">
+
     <link rel="stylesheet" href="../../Public/CSS/modal.css">
     <link rel="stylesheet" href="../../Public/CSS/myAdverts.css">
 </head>

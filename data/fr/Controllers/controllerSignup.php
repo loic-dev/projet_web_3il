@@ -26,7 +26,7 @@ $signStruct = new Structure();
 $signStruct->setMail($_POST["email"]);
 $signStruct->setPassword($_POST["password"]);
 $signStruct->setName($_POST["name"]);
-$signStruct->setMailValid(0);
+$signStruct->setMailValid("0");
 
 try {
 

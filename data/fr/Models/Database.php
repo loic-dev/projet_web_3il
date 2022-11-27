@@ -145,7 +145,7 @@ class Database
                         }
                         $sql = substr_replace($sql ,"", -1);
                         $sql .= " WHERE $toMatch = :toMatch ;";
-                        var_dump($sql);
+                        // var_dump($sql);
         
                         $result = Database::getPdo()->prepare($sql);
                         $result->execute(array_merge([':toMatch' => $match],$values));

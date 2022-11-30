@@ -64,7 +64,7 @@ _Voici un exemple pour démarrer le serveur sous docker_
    docker-compose up --build
    ```
 
-Grâce à docker absolument tout est prêt et configuré ! par défaut sur https://localhost/ (le site ne marche volontairement qu'en https) :)
+Grâce à docker absolument tout est prêt et configuré ! par défaut sur https://localhost/ (le site marche volontairement qu'en https) :)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -84,10 +84,10 @@ Mdp de test : MotDePasse@13
 - [x] Index
     - [x] View mobile
     - [x] View full width
-    - [ ] (Partial) Mobile search
-    - [ ] (Partial) Full width search
+    - [X] Mobile search
+    - [X] Full width search
     - [x] Model
-    - [ ] (Partial) Controller
+    - [X] Controller
 - [x] Register
   - [x] View mobile
   - [x] View full width
@@ -106,21 +106,21 @@ Mdp de test : MotDePasse@13
 - [x] Own advert
   - [x] View mobile
   - [x] View full width
-  - [ ] Controller
+  - [x] Controller
   - [X] Model
 - [x] Add an advert
   - [x] View mobile
   - [x] View full width
-  - [ ] Controller
+  - [x] Controller
   - [X] Model
-  - [ ] Optimize the picture
+  - [x] Optimize the picture
 - [ ] Admin
   - [?] Login
   - [ ] View mobile
   - [ ] View full width
   - [ ] Controller
-  - [ ] Model
-- [ ] GreenIt
+  - [x] Model
+- [x] GreenIt
   - [x] Ajouter des expires ou cache-control headers
   - [x] Compresser les ressources (>= 95%)
   - [x] Limiter le nombre de domaines (<6)
@@ -131,9 +131,9 @@ Mdp de test : MotDePasse@13
   - [x] Ne télécharger pas des images inutilement
   - [x] Valider le javascript
   - [x] Taille maximum des cookies par domaine(<512 Octets)
-  - [ ] (Partial) Minifier les css et js
-  - [ ] (Partial) Minifier les css et js
-  - [ ] (Partial) Pas de cookie pour les ressources statiques
+  - [x] Minifier les css et js
+  - [x] Minifier les css et js
+  - [x] Pas de cookie pour les ressources statiques
   - [x] Eviter les redirections
   - [x] Optimiser les images bitmap
   - [x] Optimiser les images svg
@@ -143,11 +143,11 @@ Mdp de test : MotDePasse@13
   - [x] Limiter le nombre de fichiers css (<=10)
   - [x] Privilégier HTTP/2 à HTTP/1
   - [x] Utiliser des polices de caractères standards
-- [ ] Cleaning code
-- [ ] Build a prod version for greenit (minify etc..)
+- [x] Cleaning code
+- [x] Build a prod version for greenit (minify etc..)
 - [x] Valid W3C Css
 - [ ] Valid W3C Html
-- [ ] (Partial) Readme
+- [x] Readme
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
